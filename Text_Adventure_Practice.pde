@@ -129,7 +129,6 @@ void draw()
     textSize(25);
     text("Entering the cave, you see three hooded figures sitting around a campfire. Evidently, this was the source of the light. The tallest of the three looks up from the flames, before barking at the other two in a language you can't understand. The three stand in unison, grabbing what appears to be a stone-tipped spear from the back of their robes. Grunting, they advance towards you at a frightening rate, the heads of their spears getting closer and closer by the second. On the ground near your foot you spot a few jagged rocks, but no other form of weaponry is in sight.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
-    ButtonLookAround();
   }
 
   if (screen == 2.11)
@@ -164,7 +163,7 @@ void draw()
     fill(0);
     textSize(20);
     text("Do Nothing", 1265, 573);
-    ButtonLookAround();
+    Button("Look Around", 30, 680, 135, 30, 15);
   }
 
   if (screen == 2.12)
@@ -199,7 +198,7 @@ void draw()
     fill(0);
     textSize(20);
     text("Do Nothing", 1265, 573);
-    ButtonLookAround();
+    Button("Look Around", 30, 680, 135, 30, 15);
   }
 
   if (screen == 2.13)
@@ -234,7 +233,7 @@ void draw()
     fill(0);
     textSize(20);
     text("Do Nothing", 1265, 573);
-    ButtonLookAround();
+    Button("Look Around", 30, 680, 135, 30, 15);
   }
 
   if (screen == 2.14)
@@ -269,7 +268,7 @@ void draw()
     fill(0);
     textSize(20);
     text("Do Nothing", 1265, 573);
-    ButtonLookAround();
+    Button("Look Around", 30, 680, 135, 30, 15);
   }
 
   if (screen == 2.2)
@@ -279,26 +278,7 @@ void draw()
     fill(255);
     textSize(25);
     text("Bending down, you grab as many rocks as you can, hurling them at the approaching figures. Unfortunately, rather\nthan slowing down, they speed up their approach, clearly angered by being hurled rocks at. A stone connects with\nthe nearest one's head, causing him to stumble backwards, but the other two are nearly an arm's length away.\nPicking up another stone is futile, and one of the figures thrusts outwards with the spear, jabbing you in the side.\n\nImmediately, searing pain travels throughout your body, and your vision clouds. Blood begins gushing out of the wound, and you have to clench your fists to stop from passing out. Even still, you fall over backwards, out cold. The men put down their spears, lifting you and moving your body over to the fireplace. Attempting to cauterize the wound, one of the figures thrusts their spear into the flames, holding the stone to the wound. The other grabs a length of cloth, tightly wrapping the wound to stop the blood flow. Who are these men? Why are they here? What do they want? What will you do?\n\n(Hint: Nothing, you're passed out)", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
-    rect(30, 550, 100, 30, 15);
-    fill(0);
-    textSize(20);
-    text("Zzz? Zzz", 37, 573);   
-    fill(255);
-    rect(330, 550, 100, 30, 15);
-    fill(0);
-    textSize(20);
-    text("Zzz...zzz", 340, 573);
-    fill(255);
-    rect(630, 550, 100, 30, 30);
-    fill(0);
-    textSize(20);
-    text("Zzz! Zzz!", 635, 573);
-    fill(255);
-    rect(930, 550, 100, 30, 30);
-    fill(0);
-    textSize(20);
-    text("Z...zz...", 935, 573);
-    ButtonDoNothing();
+    DrawButtons();
   }
 
   if (screen == 2.3)
@@ -309,27 +289,7 @@ void draw()
     fill(255);
     textSize(25);
     text("Zzzz, zzz zzzzzz zz z. Zzz, zz! Zzzz, zz? Z, zzz, zzzzzzz...zzz...z. Zzz. Z. Z? Z! Zzzzzzzz...\n\nZzz...zzzzzzzzzzzz...! Z. Z. Zzzzz...! Zzz zzzz z z zz zzzz zzzz zzz.", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
-    rect(30, 550, 100, 30, 15);
-    fill(0);
-    textSize(20);
-    text("Zzz? Zzz", 37, 573);   
-    fill(255);
-    rect(330, 550, 100, 30, 15);
-    fill(0);
-    textSize(20);
-    text("Zzz...zzz", 340, 573);
-    fill(255);
-    rect(630, 550, 100, 30, 30);
-    fill(0);
-    textSize(20);
-    text("Zzz! Zzz!", 635, 573);
-    fill(255);
-    rect(930, 550, 100, 30, 30);
-    fill(0);
-    textSize(20);
-    text("Z...zz...", 935, 573);
-    fill(255); 
-    ButtonDoNothing();
+    DrawButtons();
   }
 
   if (screen == 2.4)
@@ -370,8 +330,8 @@ void draw()
     fill(0);
     textSize(20);
     text("Text4", 935, 573);
-    ButtonDoNothing();
-    ButtonLookAround();
+    Button("Do Nothing", 1230, 550, 125, 30, 15);
+    Button("Look Around", 30, 680, 135, 30, 15);
   }
 
   if (screen == 2.6)
@@ -401,8 +361,8 @@ void draw()
     fill(0);
     textSize(20);
     text("Text4", 935, 573);
-    ButtonDoNothing();
-    ButtonLookAround();
+    Button("Do Nothing", 1230, 550, 125, 30, 15);
+    Button("Look Around", 30, 680, 135, 30, 15);
   }
 
   if (screen == 2.7)
@@ -432,8 +392,8 @@ void draw()
     fill(0);
     textSize(20);
     text("Text4", 935, 573);
-    ButtonDoNothing();
-    ButtonLookAround();
+    Button("Do Nothing", 1230, 550, 125, 30, 15);
+    Button("Look Around", 30, 680, 135, 30, 15);
   }
 
   if (screen == 2.8)
@@ -443,7 +403,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("You snap out of your panic, just in time to realize that you need to stop whatever is happening. Gathering up all the courage you can muster, you wrap your arms around the nearest chanter, yanking him out of the circle. Instantly, his eyes stop glowing, and he falls limp into your arms. The other members still continue chanting, unaware of anything around them. As you move to pull another from the circle, they all suddenly snap upright, the blue fading from their eyes. In unison, they all fall over backwards, collapsing. Though the chanting has sub sided, the damage seems to have already been done, and the blue figure suddenly stops moving. Then, deliberately, it stretches to form legs, then arms, then a humanoid face. As you watch it, it transforms to a blob to a near-perfect representaion of a human being right before your eyes. Finally, as if by magic, a sharktoothed grin stretches across its ''face,'' as it cocks its head to face you. You open your mouth to panic, but your voice catches in your throat, unable to make a noise. Testing out its newfound form, the blob-turned-human tenatively takes a step towards you, then another, grinning all the while.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text("You snap out of your panic, just in time to realize that you need to stop whatever is happening. Gathering up all the courage you can muster, you wrap your arms around the nearest chanter, yanking him out of the circle. Instantly, his eyes stop glowing, and he falls limp into your arms. The other members still continue chanting, unaware of anything around them. As you move to pull another from the circle, they all suddenly snap upright, the blue fading from their eyes. In unison, they all fall over backwards, collapsing. Though the chanting has sub sided, the damage seems to have already been done, and the blue figure suddenly stops moving. Then, deliberately, it stretches to form legs, then arms, then a humanoid face. As you watch it, it transforms from a blob to a near-perfect representaion of a human being right before your eyes. Finally, as if by magic, a sharktoothed grin stretches across its ''face,'' as it cocks its head to face you. You open your mouth to panic, but your voice catches in your throat, unable to make a noise. Testing out its newfound form, the blob-turned-human tenatively takes a step towards you, then another, grinning all the while.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     rect(30, 550, 100, 30, 15);
     fill(0);
     textSize(20);
@@ -459,12 +419,47 @@ void draw()
     textSize(20);
     text("Text3", 635, 573);
     fill(255);
-    rect(930, 550, 100, 30, 30);
+    rect(930, 550, 120, 30, 30);
     fill(0);
     textSize(20);
-    text("Text4", 935, 573);
-    ButtonDoNothing();
-    ButtonLookAround();
+    text("Grab Spear", 935, 573);
+    Button("Do Nothing", 1230, 550, 125, 30, 15);
+    Button("Look Around", 30, 680, 135, 30, 15);
+  }
+
+  if (screen == 2.84)
+
+  {
+
+    background(4);
+    fill(255);
+    textSize(25);
+    text("Springing to action immediately, you grab a spear from one of the chanters. The blue form pauses for a minute, seeming to ponder your choice, then—if possible—grins ever wider. Seizing your opportunity to deal some damage, you jab the spear into the thing. It recoils back, wounded...or, so it seems. In reality, the thing hardly even felt the spear, and rips it out as easily as it went in. Its grin changes to a tight-lipped smile, and it hurls the spear back at you at nearly twice the speed you were able to throw it. You nearly dodge to the side, feeling the force of the sudden swivel in your still-bleeding wound. As severe as it may feel, with Blue right ahead of you, it's the least of your concerns at the present time. Grin returning, Blue lurches forwards, standing no more than two inches in front of you. Seeing how easily it disposed of the chanters and spear, you hesitate to think what it could do to you as easily as taking a breath.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    Button("Kiss Blue", 330, 680, 105, 30, 15);
+    DrawButtons();
+  }
+
+  if (screen == 2.84)
+
+  {
+
+    background(4);
+    fill(255);
+    textSize(25);
+    text("Springing to action immediately, you grab a spear from one of the chanters. The blue form pauses for a minute, seeming to ponder your choice, then—if possible—grins ever wider. Seizing your opportunity to deal some damage, you jab the spear into the thing. It recoils back, wounded...or, so it seems. In reality, the thing hardly even felt the spear, and rips it out as easily as it went in. Its grin changes to a tight-lipped smile, and it hurls the spear back at you at nearly twice the speed you were able to throw it. You nearly dodge to the side, feeling the force of the sudden swivel in your still-bleeding wound. As severe as it may feel, with Blue right ahead of you, it's the least of your concerns at the present time. Grin returning, Blue lurches forwards, standing no more than two inches in front of you. Seeing how easily it disposed of the chanters and spear, you hesitate to think what it could do to you as easily as taking a breath.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    Button("Kiss Blue", 330, 680, 105, 30, 15);
+    DrawButtons();
+  }
+
+  if (screen == 2.841)
+
+  {
+
+    background(4);
+    fill(255);
+    textSize(25);
+    text("With Blue no more than a few inches away, you feel something in your chest. Fear? No...something...different. Butterflies in your stomach—an urge to run away? No! It's something...something you can't quite explain. Something about this morphing blue blob just...you aren't sure what it is. But as you stare deeper into Blue's eyes (or, rather, where Blue's eyes would be if it had eyes), you realize what it really is that you want: you want to kiss Blue. Yes, the signs were so clear all along—your attempt to sabotage the summoning was deliberately a failure, your spear throwing an attempt to play hard to get. Now, in this moment, you have the opportunity to get what you've always wanted. You lean forward, lips puckered, and plant them on the only facial feature Blue actually has. Your kiss is long and passionate, and you hardly even feel your life-force draining away as passion overcomes your body. Well, passion and a sudden lack of existence as everything goes black.", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    DrawButtons();
   }
 
   if (screen == 2.85)
@@ -497,11 +492,6 @@ void draw()
     textSize(25);
     text("Though the rock seems plain at first glance, you can't help but feel suspicious of this gigantic piece of stone. Curious, you look around the rock, trying to make a note of anything out of the ordinairy. The rock is...perfect. Imperfectly so, in a way that it should be impossible for a rock to be. Intrigued, you reach out to stroke the rock...and immediately recoil, your hand bleeding. The rock bars its apparent teeth at you, then lifts itself off the ground—God knows how—and scurries away. Turns out, rocks (or, at least, the creature mimicking the appearance and behaviors of one) CAN bite. You'll have to keep your distance from things in the future; nothing in this void is what it seems.", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
-    fill(255);
-    rect(330, 680, 130, 30, 15);
-    fill(0);
-    textSize(20);
-    text("Inspect Rock", 335, 703);
   }
 
   if (screen == 3.1)
@@ -526,6 +516,17 @@ void draw()
     DrawButtons();
   }
 
+  if (screen == 3.21)
+
+  {
+
+    background(4);
+    fill(255);
+    textSize(25);
+    text("Curious, you tug on the end of the rope, and instantly the rope flies up into a sack, ''catching'' the non-present prey it was intended for. Good thing you notice it when you did—whoever set that trap might be nearby. And, as if on-cue, a light immediately shines on the horizon, nearing you. Whoever set the trap wasn't too far after all, and they might not be too pleased with the sabotaging of their trap. Perhaps...you were the intended target after all. Whatever the purpose of the traps, the source of the light is getting closer every moment, and there looks to be more than one. Plus, they're coming straight from the direction you were headed. This definitely feels like bad news to you.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    DrawButtons();
+  }
+
   if (screen == 3.3)
 
   {
@@ -534,6 +535,39 @@ void draw()
     fill(255);
     textSize(25);
     text("Choosing the wisest option for your safety, you decide to give the rope trap a wide berth, continuing on in the direction you intended. The kind of people who set traps in the dark don't seem like the kind of people you want to associate with in your current defenseless state. So, quiet as a whisper, you tread east, hoping to find some way of understanding where you are and what you're meant to be doing. Much to your dismay, the trees don't seem to have mouths, and if they do, they seem to be quite tight-lipped about your current situation. Mentally cursing them out as loudly as you can, you wave your fists angrily in their general direction. Damn trees. You almost fail to notice another rope trap to your right in your anger at the trees, though luckily, you managed to take note of it before triggering it, and are able to walk off unscathed. Betrayed, you glare at the trees. This was probably their doing.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    DrawButtons();
+  }
+
+  if (screen == 3.4)
+
+  {
+
+    background(4);
+    fill(255);
+    textSize(25);
+    text("Not concerned by the first nor the second rope trap, you continue east; no pesky traps will stop you from getting to where you want to go. You spot multiple more rope traps around your path, but ignore them completely. Even still, giving them as little thought as you are attempting to do, it's hard not to notice their increasing frequency. Along with the sudden rise in rope traps, there seems to be a noticable rise in light level. And, since it doesn't seem to be sunlight (if there even is sunlight wherever you are), the light has to be coming from somebody...or, well, something. Unsure of whether or not this equates news or bad news, you continue walking, hoping moreso for the former than the latter. However, due to your emphatic trap-ignoring mindset, the rope in the middle of your pathway goes unnoticed until you step right into the middle of it, sweeping you up into a net. Damn it. You hear yelling in the distance, and the source of light seems to be nearing you.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    DrawButtons();
+  }
+
+  if (screen == 3.5)
+
+  {
+
+    background(4);
+    fill(255);
+    textSize(25);
+    text("Nispe", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    DrawButtons();
+  }
+
+  if (screen == 3.6)
+
+  {
+
+    background(4);
+    fill(255);
+    textSize(25);
+    text("Ipsen", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -571,8 +605,7 @@ void draw()
     textSize(25);
     text("goNorth3", 30, 30);
     DrawButtons();
-  
-}
+  }
 
   if (screen == 5.0)
 
@@ -692,7 +725,8 @@ void draw()
     DrawButtons();
   }
 
-  println("Screen:" + screen);
+  println("Screen: " + screen, "Go West: " + goWest, "Go East: " + goEast, "Go South: "
+    + goNorth, "DoNothing: " + doNothing, "Look Around: " + lookAround);
 }
 
 
@@ -828,6 +862,20 @@ void mousePressed()
     screen=2.8;
   }
 
+  if (mouseX >=930 && mouseX <=1050 && mouseY >= 550 && mouseY <= 580 && screen == 2.8)
+
+  {
+
+    screen=2.84;
+  }
+
+  if (mouseX >=330 && mouseX <=435 && mouseY >= 680 && mouseY <= 710 && screen == 2.84)
+
+  {
+
+    screen=2.841;
+  }
+
   if (mouseX >= 1230 && mouseX <= 1345 && mouseY >= 550 && mouseY <= 580 && screen == 2.8)
 
   {
@@ -842,7 +890,7 @@ void mousePressed()
     screen=3.0;
   }
 
-  if (mouseX >= 330 && mouseX <= 460 && mouseY >= 680 && mouseY <= 710 && screen == 3.0)
+  if (mouseX >= 330 && mouseX <= 465 && mouseY >= 680 && mouseY <= 710 && screen == 3.0)
 
   {
 
@@ -866,11 +914,25 @@ void mousePressed()
     screen=3.2;
   }
 
+  if (mouseX >= 330 && mouseX <= 465 && mouseY >= 680 && mouseY <= 710 && screen == 3.2)
+
+  {
+
+    screen=3.21;
+  }
+
   if (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 3.2 && goEast == 3)
 
   {
 
     screen=3.3;
+  }
+
+  if (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 3.3 && goEast == 4)
+
+  {
+
+    screen=3.4;
   }
 
 
@@ -962,9 +1024,7 @@ void mousePressed()
     screen=6.2;
   }
 
-  if ((mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 3.0) ||
-    (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 3.1) ||
-    (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 3.2) ||
+  if ((mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen >= 3.0 && screen < 4.0) ||
     (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 5.1) ||
     (mouseX >= 300 && mouseX <= 530 && mouseY >= 550 && mouseY <= 580 && screen == 2.1))
 
@@ -984,8 +1044,6 @@ void mousePressed()
 
   if ((mouseX >=930 && mouseX <=1030 && mouseY >= 550 && mouseY <= 580 && screen == 1.0) ||
     (mouseX >=930 && mouseX <=1030 && mouseY >= 550 && mouseY <= 580 && screen >= 4.0 && screen < 5.0))
-
-
 
   {
 
@@ -1064,7 +1122,8 @@ void mouseReleased()
     exit();
   }
 
-  if ((mouseX >= width/2 - 100 && mouseX <= width/2 && mouseY >= 550 && mouseY <= 580 && screen == 2.85) ||
+  if ((mouseX >= width/2 - 100 && mouseX <= width/2 && mouseY >= 550 && mouseY <= 580 && screen == 2.841) ||
+    (mouseX >= width/2 - 100 && mouseX <= width/2 && mouseY >= 550 && mouseY <= 580 && screen == 2.85) ||
     (mouseX >= width/2 - 100 && mouseX <= width/2 && mouseY >= 550 && mouseY <= 580 && screen == 4.1) ||
     (mouseX >= width/2 - 100 && mouseX <= width/2 && mouseY >= 550 && mouseY <= 580 && screen == 6.2))
 
@@ -1086,28 +1145,6 @@ void mouseReleased()
 
     screen=2.01;
   }
-}
-
-void ButtonDoNothing()
-
-{
-
-  fill(255);
-  rect(1230, 550, 125, 30, 30);
-  fill(0);
-  textSize(20);
-  text("Do Nothing", 1235, 573);
-}
-
-void ButtonLookAround()
-
-{
-
-  fill(255);
-  rect(30, 680, 135, 30, 15);
-  fill(0);
-  textSize(20);
-  text("Look Around", 35, 703);
 }
 
 void Inventory()
@@ -1142,18 +1179,6 @@ void Inventory()
   }
 }
 
-
-
-void ButtonRestart()
-
-{
-
-  fill(255);
-  rect(630, 550, 100, 30, 30);
-  fill(0);
-  textSize(20);
-  text("Restart", 645, 573);
-}
 
 void DrawButtons()
 
@@ -1190,6 +1215,16 @@ void DrawButtons()
     Button("Look Around", 30, 680, 135, 30, 15);
   }
 
+  if ((screen == 2.2) || (screen == 2.3))
+
+  {
+
+    Button("Zzz? Zzz", 30, 550, 100, 30, 15);
+    Button("Zzz, zzz", 330, 550, 100, 30, 15);
+    Button("Zzz.....", 630, 550, 100, 30, 15);
+    Button("Z! Z! Z!", 930, 550, 100, 30, 30);
+    Button("Zzz...zzz.", 1230, 550, 125, 30, 15);
+  }
 
   if (screen == 2.4)
 
@@ -1201,6 +1236,7 @@ void DrawButtons()
     Button("Do Nothing", 1230, 550, 125, 30, 15);
   } 
 
+
   if (screen == 3.0)
 
   {
@@ -1211,18 +1247,33 @@ void DrawButtons()
     Button("Go North", 930, 550, 100, 30, 15);
     Button("Do Nothing", 1230, 550, 125, 30, 15);
     Button("Look Around", 30, 680, 135, 30, 15);
-    Button("Inspect Rock", 330, 680, 130, 30, 15);
+    Button("Inspect Rock", 330, 680, 135, 30, 15);
   }
 
-  if ((screen == 2.85) || (screen == 4.1) || (screen == 6.2))
+  if (screen == 3.2)
+
+  {
+
+    Button("Go West", 30, 550, 100, 30, 15);
+    Button("Go East", 330, 550, 100, 30, 15);
+    Button("Go South", 630, 550, 100, 30, 15);
+    Button("Go North", 930, 550, 100, 30, 15);
+    Button("Do Nothing", 1230, 550, 125, 30, 15);
+    Button("Look Around", 30, 680, 135, 30, 15);
+    Button("Inspect Rope", 330, 680, 135, 30, 15);
+  }
+
+  if ((screen == 2.841) ||(screen == 2.85) || (screen == 4.1) || (screen == 6.2))
 
   {
 
     Button("Restart", width/2 - 100, 550, 100, 30, 15);
   }
 
+
   if (screen != 0.1 && screen != 2.0 && screen != 2.4 && screen != 3.0 
-    && screen != 2.85 && screen != 4.1 && screen != 6.2 && screen != 2.1)
+    && screen != 2.85 && screen != 4.1 && screen != 6.2 && screen != 2.1 
+    && screen != 2.2 && screen != 2.3 && screen != 3.2 && screen != 2.841)
 
   {
 
