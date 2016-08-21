@@ -570,13 +570,9 @@ void draw()
     fill(255);
     textSize(25);
     text("goNorth3", 30, 30);
-    ButtonGoWest();
-    ButtonGoEast();
-    ButtonGoSouth();
-    ButtonGoNorth();
-    ButtonDoNothing();
-    ButtonLookAround();
-  }
+    DrawButtons();
+  
+}
 
   if (screen == 5.0)
 
@@ -1090,50 +1086,6 @@ void mouseReleased()
 
     screen=2.01;
   }
-}
-
-void ButtonGoWest()
-
-{
-
-  fill(255);
-  rect(30, 550, 100, 30, 15);
-  fill(0);
-  textSize(20);
-  text("Go West", 37, 573);
-}
-
-void ButtonGoNorth()
-
-{
-
-  fill(255);
-  rect(930, 550, 100, 30, 30);
-  fill(0);
-  textSize(20);
-  text("Go North", 935, 573);
-}
-
-void ButtonGoEast()
-
-{
-
-  fill(255);
-  rect(330, 550, 100, 30, 15);
-  fill(0);
-  textSize(20);
-  text("Go East", 340, 573);
-}
-
-void ButtonGoSouth()
-
-{
-
-  fill(255);
-  rect(630, 550, 100, 30, 30);
-  fill(0);
-  textSize(20);
-  text("Go South", 635, 573);
 }
 
 void ButtonDoNothing()
