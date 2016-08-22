@@ -39,6 +39,8 @@ void draw()
 
 {
 
+  
+  
   if (screen == 0.1)
 
   {
@@ -208,7 +210,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("DankerMemes", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text("Dankest", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     rect(30, 550, 120, 30, 15);
     fill(0);
     textSize(20);
@@ -403,21 +405,21 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("You snap out of your panic, just in time to realize that you need to stop whatever is happening. Gathering up all the courage you can muster, you wrap your arms around the nearest chanter, yanking him out of the circle. Instantly, his eyes stop glowing, and he falls limp into your arms. The other members still continue chanting, unaware of anything around them. As you move to pull another from the circle, they all suddenly snap upright, the blue fading from their eyes. In unison, they all fall over backwards, collapsing. Though the chanting has sub sided, the damage seems to have already been done, and the blue figure suddenly stops moving. Then, deliberately, it stretches to form legs, then arms, then a humanoid face. As you watch it, it transforms from a blob to a near-perfect representaion of a human being right before your eyes. Finally, as if by magic, a sharktoothed grin stretches across its ''face,'' as it cocks its head to face you. You open your mouth to panic, but your voice catches in your throat, unable to make a noise. Testing out its newfound form, the blob-turned-human tenatively takes a step towards you, then another, grinning all the while.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
-    rect(30, 550, 100, 30, 15);
+    text("You snap out of your panic, just in time to realize that you need to stop whatever is happening. Gathering up all the courage you can muster, you wrap your arms around the nearest chanter, yanking him out of the circle. Instantly, his eyes stop glowing, and he falls limp into your arms. The other members still continue chanting, unaware of anything around them. As you move to pull another from the circle, they all suddenly snap upright, the blue fading from their eyes. In unison, they all fall over backwards, collapsing. Though the chanting has subsided, the damage seems to have already been done, and the blue figure suddenly stops moving. Then, deliberately, it stretches to form legs, then arms, then a humanoid face. As you watch it, it transforms from a blob to a near-perfect representaion of a human being right before your eyes. Finally, as if by magic, a sharktoothed grin stretches across its ''face,'' as it cocks its head to face you. You open your mouth to panic, but your voice catches in your throat, unable to make a noise. Testing out its newfound form, the blob-turned-human tenatively takes a step towards you, then another, grinning all the while.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    rect(30, 550, 105, 30, 15);
     fill(0);
     textSize(20);
-    text("Text1", 37, 573);   
+    text("Run Away", 37, 573);   
     fill(255);
     rect(330, 550, 100, 30, 15);
     fill(0);
     textSize(20);
     text("Text2", 340, 573);
     fill(255);
-    rect(630, 550, 100, 30, 30);
+    rect(630, 550, 120, 30, 30);
     fill(0);
     textSize(20);
-    text("Text3", 635, 573);
+    text("Grab Torch", 635, 573);
     fill(255);
     rect(930, 550, 120, 30, 30);
     fill(0);
@@ -426,16 +428,39 @@ void draw()
     Button("Do Nothing", 1230, 550, 125, 30, 15);
     Button("Look Around", 30, 680, 135, 30, 15);
   }
-
-  if (screen == 2.84)
+  
+    if (screen == 2.81)
 
   {
 
     background(4);
     fill(255);
     textSize(25);
-    text("Springing to action immediately, you grab a spear from one of the chanters. The blue form pauses for a minute, seeming to ponder your choice, then—if possible—grins ever wider. Seizing your opportunity to deal some damage, you jab the spear into the thing. It recoils back, wounded...or, so it seems. In reality, the thing hardly even felt the spear, and rips it out as easily as it went in. Its grin changes to a tight-lipped smile, and it hurls the spear back at you at nearly twice the speed you were able to throw it. You nearly dodge to the side, feeling the force of the sudden swivel in your still-bleeding wound. As severe as it may feel, with Blue right ahead of you, it's the least of your concerns at the present time. Grin returning, Blue lurches forwards, standing no more than two inches in front of you. Seeing how easily it disposed of the chanters and spear, you hesitate to think what it could do to you as easily as taking a breath.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
-    Button("Kiss Blue", 330, 680, 105, 30, 15);
+    text("Gritting your teeth, you do a 180º and run as fast as your little legs can carry you. Something about Blue doesn't exactly give you a vibe of friendship, so you hop to it, running back north as quickly as possible. As quick as you were, you still hear the sound of Blue running up behind you. Well, you would if his legs made sound. Without a second thought, you run out of the cave, past the now-estigushed fire, and continue to the north back to where you intially started. As close as you can figure, at least—it is still dark out, after all. Your rapid scurrying didn't seem to stop Blue's progress, unfortunately, and the constant blue light it emitted was still visible, as far away as you were (or felt you were, really—Blue could move really fast). Taking a moment to reorient yourself, you use the light to look around. To the north you can now see what seems to be a cliff (which would be quite useful to you if you had a parachute, but alas, you do not), to the east seems to be a village or something, and to the south...you can see nothing in particular. Aware of Blue's proximity to you, you try and make up your mind as quickly as possible.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    DrawButtons();
+  
+  }
+  
+     if (screen == 2.82)
+
+  {
+
+    background(4);
+    fill(255);
+    textSize(25);
+    text("Gritting your teeth, you do a 180º and run as fast as your little legs can carry you. Something about Blue doesn't exactly give you a vibe of friendship, so you hop to it, running back north as quickly as possible. As quick as you were, you still hear the sound of Blue running up behind you. Well, you would if his legs made sound. Without a second thought, you run out of the cave, past the now-estigushed fire, and continue to the north back to where you intially started. As close as you can figure, at least—it is still dark out, after all. Your rapid scurrying didn't seem to stop Blue's progress, unfortunately, and the constant blue light it emitted was still visible, as far away as you were (or felt you were, really—Blue could move really fast). Taking a moment to reorient yourself, you use the light to look around. To the north you can now see what seems to be a cliff (which would be quite useful to you if you had a parachute, but alas, you do not), to the east seems to be a village or something, and to the south...you can see nothing in particular. Aware of Blue's proximity to you, you try and make up your mind as quickly as possible.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    DrawButtons();
+  
+  }
+
+  if (screen == 2.83)
+
+  {
+
+    background(4);
+    fill(255);
+    textSize(25);
+    text("Glancing around for anything you can use to your advantage, you notice a torch discarded next to a cultist. Blue is currently cutting off your path, but you choose to duck, sliding towards the thankfully still-lit torch. Blue casually turns his head around to face you—the perks of being an anthropomorphic gelatinous blob. Even still, you hold the torch out in front of you. Uncaring, Blue takes a step forwards, reaching out to tourch your forehead. Instinctively, you hold the torch above you, praying it'll do...something. The instant its hand comes into contact with the flames, it recoils, emitting a shrill, high-pitched scream. Apparently, the fire did some damage to it...who knew? The grin disappeared from Blue's face, and it reaches out again, this time intending to grab the torch. However, as your only weapon (and one that does damage to Blue to boot), you thrust it out, catching Blue in the stomach-area. Screaming even louder, it stumbles back, the fire igniting its entire body. In the blink of an eye, Blue is gone, leaving a only a small blob of blue residue behind. With Blue gone, the rest of the cave is now open to explore, and there is a path leading further down that you failed to take note of earlier.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -556,7 +581,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("Nispe", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text("Struggling", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -861,6 +886,22 @@ void mousePressed()
 
     screen=2.8;
   }
+  
+  if(mouseX >= 30 && mouseX <= 135 && mouseY >= 550 && mouseY <= 580 && screen == 2.8 && goWest == 9)
+
+  {
+
+    screen=2.81;
+
+  }
+
+   if(mouseX >= 630 && mouseX <= 750 && mouseY >= 550 && mouseY <= 580 && screen == 2.8 && goWest == 9)
+
+  {
+
+    screen=2.83;
+
+  }
 
   if (mouseX >=930 && mouseX <=1050 && mouseY >= 550 && mouseY <= 580 && screen == 2.8)
 
@@ -876,7 +917,8 @@ void mousePressed()
     screen=2.841;
   }
 
-  if (mouseX >= 1230 && mouseX <= 1345 && mouseY >= 550 && mouseY <= 580 && screen == 2.8)
+  if ((mouseX >= 1230 && mouseX <= 1345 && mouseY >= 550 && mouseY <= 580 && screen == 2.8) ||
+      (mouseX >= 1230 && mouseX <= 1345 && mouseY >= 550 && mouseY <= 580 && screen == 2.84))
 
   {
 
@@ -933,6 +975,16 @@ void mousePressed()
   {
 
     screen=3.4;
+  }
+  
+   if ((mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 3.4 && goEast == 5) ||
+      (mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 3.4 && goEast == 5) ||
+      (mouseX >= 630 && mouseX <= 730 && mouseY >= 550 && mouseY <= 580 && screen == 3.4 && goEast == 5) ||
+      (mouseX >= 930 && mouseX <= 1030 && mouseY >= 550 && mouseY <= 580 && screen == 3.4 && goEast == 5))
+
+  {
+
+    screen=3.5;
   }
 
 
@@ -1026,7 +1078,11 @@ void mousePressed()
 
   if ((mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen >= 3.0 && screen < 4.0) ||
     (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 5.1) ||
-    (mouseX >= 300 && mouseX <= 530 && mouseY >= 550 && mouseY <= 580 && screen == 2.1))
+    (mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 3.4) ||
+    (mouseX >= 300 && mouseX <= 530 && mouseY >= 550 && mouseY <= 580 && screen == 2.1) ||
+    (mouseX >= 630 && mouseX <= 730 && mouseY >= 550 && mouseY <= 580 && screen == 3.4) ||
+    (mouseX >= 930 && mouseX <= 1030 && mouseY >= 550 && mouseY <= 580 && screen == 3.4))
+    
 
   {
 
@@ -1068,7 +1124,9 @@ void mousePressed()
     (mouseX >= 1230 && mouseX <= 1345 && mouseY >= 550 && mouseY <= 580 && screen == 2.3) ||
     (mouseX >=930 && mouseX <=1030 && mouseY >= 550 && mouseY <= 580 && screen == 2.4) || 
     (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 2.4) || 
-    (mouseX >=630 && mouseX <=730 && mouseY >= 550 && mouseY <= 580 && screen == 2.4))
+    (mouseX >=630 && mouseX <=730 && mouseY >= 550 && mouseY <= 580 && screen == 2.4) ||
+    (mouseX >= 30 && mouseX <= 135 && mouseY >= 550 && mouseY <= 580 && screen == 2.8) ||
+    (mouseX >= 630 && mouseX <= 750 && mouseY >= 550 && mouseY <= 565 && screen == 2.8))
 
   {
 
@@ -1262,6 +1320,19 @@ void DrawButtons()
     Button("Look Around", 30, 680, 135, 30, 15);
     Button("Inspect Rope", 330, 680, 135, 30, 15);
   }
+  
+  if (screen == 3.4)
+  
+  {
+   
+    Button("Struggle", 30, 550, 100, 30, 15);
+    Button("Struggle", 330, 550, 100, 30, 15);
+    Button("Struggle", 630, 550, 100, 30, 15);
+    Button("Struggle", 930, 550, 100, 30, 15);
+    Button("Do Nothing", 1230, 550, 125, 30, 15);
+    Button("Look Around", 30, 680, 135, 30, 15);
+    
+  }
 
   if ((screen == 2.841) ||(screen == 2.85) || (screen == 4.1) || (screen == 6.2))
 
@@ -1273,7 +1344,7 @@ void DrawButtons()
 
   if (screen != 0.1 && screen != 2.0 && screen != 2.4 && screen != 3.0 
     && screen != 2.85 && screen != 4.1 && screen != 6.2 && screen != 2.1 
-    && screen != 2.2 && screen != 2.3 && screen != 3.2 && screen != 2.841)
+    && screen != 2.2 && screen != 2.3 && screen != 3.2 && screen != 2.841 && screen != 3.4)
 
   {
 
