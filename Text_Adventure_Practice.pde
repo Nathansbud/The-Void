@@ -20,7 +20,7 @@ Minim minim;
 AudioPlayer song, song2;
 AudioInput input; // All the information above is for the Minim library, to play songs
 float screen; // Float Screen is used to keep track of the "screens"
-int tripTimer, doNothing, goWest, goEast, goSouth, goNorth, lookAround, textBoxX = 30, textBoxY = 30, textBoxWidth = 1400, textBoxHeight = 550; // Fairly straightforward, each corrosponds to a respective directional integer, which can be increased/decreased on screen changes in order to corrospond to a certain screen without trigger two buttons at once on sequential screens. However, this system needs to be fixed. The textbox variables are, as can be seen by their naming, variables corrosponding to the textboxes on each screen—textBoxX = x coordinates, textBoxY = y coordinates, textBoxWidth and Height are width and height of the box (point at which text cuts off/goes to new line
+int loopCount, tripTimer, doNothing, goWest, goEast, goSouth, goNorth, lookAround, textBoxX = 30, textBoxY = 30, textBoxWidth = 1400, textBoxHeight = 550; // Fairly straightforward, each corrosponds to a respective directional integer, which can be increased/decreased on screen changes in order to corrospond to a certain screen without trigger two buttons at once on sequential screens. However, this system needs to be fixed. The textbox variables are, as can be seen by their naming, variables corrosponding to the textboxes on each screen—textBoxX = x coordinates, textBoxY = y coordinates, textBoxWidth and Height are width and height of the box (point at which text cuts off/goes to new line
 boolean flashlightGet, bloodstainedNoteGet; // Variables for inventory system—may be scrapped if time doesn't permit
 
 
@@ -33,8 +33,9 @@ void setup()
   minim = new Minim(this);
   song = minim.loadFile("Princess of Helium.mp3");
   song2 = minim.loadFile("Coffee Break.mp3");
-  song.loop(); // Minim information
+  song.loop(loopCount); // Minim information
   tripTimer = millis() + 5000;
+  loopCount = 10000;
 }
 
 
@@ -717,9 +718,8 @@ void draw()
   if (screen == 5.1212)
 
   {
-
-    song.rewind();
     song.pause();
+    song.rewind();
     song2.play();
     background(4);
     fill(255);
@@ -737,9 +737,13 @@ void draw()
   if(screen != 5.1211 && screen != 5.1212)
   
   {
-    song.play();
     song2.rewind();
     song2.pause();
+    if (loopCount <= 10000)
+      {
+        song.play();  
+      }
+      
   }
   
     if (screen == 5.1213)
@@ -747,7 +751,6 @@ void draw()
   {
 
     song2.pause(); 
-    song.play();
     background(4);
     fill(255);
     textSize(25);
