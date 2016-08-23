@@ -20,8 +20,7 @@ Minim minim;
 AudioPlayer song, song2;
 AudioInput input; // All the information above is for the Minim library, to play songs
 float screen; // Float Screen is used to keep track of the "screens"
-int doNothing, goWest, goEast, goSouth, goNorth, lookAround, textBoxX = 30, textBoxY = 30, textBoxWidth = 1400, textBoxHeight = 550; // Fairly straightforward, each corrosponds to a respective directional integer, which can be increased/decreased on screen changes in order to corrospond to a certain screen without trigger two buttons at once on sequential screens. However, this system needs to be fixed. The textbox variables are, as can be seen by their naming, variables corrosponding to the textboxes on each screen—textBoxX = x coordinates, textBoxY = y coordinates, textBoxWidth and Height are width and height of the box (point at which text cuts off/goes to new line
-//int tripTimer
+int tripTimer, doNothing, goWest, goEast, goSouth, goNorth, lookAround, textBoxX = 30, textBoxY = 30, textBoxWidth = 1400, textBoxHeight = 550; // Fairly straightforward, each corrosponds to a respective directional integer, which can be increased/decreased on screen changes in order to corrospond to a certain screen without trigger two buttons at once on sequential screens. However, this system needs to be fixed. The textbox variables are, as can be seen by their naming, variables corrosponding to the textboxes on each screen—textBoxX = x coordinates, textBoxY = y coordinates, textBoxWidth and Height are width and height of the box (point at which text cuts off/goes to new line
 boolean flashlightGet, bloodstainedNoteGet; // Variables for inventory system—may be scrapped if time doesn't permit
 
 
@@ -35,6 +34,7 @@ void setup()
   song = minim.loadFile("Princess of Helium.mp3");
   song2 = minim.loadFile("Coffee Break.mp3");
   song.loop(); // Minim information
+  tripTimer = millis() + 5000;
 }
 
 
@@ -74,7 +74,6 @@ void draw()
   if (screen == 1.0) //Start of Void
 
   {
-
     background(0);
     fill(255);
     textSize(25);
@@ -685,7 +684,7 @@ void draw()
     fill(255);
     textSize(25);
     text("Heading to the west of the dungeon, you notice a great deal of greenery on the walls. This path seems...damper, almost like a source of moisture is nearby. At any rate, this wing seems home to a great deal of greenery, and continuing to walk brings you to a room filled with plants. In the center in the room on a bed of grass sits two similary shaped mushrooms. The one on the right is blue, and the one on the right is red. Save for their strange coloration, neither mushrooms seems very unique, both being small and fairly inconspicuous. However, you have a strange desire to eat one. The path ahead is blocked, unfortunately, and your entire attention is focused on the mushrooms, with no thoughts of doing anything else (much less turning around or not eating a mushroom).\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
-    Button("Eat the Blue Mushroom", 400, 550, 240, 30, 15);
+    Button("Eat the Blue Mushroom", 300, 550, 240, 30, 15);
     Button("Eat the Red Mushroom", 800, 550, 240, 30, 15);
   }
 
@@ -693,19 +692,19 @@ void draw()
 
   {
     
-    song.pause(); 
+    song.rewind();
+    song.pause();
     song2.play();
     background(4);
     fill(255);
     textSize(25);
     text("You feel...weird...", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     Button("Stop Feeling Weird", width/2 - 100, 550, 200, 30, 15);     
-    // tripTimer = millis() + 5000
- //   if(millis() > tripTimer)
+    if(millis() - tripTimer >= 0)
     
-//    {
+      {
       
-    for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 100; i++)
 
       {
         fill(random(255), random(255), random(255));
@@ -713,24 +712,48 @@ void draw()
       }
     }
     
-//  }
+}
   
   if (screen == 5.1212)
 
   {
 
-
+    song.rewind();
+    song.pause();
+    song2.play();
     background(4);
     fill(255);
     textSize(25);
-    text("Heading to the north of the dungeon, you notice a great deal of greenery on the walls. This path seems...damper, almost like a source of moisture is nearby. At any rate, this wing seems home to a great deal of greenery, and continuing to walk brings you to a room filled with plants. In the center in the room on a bed of grass sits two similary shaped mushrooms. The one on the right is blue, and the one on the right is red. Save for their strange coloration, neither mushrooms seems very unique, both being small and fairly inconspicuous. However, you have a strange desire to eat one.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
-    DrawButtons();
+    text("You feel...odd...", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    Button("Stop Feeling Weird", width/2 - 100, 550, 200, 30, 15);   
     for (int i = 0; i < 100; i++)
 
     {
       fill(random(255), random(255), random(255));
-      ellipse(random(1400), random(900), 50, 50);
+      rect(random(1400), random(900), random(100), random(100));
     }
+  }
+  
+  if(screen != 5.1211 && screen != 5.1212)
+  
+  {
+    song.play();
+    song2.rewind();
+    song2.pause();
+  }
+  
+    if (screen == 5.1213)
+
+  {
+
+    song2.pause(); 
+    song.play();
+    background(4);
+    fill(255);
+    textSize(25);
+    text("That was a very peculiar experience.", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    DrawButtons();
+    
   }
 
   if (screen == 5.2)
@@ -1093,7 +1116,7 @@ void mousePressed() //Used for screen changes in place of actual "buttons"—if 
     screen=5.1;
   }
 
-  if (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 5.1)
+  if (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 5.1 && goSouth == 2)
 
   {
 
@@ -1109,25 +1132,33 @@ void mousePressed() //Used for screen changes in place of actual "buttons"—if 
     screen=5.12;
   }
 
-  if (mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 5.12 && goSouth == 3)
+  if (mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 5.12 && goSouth == 4)
 
   {
 
     screen=5.121;
   }
 
-  if (mouseX >= 400 && mouseX <= 640 && mouseY >= 550 && mouseY <= 580 && screen == 5.121 && goSouth == 4)
+  if (mouseX >= 300 && mouseX <= 540 && mouseY >= 550 && mouseY <= 580 && screen == 5.121 && goSouth == 5)
 
   {
 
     screen=5.1211;
   }
 
-  if (mouseX >= 800 && mouseX <= 1040 && mouseY >= 550 && mouseY <= 580 && screen == 5.121 && goSouth == 4)
+  if (mouseX >= 800 && mouseX <= 1040 && mouseY >= 550 && mouseY <= 580 && screen == 5.121 && goSouth == 5)
 
   {
 
     screen=5.1212;
+  }
+  
+    if ((mouseX >= width/2 - 100 && mouseX <= width/2 + 100 && mouseY >= 550 && mouseY <= 580 && screen == 5.1211 && goSouth == 5) ||
+        (mouseX >= width/2 - 100 && mouseX <= width/2 + 100 && mouseY >= 550 && mouseY <= 580 && screen == 5.1212 && goSouth == 5))
+    
+  {
+
+    screen=5.1213;
   }
 
   if (mouseX >=630 && mouseX <=730 && mouseY >= 550 && mouseY <= 580 && screen == 5.1 && goSouth == 2)
@@ -1178,11 +1209,12 @@ void mousePressed() //Used for screen changes in place of actual "buttons"—if 
 
   if ((mouseX >=630 && mouseX <=730 && mouseY >= 550 && mouseY <= 580 && screen >= 1.0) ||
     (mouseX >= 630 && mouseX <= 730 && mouseY >= 550 && mouseY <= 580 && screen >= 5.0 && screen < 6.0) ||
-    (mouseX >=30 && mouseX <=130 && mouseY >= 550 && mouseY <= 580 && screen == 5.11) ||
+    (mouseX >= 30 && mouseX <=130 && mouseY >= 550 && mouseY <= 580 && screen == 5.11) ||
     (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 5.11) ||
-    (mouseX >= 630 && mouseX <= 730 && mouseY >= 550 && mouseY <= 580 && screen == 5.11) ||
     (mouseX >= 930 && mouseX <= 1030 && mouseY >= 550 && mouseY <= 580 && screen == 5.11) ||
-    (mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 5.121))
+    (mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 5.121) ||
+    (mouseX >= width/2 - 100 && mouseX <= width/2 + 100 && mouseY >= 550 && mouseY <= 580 && screen == 5.1211) ||
+    (mouseX >= width/2 - 100 && mouseX <= width/2 + 100 && mouseY >= 550 && mouseY <= 580 && screen == 5.1212)) 
 
   {
 
