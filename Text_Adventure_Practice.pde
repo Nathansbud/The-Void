@@ -17,11 +17,13 @@ import ddf.minim.signals.*;
 import ddf.minim.spi.*;
 import ddf.minim.ugens.*; 
 Minim minim;
-AudioPlayer song;
+AudioPlayer song, song2;
 AudioInput input; // All the information above is for the Minim library, to play songs
 float screen; // Float Screen is used to keep track of the "screens"
 int doNothing, goWest, goEast, goSouth, goNorth, lookAround, textBoxX = 30, textBoxY = 30, textBoxWidth = 1400, textBoxHeight = 550; // Fairly straightforward, each corrosponds to a respective directional integer, which can be increased/decreased on screen changes in order to corrospond to a certain screen without trigger two buttons at once on sequential screens. However, this system needs to be fixed. The textbox variables are, as can be seen by their naming, variables corrosponding to the textboxes on each screen—textBoxX = x coordinates, textBoxY = y coordinates, textBoxWidth and Height are width and height of the box (point at which text cuts off/goes to new line
+//int tripTimer
 boolean flashlightGet, bloodstainedNoteGet; // Variables for inventory system—may be scrapped if time doesn't permit
+
 
 void setup()
 
@@ -31,6 +33,7 @@ void setup()
   screen = 0.1;
   minim = new Minim(this);
   song = minim.loadFile("Princess of Helium.mp3");
+  song2 = minim.loadFile("Coffee Break.mp3");
   song.loop(); // Minim information
 }
 
@@ -39,8 +42,8 @@ void draw()
 
 {
 
-  
-  
+
+
   if (screen == 0.1) //Intro Screen
 
   {
@@ -65,7 +68,7 @@ void draw()
     background(255);
     fill(0);
     textSize(25);
-    text("Hi! I'm Zack, though I tend to go by the pseudonym ''Nathansbud.'' I've been enamored with coding lately, so I\ndecided to attempt a quote-on-quote text adventure. It's a work in progress! Unfortunately, since I'm still a\nbeginner (and thus, lacking knowledge of most coding-y things), this process is pretty tedious. Hopefully I finish\nbefore I die from exaustion.\n\n\nWish me luck!\n\n\n\n\n...and also hit delete because I really didn't want to code in a button. Thanks! If you ever want to go back to the beginning, just hit the respective key (delete will take you back to the intro, r to the beginning of the text game).", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text("Hi! I'm Zack, though I tend to go by the pseudonym ''Nathansbud.'' I've been enamored with coding lately, so I\ndecided to attempt a quote-on-quote text adventure. It's a work in progress! Unfortunately, since I'm still VERY much a beginner (and thus, lacking knowledge of most coding-y things), this process is pretty tedious. Hopefully I finish before I die from exaustion.\n\n\nWish me luck!\n\n\n\n\n...and also hit delete because I really didn't want to code in a button. Thanks! If you ever want to go back to the beginning, just hit the respective key (delete will take you back to the intro, r to the beginning of The Void once you've hit start on the intro page).", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
   }
 
   if (screen == 1.0) //Start of Void
@@ -141,30 +144,11 @@ void draw()
     fill(255);
     textSize(25);
     text("Fearing for your life, you make a mad dash past the three figures, choosing the rash decision to descend deeper into the cave. Startled by your sudden movements, the nearest one jabs his spear into your side, causing you to cry out in pain. And, from the looks in the other two's eyes, it doesn't seem like their thoughts are very far from their comrade's. So, ignoring the throbbing pain and outpouring of blood, you sprint as well as you can manage down into the depths of the cave, praying for safety. Instead of safety, it seems that the only thing in the depths at the present time is...more hooded people. Rats. Their conversation dies down instantly as they all whip around to glare at you. Double rats. For a few seconds, nobody moves, the air frozen in anticipation. Then, the hooded figures take note of your wounded side, and grab their own respective spears. Why does everybody in this stupid cave have to have spears? Sighing, you try and think up a plan as quickly as you can. Indeed, it seems like your friends from earlier caught wind of this, as they approach behind you, eager to help your brainstoring process. Triple. Rats.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
-    rect(30, 550, 120, 30, 15);
-    fill(0);
-    textSize(20);
-    text("Grab Rocks", 37, 573);   
-    fill(255);
-    rect(300, 550, 230, 30, 15);
-    fill(0);
-    textSize(20);
-    text("Run Further Into Cave", 310, 573);
-    fill(255);
-    rect(610, 550, 255, 30, 30);
-    fill(0);
-    textSize(20);
-    text("Attempt to Communicate", 615, 573);
-    fill(255);
-    rect(960, 550, 110, 30, 30);
-    fill(0);
-    textSize(20);
-    text("Run Away", 965, 573);
-    fill(255);
-    rect(1260, 550, 125, 30, 30);
-    fill(0);
-    textSize(20);
-    text("Do Nothing", 1265, 573);
+    Button("Grab Rocks", 30, 550, 120, 30, 15);
+    Button("Run Further Into Cave", 300, 550, 230, 30, 15);
+    Button("Attempt to Communicate", 610, 550, 255, 30, 30);
+    Button("Run Away", 960, 550, 110, 30, 30);
+    Button("Do Nothing", 1260, 550, 125, 30, 30);
     Button("Look Around", 30, 680, 135, 30, 15);
   }
 
@@ -407,10 +391,9 @@ void draw()
     textSize(25);
     text("You snap out of your panic, just in time to realize that you need to stop whatever is happening. Gathering up all the courage you can muster, you wrap your arms around the nearest chanter, yanking him out of the circle. Instantly, his eyes stop glowing, and he falls limp into your arms. The other members still continue chanting, unaware of anything around them. As you move to pull another from the circle, they all suddenly snap upright, the blue fading from their eyes. In unison, they all fall over backwards, collapsing. Though the chanting has subsided, the damage seems to have already been done, and the blue figure suddenly stops moving. Then, deliberately, it stretches to form legs, then arms, then a humanoid face. As you watch it, it transforms from a blob to a near-perfect representaion of a human being right before your eyes. Finally, as if by magic, a sharktoothed grin stretches across its ''face,'' as it cocks its head to face you. You open your mouth to panic, but your voice catches in your throat, unable to make a noise. Testing out its newfound form, the blob-turned-human tenatively takes a step towards you, then another, grinning all the while.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
-    
   }
-  
-    if (screen == 2.81)
+
+  if (screen == 2.81)
 
   {
 
@@ -419,10 +402,9 @@ void draw()
     textSize(25);
     text("Gritting your teeth, you do a 180º and run as fast as your little legs can carry you. Something about Blue doesn't exactly give you a vibe of friendship, so you hop to it, running back north as quickly as possible. As quick as you were, you still hear the sound of Blue running up behind you. Well, you would if his legs made sound. Without a second thought, you run out of the cave, past the now-extinguished fire, and continue to the north back to where you intially started. As close as you can figure, at least—it is still dark out, after all. Your rapid scurrying didn't seem to stop Blue's progress, unfortunately, and the constant blue light it emitted was still visible, as far away as you were (or felt you were, really—Blue could move really fast). Taking a moment to reorient yourself, you use the light to look around. To the north you can now see what seems to be a cliff (which would be quite useful to you if you had a parachute, but alas, you do not), to the east seems to be a village or something, and to the south...you can see nothing in particular. Aware of Blue's proximity to you, you try and make up your mind as quickly as possible.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
-  
   }
-  
-      if (screen == 2.811)
+
+  if (screen == 2.811)
 
   {
 
@@ -431,10 +413,9 @@ void draw()
     textSize(25);
     text("Though your gut tells you it's a bad idea, you turn around and run back towards the cave. You tend to make a habit out of trusting your gut, but in this particular situation you believe it to be wrong. So, rushing back as quickly as you can, you manage to stop before colliding face-first with Blue, the very reason you ran from the caves in the first place. Nervously, you take a step backwards—you never should've doubted yourself. Sadly, it's late to turn back, and you regret your mistakes immediately. Blue, understanding, reaches out to give you a reassuring pat on the forehead. That, and absorb your life-force, as everything suddenly goes black.", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
-    
   }
-  
-     if (screen == 2.82)
+
+  if (screen == 2.82)
 
   {
 
@@ -443,7 +424,6 @@ void draw()
     textSize(25);
     text("As you watch Blue move towards you, you slowly come to terms with the fact that you can't fight back against it. Instead, you drop to the ground and shut your eyes, making like a possum. That'll fool Blue—how much brain power can a blob (albeit a human-shaped one) really have? Committing to your disguise, you splay out on the stone, pretending to be one of the discarded cultists. Your left eye stays slightly ajar, observing the movements of Blue, though he seems more preoccupied with the cultists then with your sudden, violent ''death.'' Perhaps he'll forget about you? From the corner of your eye, you see the cultists slowly begin to disintegrate. Almost like a horror movie, the skin begins to peel off the bodies, then muscles, until all that's left is a pile of dust. Unable to help yourself, you vomit on the the ground, the sudden noise causing Blue's head to whip around (well, his facial features to shift to the other side of the head-shaped blob), looking down at you. While your initial plan wasn't exactly winning any awards, it was at least better than having the entirety of Blue's focus fixed on you. As you watch, you feel a rawness all over your body, doubly so from the wound in your side. Then, a searing pain, followed by blackness.", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
-  
   }
 
   if (screen == 2.83)
@@ -682,8 +662,75 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("Meandering off of the southern path to investigate the hole, you choose to head east rather than continue in the direction you were previously headed. A dimly lit passageway decends down from, making the place feel almost like a dungeon. However, save for the rustling of leaves on the surface, not a noise can be heard from below nor above. Much to your dismay, you're heading down into what appears to be a dungeon, unarmed and fearful of what could happen next.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text("Meandering off of the southern path to investigate the hole, you choose to head east rather than continue in the direction you were previously headed. Thus far, you've felt a sort of path underneath your feet, but the east path feels unexplored, giving the hole you're headed a sort of mysterious quality. Off the beaten path indeed...perhaps not what you want to be exploring unarmed and unprepared. A dimly lit, incredibly narrow passageway decends down from the top of the hole, and you have to suck in to fit. However, save for the rustling of leaves on the surface, not a noise can be heard from below, nor above, really. Much to your dismay, you're heading down into what appears to be a dungeon, no idea of what lurks underneath.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
+  }
+
+  if (screen == 5.12)
+
+  {
+
+    background(4);
+    fill(255);
+    textSize(25);
+    text("Reaching the bottom of your descent, you are faced with a number of options for directions to head in. Unlike the surface above, the dungeon has flickering torches on the walls, illuminating the place enough to see the paths ahead. Heading to the east (straight ahead) would take you down an unlit path (in stark contast to the rest of the dungeon, which has torches lining the walls), while the southern hallway seems to open into another room. Heading west will take you down a far mossier hallway, and though you're underground, you swear you can make out a tree.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    DrawButtons();
+  }
+
+  if (screen == 5.121)
+
+  {
+
+    background(4);
+    fill(255);
+    textSize(25);
+    text("Heading to the west of the dungeon, you notice a great deal of greenery on the walls. This path seems...damper, almost like a source of moisture is nearby. At any rate, this wing seems home to a great deal of greenery, and continuing to walk brings you to a room filled with plants. In the center in the room on a bed of grass sits two similary shaped mushrooms. The one on the right is blue, and the one on the right is red. Save for their strange coloration, neither mushrooms seems very unique, both being small and fairly inconspicuous. However, you have a strange desire to eat one. The path ahead is blocked, unfortunately, and your entire attention is focused on the mushrooms, with no thoughts of doing anything else (much less turning around or not eating a mushroom).\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    Button("Eat the Blue Mushroom", 400, 550, 240, 30, 15);
+    Button("Eat the Red Mushroom", 800, 550, 240, 30, 15);
+  }
+
+  if (screen == 5.1211)
+
+  {
+    
+    song.pause(); 
+    song2.play();
+    background(4);
+    fill(255);
+    textSize(25);
+    text("You feel...weird...", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    Button("Stop Feeling Weird", width/2 - 100, 550, 200, 30, 15);     
+    // tripTimer = millis() + 5000
+ //   if(millis() > tripTimer)
+    
+//    {
+      
+    for (int i = 0; i < 100; i++)
+
+      {
+        fill(random(255), random(255), random(255));
+        ellipse(random(1400), random(900), 70, 70);
+      }
+    }
+    
+//  }
+  
+  if (screen == 5.1212)
+
+  {
+
+
+    background(4);
+    fill(255);
+    textSize(25);
+    text("Heading to the north of the dungeon, you notice a great deal of greenery on the walls. This path seems...damper, almost like a source of moisture is nearby. At any rate, this wing seems home to a great deal of greenery, and continuing to walk brings you to a room filled with plants. In the center in the room on a bed of grass sits two similary shaped mushrooms. The one on the right is blue, and the one on the right is red. Save for their strange coloration, neither mushrooms seems very unique, both being small and fairly inconspicuous. However, you have a strange desire to eat one.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    DrawButtons();
+    for (int i = 0; i < 100; i++)
+
+    {
+      fill(random(255), random(255), random(255));
+      ellipse(random(1400), random(900), 50, 50);
+    }
   }
 
   if (screen == 5.2)
@@ -744,7 +791,8 @@ void draw()
   }
 
   println("Screen: " + screen, "Go West: " + goWest, "Go East: " + goEast, "Go South: "
-    + goNorth, "DoNothing: " + doNothing, "Look Around: " + lookAround); //Prints screen number and state of variables to console for easier editing while game is open
+    + goSouth, "Go North: " + goNorth, "DoNothing: " + doNothing, "Look Around: " + lookAround,
+         "Time: " + millis()); //Prints screen number and state of variables to console for easier editing while game is open
 }
 
 
@@ -879,38 +927,34 @@ void mousePressed() //Used for screen changes in place of actual "buttons"—if 
 
     screen=2.8;
   }
-  
-  if(mouseX >= 30 && mouseX <= 135 && mouseY >= 550 && mouseY <= 580 && screen == 2.8 && goWest == 9)
+
+  if (mouseX >= 30 && mouseX <= 135 && mouseY >= 550 && mouseY <= 580 && screen == 2.8 && goWest == 9)
 
   {
 
     screen=2.81;
-
   }
-  
-  if(mouseX >= 30 && mouseX <= 135 && mouseY >= 550 && mouseY <= 580 && screen == 2.81 && goWest == 10)
+
+  if (mouseX >= 30 && mouseX <= 135 && mouseY >= 550 && mouseY <= 580 && screen == 2.81 && goWest == 10)
 
   {
 
     screen=2.811;
-
   }
-  
-    if(mouseX >= 330 && mouseX <= 435 && mouseY >= 550 && mouseY <= 580 && screen == 2.8 && goWest == 9)
+
+  if (mouseX >= 330 && mouseX <= 435 && mouseY >= 550 && mouseY <= 580 && screen == 2.8 && goWest == 9)
 
   {
 
     screen=2.82;
-
   }
 
 
-   if(mouseX >= 630 && mouseX <= 750 && mouseY >= 550 && mouseY <= 580 && screen == 2.8 && goWest == 9)
+  if (mouseX >= 630 && mouseX <= 750 && mouseY >= 550 && mouseY <= 580 && screen == 2.8 && goWest == 9)
 
   {
 
     screen=2.83;
-
   }
 
   if (mouseX >=930 && mouseX <=1050 && mouseY >= 550 && mouseY <= 580 && screen == 2.8)
@@ -928,7 +972,7 @@ void mousePressed() //Used for screen changes in place of actual "buttons"—if 
   }
 
   if ((mouseX >= 1230 && mouseX <= 1345 && mouseY >= 550 && mouseY <= 580 && screen == 2.8) ||
-      (mouseX >= 1230 && mouseX <= 1345 && mouseY >= 550 && mouseY <= 580 && screen == 2.84))
+    (mouseX >= 1230 && mouseX <= 1345 && mouseY >= 550 && mouseY <= 580 && screen == 2.84))
 
   {
 
@@ -950,7 +994,8 @@ void mousePressed() //Used for screen changes in place of actual "buttons"—if 
   }
 
 
-  if (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 3.0 && goEast == 1)
+  if ((mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 3.0 && goEast == 1) ||
+    (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 3.02 && goEast == 1))
 
   {
 
@@ -986,11 +1031,11 @@ void mousePressed() //Used for screen changes in place of actual "buttons"—if 
 
     screen=3.4;
   }
-  
-   if ((mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 3.4 && goEast == 5) ||
-      (mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 3.4 && goEast == 5) ||
-      (mouseX >= 630 && mouseX <= 730 && mouseY >= 550 && mouseY <= 580 && screen == 3.4 && goEast == 5) ||
-      (mouseX >= 930 && mouseX <= 1030 && mouseY >= 550 && mouseY <= 580 && screen == 3.4 && goEast == 5))
+
+  if ((mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 3.4 && goEast == 5) ||
+    (mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 3.4 && goEast == 5) ||
+    (mouseX >= 630 && mouseX <= 730 && mouseY >= 550 && mouseY <= 580 && screen == 3.4 && goEast == 5) ||
+    (mouseX >= 930 && mouseX <= 1030 && mouseY >= 550 && mouseY <= 580 && screen == 3.4 && goEast == 5))
 
   {
 
@@ -1027,21 +1072,6 @@ void mousePressed() //Used for screen changes in place of actual "buttons"—if 
     screen=5.0;
   }
 
-  if (mouseX >=630 && mouseX <=730 && mouseY >= 550 && mouseY <= 580 && screen == 5.0 && goSouth == 1)
-
-  {
-
-    screen=5.1;
-  }
-
-  if (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 5.1)
-
-  {
-
-    screen=5.11;
-  }
-
-
   if (mouseX >= 30 && mouseX <= 165 && mouseY >= 680 && mouseY <= 710 && screen == 5.0 && lookAround == 0)
 
   {
@@ -1056,12 +1086,58 @@ void mousePressed() //Used for screen changes in place of actual "buttons"—if 
     screen=5.011;
   }
 
+  if (mouseX >=630 && mouseX <=730 && mouseY >= 550 && mouseY <= 580 && screen == 5.0 && goSouth == 1)
+
+  {
+
+    screen=5.1;
+  }
+
+  if (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 5.1)
+
+  {
+
+    screen=5.11;
+  }
+
+  if ((mouseX >=30 && mouseX <=130 && mouseY >= 550 && mouseY <= 580 && screen == 5.11 && goSouth == 3) ||
+    (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 5.11 && goSouth == 3) ||
+    (mouseX >= 630 && mouseX <= 730 && mouseY >= 550 && mouseY <= 580 && screen == 5.11 & goSouth == 3) ||
+    (mouseX >= 930 && mouseX <= 1030 && mouseY >= 550 && mouseY <= 580 && screen == 5.11 & goSouth == 3))
+  {
+
+    screen=5.12;
+  }
+
+  if (mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 5.12 && goSouth == 3)
+
+  {
+
+    screen=5.121;
+  }
+
+  if (mouseX >= 400 && mouseX <= 640 && mouseY >= 550 && mouseY <= 580 && screen == 5.121 && goSouth == 4)
+
+  {
+
+    screen=5.1211;
+  }
+
+  if (mouseX >= 800 && mouseX <= 1040 && mouseY >= 550 && mouseY <= 580 && screen == 5.121 && goSouth == 4)
+
+  {
+
+    screen=5.1212;
+  }
+
   if (mouseX >=630 && mouseX <=730 && mouseY >= 550 && mouseY <= 580 && screen == 5.1 && goSouth == 2)
 
   {
 
     screen=5.2;
   }
+
+
 
 
   if ((mouseX >= 1230 && mouseX <= 1345 && mouseY >= 550 && mouseY <= 580 && screen == 1.0 && doNothing == 0) ||
@@ -1092,7 +1168,7 @@ void mousePressed() //Used for screen changes in place of actual "buttons"—if 
     (mouseX >= 300 && mouseX <= 530 && mouseY >= 550 && mouseY <= 580 && screen == 2.1) ||
     (mouseX >= 630 && mouseX <= 730 && mouseY >= 550 && mouseY <= 580 && screen == 3.4) ||
     (mouseX >= 930 && mouseX <= 1030 && mouseY >= 550 && mouseY <= 580 && screen == 3.4))
-    
+
 
   {
 
@@ -1100,7 +1176,13 @@ void mousePressed() //Used for screen changes in place of actual "buttons"—if 
   }
 
 
-  if (mouseX >=630 && mouseX <=730 && mouseY >= 550 && mouseY <= 580 && screen >= 1.0)
+  if ((mouseX >=630 && mouseX <=730 && mouseY >= 550 && mouseY <= 580 && screen >= 1.0) ||
+    (mouseX >= 630 && mouseX <= 730 && mouseY >= 550 && mouseY <= 580 && screen >= 5.0 && screen < 6.0) ||
+    (mouseX >=30 && mouseX <=130 && mouseY >= 550 && mouseY <= 580 && screen == 5.11) ||
+    (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 5.11) ||
+    (mouseX >= 630 && mouseX <= 730 && mouseY >= 550 && mouseY <= 580 && screen == 5.11) ||
+    (mouseX >= 930 && mouseX <= 1030 && mouseY >= 550 && mouseY <= 580 && screen == 5.11) ||
+    (mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 5.121))
 
   {
 
@@ -1191,11 +1273,11 @@ void mouseReleased() // Certain buttons are in void mouseReleased due to overlap
   }
 
   if ((mouseX >= width/2 - 100 && mouseX <= width/2 && mouseY >= 550 && mouseY <= 580 && screen == 2.82) ||
-      (mouseX >= width/2 - 100 && mouseX <= width/2 && mouseY >= 550 && mouseY <= 580 && screen == 2.841) ||
-      (mouseX >= width/2 - 100 && mouseX <= width/2 && mouseY >= 550 && mouseY <= 580 && screen == 2.85) ||
-      (mouseX >= width/2 - 100 && mouseX <= width/2 && mouseY >= 550 && mouseY <= 580 && screen == 2.811) ||
-      (mouseX >= width/2 - 100 && mouseX <= width/2 && mouseY >= 550 && mouseY <= 580 && screen == 4.1) ||
-      (mouseX >= width/2 - 100 && mouseX <= width/2 && mouseY >= 550 && mouseY <= 580 && screen == 6.2))
+    (mouseX >= width/2 - 100 && mouseX <= width/2 && mouseY >= 550 && mouseY <= 580 && screen == 2.841) ||
+    (mouseX >= width/2 - 100 && mouseX <= width/2 && mouseY >= 550 && mouseY <= 580 && screen == 2.85) ||
+    (mouseX >= width/2 - 100 && mouseX <= width/2 && mouseY >= 550 && mouseY <= 580 && screen == 2.811) ||
+    (mouseX >= width/2 - 100 && mouseX <= width/2 && mouseY >= 550 && mouseY <= 580 && screen == 4.1) ||
+    (mouseX >= width/2 - 100 && mouseX <= width/2 && mouseY >= 550 && mouseY <= 580 && screen == 6.2))
 
 
   {
@@ -1306,19 +1388,18 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
     Button("Do Nothing", 1230, 550, 125, 30, 15);
   } 
 
-  if(screen == 2.8)
-  
+  if (screen == 2.8)
+
   {
-    
+
     Button("Run Away", 30, 550, 105, 30, 15);
     Button("Play Dead", 330, 550, 105, 30, 15);
     Button("Grab Torch", 630, 550, 120, 30, 15);
     Button("Grab Spear", 930, 550, 120, 30, 15);
     Button("Do Nothing", 1230, 550, 125, 30, 15);
-    Button("Look Around", 30, 680, 135, 30, 15);  
-
+    Button("Look Around", 30, 680, 135, 30, 15);
   }
-  
+
   if (screen == 3.0)
 
   {
@@ -1344,18 +1425,29 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
     Button("Look Around", 30, 680, 135, 30, 15);
     Button("Inspect Rope", 330, 680, 135, 30, 15);
   }
-  
+
   if (screen == 3.4)
-  
+
   {
-   
+
     Button("Struggle", 30, 550, 100, 30, 15);
     Button("Struggle", 330, 550, 100, 30, 15);
     Button("Struggle", 630, 550, 100, 30, 15);
     Button("Struggle", 930, 550, 100, 30, 15);
     Button("Do Nothing", 1230, 550, 125, 30, 15);
     Button("Look Around", 30, 680, 135, 30, 15);
-    
+  }
+
+  if (screen == 5.11)
+
+  {
+
+    Button("Descend", 30, 550, 100, 30, 15);
+    Button("Descend", 330, 550, 100, 30, 15);
+    Button("Descend", 630, 550, 100, 30, 15);
+    Button("Descend", 930, 550, 100, 30, 15);
+    Button("Do Nothing", 1230, 550, 125, 30, 15);
+    Button("Look Around", 30, 680, 135, 30, 15);
   }
 
   if ((screen == 2.82) || (screen == 2.841) ||(screen == 2.85) || (screen == 2.811) || (screen == 4.1) || (screen == 6.2))
@@ -1369,7 +1461,8 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
   if (screen != 0.1 && screen != 2.0 && screen != 2.4 && screen != 3.0 
     && screen != 2.85 && screen != 4.1 && screen != 6.2 && screen != 2.1 
     && screen != 2.2 && screen != 2.3 && screen != 3.2 && screen != 2.841
-    && screen != 3.4 && screen != 2.811 && screen != 2.8 && screen != 2.82) //This is the default set of buttons—if screen != the above values, this will be the DrawButtons that shows ups
+    && screen != 3.4 && screen != 2.811 && screen != 2.8 && screen != 2.82
+    && screen != 5.11) //This is the default set of buttons—if screen != the above values, this will be the DrawButtons that shows ups
 
   {
 
