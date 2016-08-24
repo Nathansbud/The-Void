@@ -19,7 +19,59 @@ import ddf.minim.ugens.*;
 Minim minim;
 AudioPlayer song, song2;
 AudioInput input; // All the information above is for the Minim library, to play songs
-float screen; // Float Screen is used to keep track of the "screens"
+String screenText[] = { 
+  "Welcome to the Void", //Screen 0.1
+  "Hi! I'm Zack, though I tend to go by the pseudonym ''Nathansbud.'' I've been enamored with coding lately, so I decided to attempt a quote-on-quote text adventure. It's a work in progress! Unfortunately, since I'm still VERY much a beginner (and thus, lacking knowledge of most coding-y things), this process is pretty tedious. Hopefully I finish before I die from exaustion.\n\n\nWish me luck!\n\n\n\n\n...and also hit delete because I really didn't want to code in a button. Thanks! If you ever want to go back to the beginning, just hit the respective key (delete will take you back to the intro, r to the beginning of The Void once you've hit start on the intro page).", //Screen 0.2 
+  "You wake up in a black void. An eerie silence hangs in the air, little visible save for an almost unnoticable source of light to the west. To the north, south, and east, not much can be seen, though stumbling off in the darkness is a viable possibility nonetheless.\n\n\nWhat will you do?", //Screen 1.0
+  "Heading towards the light source, you feel a worn cobblestone path beneath your feet. Thinking it a sign of good\nluck, you quicken your pace, nearly falling over yourself in your haste to be rid of the darkness.\n\nAs you near the source of light, your eyes make out the outline of a stone wall in front of you, blocking off your\npath. The light appears to be emanating from a hole in the wall, and you can hear noises coming from inside.\n\nWhat will you do?", //Screen 2.0
+  "Weighing your current options, you decide it would be best to leave whatever is causing the light alone, and persue other options instead. So, turning back to the east, you head back to where you started. You can continue east, south, or north (none of which are lit, at least at first glance), or change your mind and head back west.\n\nWhat will you do?", //Screen 2.01
+  "Entering the cave, you see three hooded figures sitting around a campfire. Evidently, this was the source of the light. The tallest of the three looks up from the flames, before barking at the other two in a language you can't understand. The three stand in unison, grabbing what appears to be a stone-tipped spear from the back of their robes. Grunting, they advance towards you at a frightening rate, the heads of their spears getting closer and closer by the second. On the ground near your foot you spot a few jagged rocks, but no other form of weaponry is in sight.\n\nWhat will you do?", //Screen 2.1
+  "Fearing for your life, you make a mad dash past the three figures, choosing the rash decision to descend deeper into the cave. Startled by your sudden movements, the nearest one jabs his spear into your side, causing you to cry out in pain. And, from the looks in the other two's eyes, it doesn't seem like their thoughts are very far from their comrade's. So, ignoring the throbbing pain and outpouring of blood, you sprint as well as you can manage down into the depths of the cave, praying for safety. Instead of safety, it seems that the only thing in the depths at the present time is...more hooded people. Rats. Their conversation dies down instantly as they all whip around to glare at you. Double rats. For a few seconds, nobody moves, the air frozen in anticipation. Then, the hooded figures take note of your wounded side, and grab their own respective spears. Why does everybody in this stupid cave have to have spears? Sighing, you try and think up a plan as quickly as you can. Indeed, it seems like your friends from earlier caught wind of this, as they approach behind you, eager to help your brainstoring process. Triple. Rats.\n\nWhat will you do?", //Screen 2.11
+  "Trying to figure out a way to communicate, you yell ''stop,'' but they don't seem to understand. That, or ''stop'' to them means ''go twice as fast,'' which is what they decide to do. The pointy end nearing, you wave your hands in the air, though that too appeared to have no affect on the men. Out of options, you close your eyes and put a hand out in front of you—if that doesn't work, nothing else will. Resigning yourself to your wait, you close your eyes and wait...yet, nothing happens. Worried that you've just gone numb from the excruciating pain, you open one eye, only to see the men crouching with their spears on the ground in front of them. They...stopped? Apparently your communication tactic worked. They seem fairly docile now, and two already moved back to the campfire.\n\nWhat will you do?", //Screen 2.12
+  "Dankest", //Screen 2.13, placeholder
+  "DankestMemes", //Screen 2.14, placeholder
+  "Bending down, you grab as many rocks as you can, hurling them at the approaching figures. Unfortunately, rather\nthan slowing down, they speed up their approach, clearly angered by being hurled rocks at. A stone connects with\nthe nearest one's head, causing him to stumble backwards, but the other two are nearly an arm's length away.\nPicking up another stone is futile, and one of the figures thrusts outwards with the spear, jabbing you in the side.\n\nImmediately, searing pain travels throughout your body, and your vision clouds. Blood begins gushing out of the wound, and you have to clench your fists to stop from passing out. Even still, you fall over backwards, out cold. The men put down their spears, lifting you and moving your body over to the fireplace. Attempting to cauterize the wound, one of the figures thrusts their spear into the flames, holding the stone to the wound. The other grabs a length of cloth, tightly wrapping the wound to stop the blood flow. Who are these men? Why are they here? What do they want? What will you do?\n\n(Hint: Nothing, you're passed out)", //Screen 2.2
+  "Zzzz, zzz zzzzzz zz z. Zzz, zz! Zzzz, zz? Z, zzz, zzzzzzz...zzz...z. Zzz. Z. Z? Z! Zzzzzzzz...\n\nZzz...zzzzzzzzzzzz...! Z. Z. Zzzzz...! Zzz zzzz z z zz zzzz zzzz zzz.", //Screen 2.3
+  "Zzz?", //Screen 2.4
+  "Finally coming to, you groan, your side aching in pain. It feels—fittingly so—like you've just been stabbed. Your head feels woozy from blood loss, and the your vision seems to be cloudy. The three figures from earlier sit are nowhere to be found, though the campfire they previously sat around remains burning brightly. You aren't bleeding, though moving may cause the wound to reopen. Continuing west will take you deeper into the cave, and your hear sounds belonging to unknown voices within. However, leaving the cave is a still a viable option, or you could simply choose to do nothing. Having been passed out only moments prior, you have no idea where the hooded figures went nor when they will return, but you have a sneaking suspicion it may have something to do with the noises from deeper in the cave.\n\nWhat will you do?", //Screen 2.5
+  "Clenching your teeth, you manage to stagger to your feet. Your breaths are shallow, and your side protests your sudden choice to stand, but you manage to muster the strength to make your way deeper into the caves. Almost drunkenly, you leave the warmth of the campfire, shivering at the sudden loss of heat. The cavern feels cold, unnaturally so—even barring the distance from the fire, something about the caves themselves feels...off. The cave spirals downwards in a staircase-esque fashion, and strange, rhythmic noises—almost chant-like—emenate from the depths below. The hooded figures from earlier seemed fairly hostile, having stabbed you with their spears, and if the brief interaction you had with them earlier was any indication, a dark cavern full of them might be more of a curse than a blessing.\n\nWhat will you do?", //Screen 2.6
+  "The narrow passageway opens into a wide cavern, lit with a strange blue glow. As you suspected, the chanting was from the hooded figures from before, though there are far more than you had intially anticipated. Rather than the three you saw earlier (lookouts, presumably), twelve identically-dressed figures stand in a circle, chanting in a strangely foreign language. Disconcertingly, their eyes seem to be glowing—the source of the blue light—and a wispy material is rising from each of their throats, congealing to form a constanly-morphing blob in the center of the room. Watching the figure...grow into existence fills you with a sense of dread, and you watch in horror as the mass begins to morph into a warped, human-like figure. The chanting subsids, instead replaced by a low-pitched moaning sound as the ethereal substance continues to rise off the figures in the circle. You stare dumbfounded, frozen in shock.\n\nWhat will you do?", //Screen 2.7
+  "You snap out of your panic, just in time to realize that you need to stop whatever is happening. Gathering up all the courage you can muster, you wrap your arms around the nearest chanter, yanking him out of the circle. Instantly, his eyes stop glowing, and he falls limp into your arms. The other members still continue chanting, unaware of anything around them. As you move to pull another from the circle, they all suddenly snap upright, the blue fading from their eyes. In unison, they all fall over backwards, collapsing. Though the chanting has subsided, the damage seems to have already been done, and the blue figure suddenly stops moving. Then, deliberately, it stretches to form legs, then arms, then a humanoid face. As you watch it, it transforms from a blob to a near-perfect representaion of a human being right before your eyes. Finally, as if by magic, a sharktoothed grin stretches across its ''face,'' as it cocks its head to face you. You open your mouth to panic, but your voice catches in your throat, unable to make a noise. Testing out its newfound form, the blob-turned-human tenatively takes a step towards you, then another, grinning all the while.\n\nWhat will you do?", //Screen 2.8
+  "Gritting your teeth, you do a 180º and run as fast as your little legs can carry you. Something about Blue doesn't exactly give you a vibe of friendship, so you hop to it, running back north as quickly as possible. As quick as you were, you still hear the sound of Blue running up behind you. Well, you would if his legs made sound. Without a second thought, you run out of the cave, past the now-extinguished fire, and continue to the north back to where you intially started. As close as you can figure, at least—it is still dark out, after all. Your rapid scurrying didn't seem to stop Blue's progress, unfortunately, and the constant blue light it emitted was still visible, as far away as you were (or felt you were, really—Blue could move really fast). Taking a moment to reorient yourself, you use the light to look around. To the north you can now see what seems to be a cliff (which would be quite useful to you if you had a parachute, but alas, you do not), to the east seems to be a village or something, and to the south...you can see nothing in particular. Aware of Blue's proximity to you, you try and make up your mind as quickly as possible.\n\nWhat will you do?", //Screen 2.81
+  "Though your gut tells you it's a bad idea, you turn around and run back towards the cave. You tend to make a habit out of trusting your gut, but in this particular situation you believe it to be wrong. So, rushing back as quickly as you can, you manage to stop before colliding face-first with Blue, the very reason you ran from the caves in the first place. Nervously, you take a step backwards—you never should've doubted yourself. Sadly, it's late to turn back, and you regret your mistakes immediately. Blue, understanding, reaches out to give you a reassuring pat on the forehead. That, and absorb your life-force, as everything suddenly goes black.", //Screen 2.811
+  "As you watch Blue move towards you, you slowly come to terms with the fact that you can't fight back against it. Instead, you drop to the ground and shut your eyes, making like a possum. That'll fool Blue—how much brain power can a blob (albeit a human-shaped one) really have? Committing to your disguise, you splay out on the stone, pretending to be one of the discarded cultists. Your left eye stays slightly ajar, observing the movements of Blue, though he seems more preoccupied with the cultists then with your sudden, violent ''death.'' Perhaps he'll forget about you? From the corner of your eye, you see the cultists slowly begin to disintegrate. Almost like a horror movie, the skin begins to peel off the bodies, then muscles, until all that's left is a pile of dust. Unable to help yourself, you vomit on the the ground, the sudden noise causing Blue's head to whip around (well, his facial features to shift to the other side of the head-shaped blob), looking down at you. While your initial plan wasn't exactly winning any awards, it was at least better than having the entirety of Blue's focus fixed on you. As you watch, you feel a rawness all over your body, doubly so from the wound in your side. Then, a searing pain, followed by blackness.", //Screen 2.82
+  "Glancing around for anything you can use to your advantage, you notice a torch on next to one of the cultists. Blue is currently cutting off your path, but you choose to duck, sliding towards the thankfully still-lit torch. Blue casually turns his head around to face you—the perks of being an anthropomorphic gelatinous blob. Even still, you hold the torch out in front of you. Uncaring, Blue takes a step forwards, reaching out to tourch your forehead. Instinctively, you hold the torch above you, praying it'll do...something. The instant its hand comes into contact with the flames, it recoils, emitting a shrill, high-pitched scream. Apparently, the fire did some damage to it...who knew? The grin disappeared from Blue's face, and it reaches out again, this time intending to grab the torch. However, as your only weapon (and one that does damage to Blue to boot), you thrust it out, catching Blue in the stomach-area. Screaming even louder, it stumbles back, the fire igniting its entire body. In the blink of an eye, Blue is gone, leaving a only a small blob of blue residue behind. With Blue gone, the rest of the cave is now open to explore, and there is a path leading further down that you failed to take note of earlier.\n\nWhat will you do?", //Screen 2.83
+  "Springing to action immediately, you grab a spear from one of the chanters. The blue form pauses for a minute, seeming to ponder your choice, then—if possible—grins ever wider. Seizing your opportunity to deal some damage, you jab the spear into the thing. It recoils back, wounded...or, so it seems. In reality, the thing hardly even felt the spear, and rips it out as easily as it went in. Its grin changes to a tight-lipped smile, and it hurls the spear back at you at nearly twice the speed you were able to throw it. You nearly dodge to the side, feeling the force of the sudden swivel in your still-bleeding wound. As severe as it may feel, with Blue right ahead of you, it's the least of your concerns at the present time. Grin returning, Blue lurches forwards, standing no more than two inches in front of you. Seeing how easily it disposed of the chanters and spear, you hesitate to think what it could do to you as easily as taking a breath.\n\nWhat will you do?", //Screen 2.84
+  "With Blue no more than a few inches away, you feel something in your chest. Fear? No...something...different. Butterflies in your stomach—an urge to run away? No! It's something...something you can't quite explain. Something about this morphing blue blob just...you aren't sure what it is. But as you stare deeper into Blue's eyes (or, rather, where Blue's eyes would be if it had eyes), you realize what it really is that you want: you want to kiss Blue. Yes, the signs were so clear all along—your attempt to sabotage the summoning was deliberately a failure, your spear throwing an attempt to play hard to get. Now, in this moment, you have the opportunity to get what you've always wanted. You lean forward, lips puckered, and plant them on the only facial feature Blue actually has. Your kiss is long and passionate, and you hardly even feel your life-force draining away as passion overcomes your body. Well, passion and a sudden lack of existence as everything goes black.", //Screen 2.841
+  "Frozen in horror, you watch as the blue abomination nears you, each moment bringing it closer and closer until you can almost reach out and touch it. A shrill, high-pitched laugh emenates from its head (or as close to what can be called one), and it waves its arms around, raising the bodies of the fainted figures off the ground. It curls its fingers, and the bodies contort and twist. Gruesomely, the skin begins to peel off the bodies, and the figure cackles, absorbing their blood and closing its fists. An eternity passes, and all that remains is dust. Then, the beast ever-so-slightly turns its head back to you, toothy grin still plastered onto what you hesitate to call a face. You cower away from the gaze, but it feels like the being is boring a hole into your soul nonetheless. Stealing a glance at it, you watch, paralyzed as it uncurls a finger, tapping it to your chest.\n\n\nAnd then everything goes black.", //Screen 2.85
+  "Ignoring the light source to the west, you instead stumble off blindly to the east. Unable to see a thing, you put\nyour hands up for security—this proves to be a wise decision, saving your face from bashing into a tree. Thanks,\nhands! You feel your eyes beginning to adjust to the darkness, just in time to make out the figure of a four-legged\ncreature ahead of you.\n\n\nFalse alarm, just a rock. Lucky break!\n\n…can…rocks bite? Best not find out.", //Screen 3.0
+  "Though the rock seems plain at first glance, you can't help but feel suspicious of this gigantic piece of stone. Curious, you look around the rock, trying to make a note of anything out of the ordinairy. The rock is...perfect. Imperfectly so, in a way that it should be impossible for a rock to be. Intrigued, you reach out to stroke the rock...and immediately recoil, your hand bleeding. The rock bars its apparent teeth at you, then lifts itself off the ground—God knows how—and scurries away. Turns out, rocks (or, at least, the creature mimicking the appearance and behaviors of one) CAN bite. You'll have to keep your distance from things in the future; nothing in this void is what it seems.", //Screen 3.02
+  "Leaving your granite friend behind, you continue to the east. You know what they say, east is the least...dangerous\npath. Yes, that age-old saying, one of your favorites. Unfortunately, the least dangerous path seems to be the least\ninteresting as well, and nothing appears to be happening for the time being.\n\n\nWhat will you do?", //Screen 3.1
+  "You feel your eyes beginning to droop, but you shake your head and keeping walking. The further east you walk,\nthe more lost you begin to feel. A bat swoops overhead, startling you, but nothing else of interest seems to be\ngoing on. What little you can make out of your surroundings doesn't pain a very vivid picture of the landscape—the\noutline of trees, some pebbles here and there, and some rope laid out in a suspiciously trap-like manner.\n\n\n...wait, what?!", //Screen 3.2   
+  "Curious, you tug on the end of the rope, and instantly the rope flies up into a sack, ''catching'' the non-present prey it was intended for. Good thing you notice it when you did—whoever set that trap might be nearby. And, as if on-cue, a light immediately shines on the horizon, nearing you. Whoever set the trap wasn't too far after all, and they might not be too pleased with the sabotaging of their trap. Perhaps...you were the intended target after all. Whatever the purpose of the traps, the source of the light is getting closer every moment, and there looks to be more than one. Plus, they're coming straight from the direction you were headed. This definitely feels like bad news to you.\n\nWhat will you do?", //Screen 3.21
+  "Choosing the wisest option for your safety, you decide to give the rope trap a wide berth, continuing on in the direction you intended. The kind of people who set traps in the dark don't seem like the kind of people you want to associate with in your current defenseless state. So, quiet as a whisper, you tread east, hoping to find some way of understanding where you are and what you're meant to be doing. Much to your dismay, the trees don't seem to have mouths, and if they do, they seem to be quite tight-lipped about your current situation. Mentally cursing them out as loudly as you can, you wave your fists angrily in their general direction. Damn trees. You almost fail to notice another rope trap to your right in your anger at the trees, though luckily, you managed to take note of it before triggering it, and are able to walk off unscathed. Betrayed, you glare at the trees. This was probably their doing.\n\nWhat will you do?", //Screen 3.3
+  "Not concerned by the first nor the second rope trap, you continue east; no pesky traps will stop you from getting to where you want to go. You spot multiple more rope traps around your path, but ignore them completely. Even still, giving them as little thought as you are attempting to do, it's hard not to notice their increasing frequency. Along with the sudden rise in rope traps, there seems to be a noticable rise in light level. And, since it doesn't seem to be sunlight (if there even is sunlight wherever you are), the light has to be coming from somebody...or, well, something. Unsure of whether or not this equates news or bad news, you continue walking, hoping moreso for the former than the latter. However, due to your emphatic trap-ignoring mindset, the rope in the middle of your pathway goes unnoticed until you step right into the middle of it, sweeping you up into a net. Damn it. You hear yelling in the distance, and the source of light seems to be nearing you.\n\nWhat will you do?", //Screen 3.4
+  "Struggling in the rope trap is getting you nowhere, and the pitter-patter of approaching footsteps has nearly reached a defeaning volume. With no form of escape from the net besides cutting yourself out, your options seem rather slim for the time being. And, seeing as the gaps in the net aren't large enough for you to attempt to squeeze through, you're probably going to be making some friends fairly soon. With the uncanny ability things have to appear right after you think of them, the oncoming stampede arrives, brandishing torches and what appears to be...bows? Whatever they are, they certainly don't look pleasant. The nearest one—their chief, from the looks of things—points at you and yells up at you in a hard to understand accent, though is speaking English nonetheless.\n\n''Who...are you? Why have you come to our lands?'' You stare back bewildered, though grateful for some human interaction. Gesturing to two men in the back, the leader steps forward, cutting you down from the net. ''Come,'' he says, nodding. What will you do?", //Screen 3.5
+  "Ipsen", //Screen 3.6, placeholder
+  "Making the choice to go north, you go on a walk of faith in the darkness, trusting your instincts not to lead you\nastray. Hopefully, the north will remember that you've chosen it as your path over all the others—apparently, it has a fairly solid memory. Unlike the other paths, the northern one seems to feel more...open, in a sense, almost as if you're nearing a clearing. The silence seems even quieter, in a way, ominously building up to something. But what could be in this ''clearing''? Continuining onwards, you proceed with a greater sense of caution, wary of anything that could happen in the open space.\n\nBut enough about that—driving any worried thoughts from your mind, you pause, catching your breath.\n\n\nWhat will you do?", //Screen 4.0
+  "This already boring-seeming path seems increasingly less interesting the more you walk. Fears of predators are quickly replaced by the unrelenting pain of pure boredom, even in this unknown world. If a diety was in charge of\ncreating the paths you walk along, he seriously decided to make this one as boring as possible. You contemplate a\nnap, but decide against it—that'll be reservered for when you can take the boredom no longer. Must. Keep. Walking.\nCan't...fall...a...sleep........AWAKE! You're awake, you didn't even come CLOSE to thinking of falling asleep. Instead, you fill your mind with thoughts of adventure. This certainly feels adventure-y, doesn't it? Well, maybe a part of the adventure that would be cut out of the story books, but what can you do? Sighing, you step over a rock in the\npath (sadly, the most interesting part thus far), and...\n\n...plummet? Yes, in your boredom-ridden state, you failed to notice the literal cliff you just stepped off of, plummeting straight to your death, thousands of feet below. Rest in pieces.", //Screen 4.1
+  "a", //Screen 4.2, placeholder
+  "Deciding to choose one of the non-lit options, you turn and head south, hoping that won’t be the direction things turn. Though difficult to orient yourself, you make your best effort to head in a straight line such that if things do not smoothly, you can always turn back around. Unfortunately, having chosen to go south instead of west, the source of minimal light fades away until it is little but a speck in the distance. If only you had a flashlight, this expedition to the south would be made a whole lot easier. But alas, you do not, and the journey will remain shrouded in darkness. What a shame. Really, a flashlight would make the journey a LOT easier. But enough about the flashlight that unfortunately you do not have at this moment in time. Your woes put on a back-burner, you pause at what seems as good a place as any to do so. If only you had a flashlight…\n\n\nWhat will you do?" , //Screen 5.0
+  "Taking a moment to acquaint yourself with your surroundings, you pause and squint your eyes. The darkness has quickly turned annoying, as anyone would agree. What little you can see is hard to make out, your path harder still. However, you can just barely see hills on the horizon, sloping upwards in contrast to the mostly flat terrain you've covered thus far—though, without any real light, there could easily be mountains all around you. The light you saw earlier was back to the west (east from your current point of view), but it has long since disappeared from view. You can't make out anything else, as it all seems to be blocked by tall, comically leafy trees. A flashlight would really go a long way.\n\nAnd just like that, you feel your foot kick up against something. Could it be...? Nope, just a rock. But wait, what's that in front of the rock? Aha! Reaching out, you feel your hand close around what appears to be a fully functioning flashlight. With working batteries. In the middle of pitch-black nowhere. Hey, best not question it.\n\nYou got: A Flashlight! Your field of vision is now far greater. What will you do?", //Screen 5.01
+  "Armed with a flashlight, you decide...to do nothing. Your flashlight bathes the world around you in luminescene, and with this newfound vision, you...decide to do absolutely nothing. Instead, you choose to waste your battery life, dawdling in what you now correctly know to be a tree-filled area. Yet, not even stopping to ponder what this means for the future of your journey, you decide to literally do nothing and wait for inspiriation to strike. No—since thinking would mean doing something, you stare blankly ahead. No, you do it with your eyes closed, as staring ahead would mean you were doing something. Instead, you completely and utterly waste your time doing nothing.\n\nWhat will you do?", //Screen 5.011
+  "Sighing, you trudge onwards, still hung up on your utter lack of a light source. Perhaps somebody left one behind earlier and you missed one entirely, too stubborn to look around. That would be a real shame, all things considered. If you would just turn around, maybe you could scower the area for firewood, or some flint and steel, or who knows, perhaps a flashlight left in the middle of the path in plain sight even. But alas, that would be foolish—clearly, you would find nothing. Your stomach grumbles, and you begin to realize that you haven't eaten in what feels like days. Hopefully you find something to eat soon, or you may actually starve to death.\n\nTo your left (east), you notice a dip in the trees, the flora seeming to thin to make way for something. Curious, you glance over, and notice that there seems to be a hole in the ground, unmarked and unconspicuous. But what could be in the hole?", //Screen 5.1
+  "Meandering off of the southern path to investigate the hole, you choose to head east rather than continue in the direction you were previously headed. Thus far, you've felt a sort of path underneath your feet, but the east path feels unexplored, giving the hole you're headed a sort of mysterious quality. Off the beaten path indeed...perhaps not what you want to be exploring unarmed and unprepared. A dimly lit, incredibly narrow passageway decends down from the top of the hole, and you have to suck in to fit. However, save for the rustling of leaves on the surface, not a noise can be heard from below, nor above, really. Much to your dismay, you're heading down into what appears to be a dungeon, no idea of what lurks underneath.\n\nWhat will you do?", //Screen 5.11
+  "Reaching the bottom of your descent, you are faced with a number of options for directions to head in. Unlike the surface above, the dungeon has flickering torches on the walls, illuminating the place enough to see the paths ahead. Heading to the east (straight ahead) would take you down an unlit path (in stark contast to the rest of the dungeon, which has torches lining the walls), while the southern hallway seems to open into another room. Heading west will take you down a far mossier hallway, and though you're underground, you swear you can make out a tree.\n\nWhat will you do?", //Screen 5.12
+  "Heading to the west of the dungeon, you notice a great deal of greenery on the walls. This path seems...damper, almost like a source of moisture is nearby. At any rate, this wing seems home to a great deal of greenery, and continuing to walk brings you to a room filled with plants. In the center in the room on a bed of grass sits two similary shaped mushrooms. The one on the right is blue, and the one on the right is red. Save for their strange coloration, neither mushrooms seems very unique, both being small and fairly inconspicuous. However, you have a strange desire to eat one. The path ahead is blocked, unfortunately, and your entire attention is focused on the mushrooms, with no thoughts of doing anything else (much less turning around or not eating a mushroom).\n\nWhat will you do?", //Screen 5.121  
+  "You feel...weird...", //Screen 5.1211 
+  "You feel...odd...", //Screen 5.1212
+  "That was a very peculiar experience.", //Screen 5.1213
+  "Deciding that your relative safety is more valuable than investigating some unknown hole, you continue without checking it out. Instead, you continue south, sure that your legs will lead you in the right direction. Your eyes have mostly adapted to the darkness, though your vision is still very limited—so much so that your eyes nearly pass over a note in the middle of the path entirely. Hearing the sound of paper beneath your feet, however, you do a double take. There, clear as daylight beneath your foot (if crumbled a little bit from the impact) is a plain white note, scrawled on in near-illegible handwriting. Red splotches adorn the page, splattered here and there, seemingly at random. Is that...blood? Shivering, you attempt to read the note, but are unable to; while your eyes have adjusted to the darkness, it's still not enough for you to make out the wording on the letter. Sighing, you pocket the note, your desire to find a light source rekindled.\n\nWhat will you do?", //Screen 5.2
+  "You...did nothing. You remain standing in the blackness, and nothing has happened. Boredom threatens to overwhelm you.", //Screen 6.0
+  "Suddenly, out of nowhere...nothing happens. You continue to do nothing, not even twiddling your thumbs. Never in your life have you felt more lethargic.", //Screen 6.1
+  "Suddenly, you fall over backwards, unable to lift your head off the ground. You have literally died of boredom."//Screen 6.2
+      };
+float screen, r = 70.0; // Float Screen is used to keep track of the "screens"
 int loopCount, tripTimer, doNothing, goWest, goEast, goSouth, goNorth, lookAround, textBoxX = 30, textBoxY = 30, textBoxWidth = 1400, textBoxHeight = 550; // Fairly straightforward, each corrosponds to a respective directional integer, which can be increased/decreased on screen changes in order to corrospond to a certain screen without trigger two buttons at once on sequential screens. However, this system needs to be fixed. The textbox variables are, as can be seen by their naming, variables corrosponding to the textboxes on each screen—textBoxX = x coordinates, textBoxY = y coordinates, textBoxWidth and Height are width and height of the box (point at which text cuts off/goes to new line
 boolean flashlightGet, bloodstainedNoteGet; // Variables for inventory system—may be scrapped if time doesn't permit
 
@@ -27,7 +79,6 @@ boolean flashlightGet, bloodstainedNoteGet; // Variables for inventory system—
 void setup()
 
 {
-
   fullScreen();
   screen = 0.1;
   minim = new Minim(this);
@@ -52,7 +103,7 @@ void draw()
     background(4);
     fill(255);
     textSize(50);
-    text("Welcome to the Void", width/3 - 70, height/2);
+    text(screenText[0], width/3 - 70, height/2);
     DrawButtons();
     doNothing=0;
     goNorth=0;
@@ -69,7 +120,7 @@ void draw()
     background(255);
     fill(0);
     textSize(25);
-    text("Hi! I'm Zack, though I tend to go by the pseudonym ''Nathansbud.'' I've been enamored with coding lately, so I\ndecided to attempt a quote-on-quote text adventure. It's a work in progress! Unfortunately, since I'm still VERY much a beginner (and thus, lacking knowledge of most coding-y things), this process is pretty tedious. Hopefully I finish before I die from exaustion.\n\n\nWish me luck!\n\n\n\n\n...and also hit delete because I really didn't want to code in a button. Thanks! If you ever want to go back to the beginning, just hit the respective key (delete will take you back to the intro, r to the beginning of The Void once you've hit start on the intro page).", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[1], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
   }
 
   if (screen == 1.0) //Start of Void
@@ -78,7 +129,7 @@ void draw()
     background(0);
     fill(255);
     textSize(25);
-    text("You wake up in a black void. An eerie silence hangs in the air, little visible save for an almost unnoticable source of light to the west. To the north, south, and east, not much can be seen, though stumbling off in the darkness is a viable possibility nonetheless.\n\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[2], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
     doNothing=0;
     goWest=0;
@@ -105,7 +156,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("Heading towards the light source, you feel a worn cobblestone path beneath your feet. Thinking it a sign of good\nluck, you quicken your pace, nearly falling over yourself in your haste to be rid of the darkness.\n\nAs you near the source of light, your eyes make out the outline of a stone wall in front of you, blocking off your\npath. The light appears to be emanating from a hole in the wall, and you can hear noises coming from inside.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[3], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -116,7 +167,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("Weighing your current options, you decide it would be best to leave whatever is causing the light alone, and persue other options instead. So, turning back to the east, you head back to where you started. You can continue east, south, or north (none of which are lit, at least at first glance), or change your mind and head back west.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[4], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
     goWest=0;
     goEast=0;
@@ -132,7 +183,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("Entering the cave, you see three hooded figures sitting around a campfire. Evidently, this was the source of the light. The tallest of the three looks up from the flames, before barking at the other two in a language you can't understand. The three stand in unison, grabbing what appears to be a stone-tipped spear from the back of their robes. Grunting, they advance towards you at a frightening rate, the heads of their spears getting closer and closer by the second. On the ground near your foot you spot a few jagged rocks, but no other form of weaponry is in sight.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[5], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -143,7 +194,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("Fearing for your life, you make a mad dash past the three figures, choosing the rash decision to descend deeper into the cave. Startled by your sudden movements, the nearest one jabs his spear into your side, causing you to cry out in pain. And, from the looks in the other two's eyes, it doesn't seem like their thoughts are very far from their comrade's. So, ignoring the throbbing pain and outpouring of blood, you sprint as well as you can manage down into the depths of the cave, praying for safety. Instead of safety, it seems that the only thing in the depths at the present time is...more hooded people. Rats. Their conversation dies down instantly as they all whip around to glare at you. Double rats. For a few seconds, nobody moves, the air frozen in anticipation. Then, the hooded figures take note of your wounded side, and grab their own respective spears. Why does everybody in this stupid cave have to have spears? Sighing, you try and think up a plan as quickly as you can. Indeed, it seems like your friends from earlier caught wind of this, as they approach behind you, eager to help your brainstoring process. Triple. Rats.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[6], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     Button("Grab Rocks", 30, 550, 120, 30, 15);
     Button("Run Further Into Cave", 300, 550, 230, 30, 15);
     Button("Attempt to Communicate", 610, 550, 255, 30, 30);
@@ -159,7 +210,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("Trying to figure out a way to communicate, you yell ''stop,'' but they don't seem to understand. That, or ''stop'' to them means ''go twice as fast,'' which is what they decide to do. The pointy end nearing, you wave your hands in the air, though that too appeared to have no affect on the men. Out of options, you close your eyes and put a hand out in front of you—if that doesn't work, nothing else will. Resigning yourself to your wait, you close your eyes and wait...yet, nothing happens. Worried that you've just gone numb from the excruciating pain, you open one eye, only to see the men crouching with their spears on the ground in front of them. They...stopped? Apparently your communication tactic worked. They seem fairly docile now, and two already moved back to the campfire.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[7], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     rect(30, 550, 225, 30, 15);
     fill(0);
     textSize(20);
@@ -194,7 +245,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("Dankest", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[8], textBoxX, textBoxY, textBoxWidth, textBoxHeight); //Screen not finished text-wise, screen has been created, though
     rect(30, 550, 120, 30, 15);
     fill(0);
     textSize(20);
@@ -229,7 +280,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("DankestMemes", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[9], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     rect(30, 550, 120, 30, 15);
     fill(0);
     textSize(20);
@@ -263,7 +314,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("Bending down, you grab as many rocks as you can, hurling them at the approaching figures. Unfortunately, rather\nthan slowing down, they speed up their approach, clearly angered by being hurled rocks at. A stone connects with\nthe nearest one's head, causing him to stumble backwards, but the other two are nearly an arm's length away.\nPicking up another stone is futile, and one of the figures thrusts outwards with the spear, jabbing you in the side.\n\nImmediately, searing pain travels throughout your body, and your vision clouds. Blood begins gushing out of the wound, and you have to clench your fists to stop from passing out. Even still, you fall over backwards, out cold. The men put down their spears, lifting you and moving your body over to the fireplace. Attempting to cauterize the wound, one of the figures thrusts their spear into the flames, holding the stone to the wound. The other grabs a length of cloth, tightly wrapping the wound to stop the blood flow. Who are these men? Why are they here? What do they want? What will you do?\n\n(Hint: Nothing, you're passed out)", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[10], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -274,7 +325,7 @@ void draw()
     background (4);
     fill(255);
     textSize(25);
-    text("Zzzz, zzz zzzzzz zz z. Zzz, zz! Zzzz, zz? Z, zzz, zzzzzzz...zzz...z. Zzz. Z. Z? Z! Zzzzzzzz...\n\nZzz...zzzzzzzzzzzz...! Z. Z. Zzzzz...! Zzz zzzz z z zz zzzz zzzz zzz.", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[11], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -285,7 +336,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("Zzz?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[12], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -296,7 +347,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("Finally coming to, you groan, your side aching in pain. It feels—fittingly so—like you've just been stabbed. Your head feels woozy from blood loss, and the your vision seems to be cloudy. The three figures from earlier sit are nowhere to be found, though the campfire they previously sat around remains burning brightly. You aren't bleeding, though moving may cause the wound to reopen. Continuing west will take you deeper into the cave, and your hear sounds belonging to unknown voices within. However, leaving the cave is a still a viable option, or you could simply choose to do nothing. Having been passed out only moments prior, you have no idea where the hooded figures went nor when they will return, but you have a sneaking suspicion it may have something to do with the noises from deeper in the cave.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[13], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     rect(30, 550, 115, 30, 15);
     fill(0);
     textSize(20);
@@ -327,7 +378,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("Clenching your teeth, you manage to stagger to your feet. Your breaths are shallow, and your side protests your sudden choice to stand, but you manage to muster the strength to make your way deeper into the caves. Almost drunkenly, you leave the warmth of the campfire, shivering at the sudden loss of heat. The cavern feels cold, unnaturally so—even barring the distance from the fire, something about the caves themselves feels...off. The cave spirals downwards in a staircase-esque fashion, and strange, rhythmic noises—almost chant-like—emenate from the depths below. The hooded figures from earlier seemed fairly hostile, having stabbed you with their spears, and if the brief interaction you had with them earlier was any indication, a dark cavern full of them might be more of a curse than a blessing.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[14], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     rect(30, 550, 200, 30, 15);
     fill(0);
     textSize(20);
@@ -358,7 +409,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("The narrow passageway opens into a wide cavern, lit with a strange blue glow. As you suspected, the chanting was from the hooded figures from before, though there are far more than you had intially anticipated. Rather than the three you saw earlier (lookouts, presumably), twelve identically-dressed figures stand in a circle, chanting in a strangely foreign language. Disconcertingly, their eyes seem to be glowing—the source of the blue light—and a wispy material is rising from each of their throats, congealing to form a constanly-morphing blob in the center of the room. Watching the figure...grow into existence fills you with a sense of dread, and you watch in horror as the mass begins to morph into a warped, human-like figure. The chanting subsids, instead replaced by a low-pitched moaning sound as the ethereal substance continues to rise off the figures in the circle. You stare dumbfounded, frozen in shock.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[15], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     rect(30, 550, 205, 30, 15);
     fill(0);
     textSize(20);
@@ -389,7 +440,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("You snap out of your panic, just in time to realize that you need to stop whatever is happening. Gathering up all the courage you can muster, you wrap your arms around the nearest chanter, yanking him out of the circle. Instantly, his eyes stop glowing, and he falls limp into your arms. The other members still continue chanting, unaware of anything around them. As you move to pull another from the circle, they all suddenly snap upright, the blue fading from their eyes. In unison, they all fall over backwards, collapsing. Though the chanting has subsided, the damage seems to have already been done, and the blue figure suddenly stops moving. Then, deliberately, it stretches to form legs, then arms, then a humanoid face. As you watch it, it transforms from a blob to a near-perfect representaion of a human being right before your eyes. Finally, as if by magic, a sharktoothed grin stretches across its ''face,'' as it cocks its head to face you. You open your mouth to panic, but your voice catches in your throat, unable to make a noise. Testing out its newfound form, the blob-turned-human tenatively takes a step towards you, then another, grinning all the while.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[16], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -400,7 +451,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("Gritting your teeth, you do a 180º and run as fast as your little legs can carry you. Something about Blue doesn't exactly give you a vibe of friendship, so you hop to it, running back north as quickly as possible. As quick as you were, you still hear the sound of Blue running up behind you. Well, you would if his legs made sound. Without a second thought, you run out of the cave, past the now-extinguished fire, and continue to the north back to where you intially started. As close as you can figure, at least—it is still dark out, after all. Your rapid scurrying didn't seem to stop Blue's progress, unfortunately, and the constant blue light it emitted was still visible, as far away as you were (or felt you were, really—Blue could move really fast). Taking a moment to reorient yourself, you use the light to look around. To the north you can now see what seems to be a cliff (which would be quite useful to you if you had a parachute, but alas, you do not), to the east seems to be a village or something, and to the south...you can see nothing in particular. Aware of Blue's proximity to you, you try and make up your mind as quickly as possible.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[17], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -411,7 +462,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("Though your gut tells you it's a bad idea, you turn around and run back towards the cave. You tend to make a habit out of trusting your gut, but in this particular situation you believe it to be wrong. So, rushing back as quickly as you can, you manage to stop before colliding face-first with Blue, the very reason you ran from the caves in the first place. Nervously, you take a step backwards—you never should've doubted yourself. Sadly, it's late to turn back, and you regret your mistakes immediately. Blue, understanding, reaches out to give you a reassuring pat on the forehead. That, and absorb your life-force, as everything suddenly goes black.", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[18], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -422,7 +473,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("As you watch Blue move towards you, you slowly come to terms with the fact that you can't fight back against it. Instead, you drop to the ground and shut your eyes, making like a possum. That'll fool Blue—how much brain power can a blob (albeit a human-shaped one) really have? Committing to your disguise, you splay out on the stone, pretending to be one of the discarded cultists. Your left eye stays slightly ajar, observing the movements of Blue, though he seems more preoccupied with the cultists then with your sudden, violent ''death.'' Perhaps he'll forget about you? From the corner of your eye, you see the cultists slowly begin to disintegrate. Almost like a horror movie, the skin begins to peel off the bodies, then muscles, until all that's left is a pile of dust. Unable to help yourself, you vomit on the the ground, the sudden noise causing Blue's head to whip around (well, his facial features to shift to the other side of the head-shaped blob), looking down at you. While your initial plan wasn't exactly winning any awards, it was at least better than having the entirety of Blue's focus fixed on you. As you watch, you feel a rawness all over your body, doubly so from the wound in your side. Then, a searing pain, followed by blackness.", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[19], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -433,7 +484,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("Glancing around for anything you can use to your advantage, you notice a torch on next to one of the cultists. Blue is currently cutting off your path, but you choose to duck, sliding towards the thankfully still-lit torch. Blue casually turns his head around to face you—the perks of being an anthropomorphic gelatinous blob. Even still, you hold the torch out in front of you. Uncaring, Blue takes a step forwards, reaching out to tourch your forehead. Instinctively, you hold the torch above you, praying it'll do...something. The instant its hand comes into contact with the flames, it recoils, emitting a shrill, high-pitched scream. Apparently, the fire did some damage to it...who knew? The grin disappeared from Blue's face, and it reaches out again, this time intending to grab the torch. However, as your only weapon (and one that does damage to Blue to boot), you thrust it out, catching Blue in the stomach-area. Screaming even louder, it stumbles back, the fire igniting its entire body. In the blink of an eye, Blue is gone, leaving a only a small blob of blue residue behind. With Blue gone, the rest of the cave is now open to explore, and there is a path leading further down that you failed to take note of earlier.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[20], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -444,7 +495,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("Springing to action immediately, you grab a spear from one of the chanters. The blue form pauses for a minute, seeming to ponder your choice, then—if possible—grins ever wider. Seizing your opportunity to deal some damage, you jab the spear into the thing. It recoils back, wounded...or, so it seems. In reality, the thing hardly even felt the spear, and rips it out as easily as it went in. Its grin changes to a tight-lipped smile, and it hurls the spear back at you at nearly twice the speed you were able to throw it. You nearly dodge to the side, feeling the force of the sudden swivel in your still-bleeding wound. As severe as it may feel, with Blue right ahead of you, it's the least of your concerns at the present time. Grin returning, Blue lurches forwards, standing no more than two inches in front of you. Seeing how easily it disposed of the chanters and spear, you hesitate to think what it could do to you as easily as taking a breath.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[21], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     Button("Kiss Blue", 330, 680, 105, 30, 15);
     DrawButtons();
   }
@@ -456,7 +507,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("With Blue no more than a few inches away, you feel something in your chest. Fear? No...something...different. Butterflies in your stomach—an urge to run away? No! It's something...something you can't quite explain. Something about this morphing blue blob just...you aren't sure what it is. But as you stare deeper into Blue's eyes (or, rather, where Blue's eyes would be if it had eyes), you realize what it really is that you want: you want to kiss Blue. Yes, the signs were so clear all along—your attempt to sabotage the summoning was deliberately a failure, your spear throwing an attempt to play hard to get. Now, in this moment, you have the opportunity to get what you've always wanted. You lean forward, lips puckered, and plant them on the only facial feature Blue actually has. Your kiss is long and passionate, and you hardly even feel your life-force draining away as passion overcomes your body. Well, passion and a sudden lack of existence as everything goes black.", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[22], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -467,7 +518,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("Frozen in horror, you watch as the blue abomination nears you, each moment bringing it closer and closer until you can almost reach out and touch it. A shrill, high-pitched laugh emenates from its head (or as close to what can be called one), and it waves its arms around, raising the bodies of the fainted figures off the ground. It curls its fingers, and the bodies contort and twist. Gruesomely, the skin begins to peel off the bodies, and the figure cackles, absorbing their blood and closing its fists. An eternity passes, and all that remains is dust. Then, the beast ever-so-slightly turns its head back to you, toothy grin still plastered onto what you hesitate to call a face. You cower away from the gaze, but it feels like the being is boring a hole into your soul nonetheless. Stealing a glance at it, you watch, paralyzed as it uncurls a finger, tapping it to your chest.\n\n\nAnd then everything goes black.", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[23], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -477,7 +528,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("Ignoring the light source to the west, you instead stumble off blindly to the east. Unable to see a thing, you put\nyour hands up for security—this proves to be a wise decision, saving your face from bashing into a tree. Thanks,\nhands! You feel your eyes beginning to adjust to the darkness, just in time to make out the figure of a four-legged\ncreature ahead of you.\n\n\nFalse alarm, just a rock. Lucky break!\n\n…can…rocks bite? Best not find out.", 30, 30);
+    text(screenText[24], 30, 30);
     DrawButtons();
   }
 
@@ -488,7 +539,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("Though the rock seems plain at first glance, you can't help but feel suspicious of this gigantic piece of stone. Curious, you look around the rock, trying to make a note of anything out of the ordinairy. The rock is...perfect. Imperfectly so, in a way that it should be impossible for a rock to be. Intrigued, you reach out to stroke the rock...and immediately recoil, your hand bleeding. The rock bars its apparent teeth at you, then lifts itself off the ground—God knows how—and scurries away. Turns out, rocks (or, at least, the creature mimicking the appearance and behaviors of one) CAN bite. You'll have to keep your distance from things in the future; nothing in this void is what it seems.", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[25], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -498,7 +549,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("Leaving your granite friend behind, you continue to the east. You know what they say, east is the least...dangerous\npath. Yes, that age-old saying, one of your favorites. Unfortunately, the least dangerous path seems to be the least\ninteresting as well, and nothing appears to be happening for the time being.\n\n\nWhat will you do?", 30, 30);
+    text(screenText[26], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -510,7 +561,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("You feel your eyes beginning to droop, but you shake your head and keeping walking. The further east you walk,\nthe more lost you begin to feel. A bat swoops overhead, startling you, but nothing else of interest seems to be\ngoing on. What little you can make out of your surroundings doesn't pain a very vivid picture of the landscape—the\noutline of trees, some pebbles here and there, and some rope laid out in a suspiciously trap-like manner.\n\n\n...wait, what?!", 30, 30);
+    text(screenText[27], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -521,7 +572,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("Curious, you tug on the end of the rope, and instantly the rope flies up into a sack, ''catching'' the non-present prey it was intended for. Good thing you notice it when you did—whoever set that trap might be nearby. And, as if on-cue, a light immediately shines on the horizon, nearing you. Whoever set the trap wasn't too far after all, and they might not be too pleased with the sabotaging of their trap. Perhaps...you were the intended target after all. Whatever the purpose of the traps, the source of the light is getting closer every moment, and there looks to be more than one. Plus, they're coming straight from the direction you were headed. This definitely feels like bad news to you.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[28], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -532,7 +583,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("Choosing the wisest option for your safety, you decide to give the rope trap a wide berth, continuing on in the direction you intended. The kind of people who set traps in the dark don't seem like the kind of people you want to associate with in your current defenseless state. So, quiet as a whisper, you tread east, hoping to find some way of understanding where you are and what you're meant to be doing. Much to your dismay, the trees don't seem to have mouths, and if they do, they seem to be quite tight-lipped about your current situation. Mentally cursing them out as loudly as you can, you wave your fists angrily in their general direction. Damn trees. You almost fail to notice another rope trap to your right in your anger at the trees, though luckily, you managed to take note of it before triggering it, and are able to walk off unscathed. Betrayed, you glare at the trees. This was probably their doing.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[30], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -543,7 +594,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("Not concerned by the first nor the second rope trap, you continue east; no pesky traps will stop you from getting to where you want to go. You spot multiple more rope traps around your path, but ignore them completely. Even still, giving them as little thought as you are attempting to do, it's hard not to notice their increasing frequency. Along with the sudden rise in rope traps, there seems to be a noticable rise in light level. And, since it doesn't seem to be sunlight (if there even is sunlight wherever you are), the light has to be coming from somebody...or, well, something. Unsure of whether or not this equates news or bad news, you continue walking, hoping moreso for the former than the latter. However, due to your emphatic trap-ignoring mindset, the rope in the middle of your pathway goes unnoticed until you step right into the middle of it, sweeping you up into a net. Damn it. You hear yelling in the distance, and the source of light seems to be nearing you.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[31], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -554,7 +605,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("Struggling in the rope trap is getting you nowhere, and the pitter-patter of approaching footsteps has nearly reached a defeaning volume. With no form of escape from the net besides cutting yourself out, your options seem rather slim for the time being. And, seeing as the gaps in the net aren't large enough for you to attempt to squeeze through, you're probably going to be making some friends fairly soon. With the uncanny ability things have to appear right after you think of them, the oncoming stampede arrives, brandishing torches and what appears to be...bows? Whatever they are, they certainly don't look pleasant. The nearest one—their chief, from the looks of things—points at you and yells up at you in a hard to understand accent, though is speaking English nonetheless.\n\n''Who...are you? Why have you come to our lands?'' You stare back bewildered, though grateful for some human interaction. Gesturing to two men in the back, the leader steps forward, cutting you down from the net. ''Come,'' he says, nodding. What will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[32], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -565,7 +616,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("Ipsen", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[33], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -577,7 +628,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("Making the choice to go north, you go on a walk of faith in the darkness, trusting your instincts not to lead you\nastray. Hopefully, the north will remember that you've chosen it as your path over all the others—apparently, it has\na fairly solid memory. Unlike the other paths, the northern one seems to feel more...open, in a sense, almost as if\nyou're nearing a clearing. The silence seems even quieter, in a way, ominously building up to something. But what\ncould be in this ''clearing''? Continuining onwards, you proceed with a greater sense of caution, wary of anything\nthat could happen in the open space.\n\nBut enough about that—driving any worried thoughts from your mind, you pause, catching your breath.\n\n\nWhat will you do?", 30, 30);
+    text(screenText[34], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -589,21 +640,21 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("This already boring-seeming path seems increasingly less interesting the more you walk. Fears of predators are quickly replaced by the unrelenting pain of pure boredom, even in this unknown world. If a diety was in charge of\ncreating the paths you walk along, he seriously decided to make this one as boring as possible. You contemplate a\nnap, but decide against it—that'll be reservered for when you can take the boredom no longer. Must. Keep. Walking.\nCan't...fall...a...sleep........AWAKE! You're awake, you didn't even come CLOSE to thinking of falling asleep. Instead, you fill your mind with thoughts of adventure. This certainly feels adventure-y, doesn't it? Well, maybe a part of the adventure that would be cut out of the story books, but what can you do? Sighing, you step over a rock in the\npath (sadly, the most interesting part thus far), and...\n\n...plummet? Yes, in your boredom-ridden state, you failed to notice the literal cliff you just stepped off of,\nplummeting straight to your death, thousands of feet below. Rest in pieces.", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[35], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
-  if (screen == 4.2)
+//  if (screen == 4.2)
 
-  {
+//  {
 
 
-    background(4);
-    fill(255);
-    textSize(25);
-    text("goNorth3", 30, 30);
-    DrawButtons();
-  }
+//    background(4);
+//    fill(255);
+//    textSize(25);
+//    text(screenText[36], 30, 30);
+//    DrawButtons();
+//  }
 
   if (screen == 5.0)
 
@@ -613,7 +664,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("Deciding to choose one of the non-lit options, you turn and head south, hoping that won’t be the direction things turn. Though difficult to orient yourself, you make your best effort to head in a straight line such that if things do not smoothly, you can always turn back around. Unfortunately, having chosen to go south instead of west, the source of minimal light fades away until it is little but a speck in the distance. If only you had a flashlight, this expedition to the south would be made a whole lot easier. But alas, you do not, and the journey will remain shrouded in darkness. What a shame. Really, a flashlight would make the journey a LOT easier. But enough about the flashlight that unfortunately you do not have at this moment in time. Your woes put on a back-burner, you pause at what seems as good a place as any to do so. If only you had a flashlight…\n\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[37], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -625,7 +676,7 @@ void draw()
     background(0);
     fill(255);
     textSize(25);
-    text("Taking a moment to acquaint yourself with your surroundings, you pause and squint your eyes. The darkness has quickly turned annoying, as anyone would agree. What little you can see is hard to make out, your path harder still. However, you can just barely see hills on the horizon, sloping upwards in contrast to the mostly flat terrain you've covered thus far—though, without any real light, there could easily be mountains all around you. The light you saw earlier was back to the west (east from your current point of view), but it has long since disappeared from view. You can't make out anything else, as it all seems to be blocked by tall, comically leafy trees. A flashlight would really go a long way.\n\nAnd just like that, you feel your foot kick up against something. Could it be...? Nope, just a rock. But wait, what's that in front of the rock? Aha! Reaching out, you feel your hand close around what appears to be a fully functioning flashlight. With working batteries. In the middle of pitch-black nowhere. Hey, best not question it.\n\nYou got: A Flashlight! Your field of vision is now far greater. What will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[38], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
     Inventory();
     doNothing=0;
@@ -638,7 +689,7 @@ void draw()
     background(50);
     fill(255);
     textSize(25);
-    text("Armed with a flashlight, you decide...to do nothing. Your flashlight bathes the world around you in luminescene, and with this newfound vision, you...decide to do absolutely nothing. Instead, you choose to waste your battery life, dawdling in what you now correctly know to be a tree-filled area. Yet, not even stopping to ponder what this means for the future of your journey, you decide to literally do nothing and wait for inspiriation to strike. No—since thinking would mean doing something, you stare blankly ahead. No, you do it with your eyes closed, as staring ahead would mean you were doing something. Instead, you completely and utterly waste your time doing nothing.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[39], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
     Inventory();
   }
@@ -651,7 +702,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("Sighing, you trudge onwards, still hung up on your utter lack of a light source. Perhaps somebody left one behind earlier and you missed one entirely, too stubborn to look around. That would be a real shame, all things considered. If you would just turn around, maybe you could scower the area for firewood, or some flint and steel, or who knows, perhaps a flashlight left in the middle of the path in plain sight even. But alas, that would be foolish—clearly, you would find nothing. Your stomach grumbles, and you begin to realize that you haven't eaten in what feels like days. Hopefully you find something to eat soon, or you may actually starve to death.\n\nTo your left (east), you notice a dip in the trees, the flora seeming to thin to make way for something. Curious, you glance over, and notice that there seems to be a hole in the ground, unmarked and unconspicuous. But what could be in the hole?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[40], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -662,7 +713,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("Meandering off of the southern path to investigate the hole, you choose to head east rather than continue in the direction you were previously headed. Thus far, you've felt a sort of path underneath your feet, but the east path feels unexplored, giving the hole you're headed a sort of mysterious quality. Off the beaten path indeed...perhaps not what you want to be exploring unarmed and unprepared. A dimly lit, incredibly narrow passageway decends down from the top of the hole, and you have to suck in to fit. However, save for the rustling of leaves on the surface, not a noise can be heard from below, nor above, really. Much to your dismay, you're heading down into what appears to be a dungeon, no idea of what lurks underneath.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[41], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -673,7 +724,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("Reaching the bottom of your descent, you are faced with a number of options for directions to head in. Unlike the surface above, the dungeon has flickering torches on the walls, illuminating the place enough to see the paths ahead. Heading to the east (straight ahead) would take you down an unlit path (in stark contast to the rest of the dungeon, which has torches lining the walls), while the southern hallway seems to open into another room. Heading west will take you down a far mossier hallway, and though you're underground, you swear you can make out a tree.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[42], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -684,7 +735,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text("Heading to the west of the dungeon, you notice a great deal of greenery on the walls. This path seems...damper, almost like a source of moisture is nearby. At any rate, this wing seems home to a great deal of greenery, and continuing to walk brings you to a room filled with plants. In the center in the room on a bed of grass sits two similary shaped mushrooms. The one on the right is blue, and the one on the right is red. Save for their strange coloration, neither mushrooms seems very unique, both being small and fairly inconspicuous. However, you have a strange desire to eat one. The path ahead is blocked, unfortunately, and your entire attention is focused on the mushrooms, with no thoughts of doing anything else (much less turning around or not eating a mushroom).\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[43], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     Button("Eat the Blue Mushroom", 300, 550, 240, 30, 15);
     Button("Eat the Red Mushroom", 800, 550, 240, 30, 15);
   }
@@ -692,133 +743,123 @@ void draw()
   if (screen == 5.1211)
 
   {
-    
+
     song.rewind();
     song.pause();
     song2.play();
     background(4);
     fill(255);
     textSize(25);
-    text("You feel...weird...", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
-    Button("Stop Feeling Weird", width/2 - 100, 550, 200, 30, 15);     
-    if(millis() - tripTimer >= 0)
-    
+    text(screenText[44], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    Button("Stop Feeling Weird", width/2 - 100, 550, 200, 30, 15); 
+    if (millis() - tripTimer >= 0)
+  
+    {
+      for (int i = 0; i < 100; i++)
       {
-      
-        for (int i = 0; i < 100; i++)
+        color c = color(random(255), random(255), random(255));
+        fill(c);
+        ellipse(random(1400), random(900), r, r);
+      }
+    }
+  }
 
+  if (screen == 5.1212)
+  {
+    song.rewind();
+    song.pause();
+    song2.play();
+    background(4);
+    fill(255);
+    textSize(25);
+    text(screenText[45], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    Button("Stop Feeling Weird", width/2 - 100, 550, 200, 30, 15);   
+      for (int i = 0; i < 100; i++)
       {
         fill(random(255), random(255), random(255));
-        ellipse(random(1400), random(900), 70, 70);
+        rect(random(1400), random(900), random(100), random(100));
       }
-    }
-    
+  }
+
+if (screen != 5.1211 && screen != 5.1212)
+{
+  song2.rewind();
+  song2.pause();
+
+  if (loopCount <= 10000)
+  {
+    song.play();
+  }
 }
-  
-  if (screen == 5.1212)
+
+if (screen == 5.1213)
+{
+
+  song2.pause(); 
+  background(4);
+  fill(255);
+  textSize(25);
+  text(screenText[46], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+  DrawButtons();
+}
+
+if (screen == 5.2)
+{
+
+  bloodstainedNoteGet=true;
+  background(4);
+  fill(255);
+  textSize(25);
+  text(screenText[47], textBoxX, textBoxY, textBoxWidth, textBoxHeight); 
+  DrawButtons();
+  Inventory();
+}
+
+if (screen == 6.0)
+{
+  background(4);
+  fill(255);
+  textSize(25);
+  text(screenText[48], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+  lookAround=0;
+  DrawButtons();
+
+  if (lookAround == 1)
 
   {
-    song.pause();
-    song.rewind();
-    song2.play();
-    background(4);
+    background(0);
     fill(255);
     textSize(25);
-    text("You feel...odd...", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
-    Button("Stop Feeling Weird", width/2 - 100, 550, 200, 30, 15);   
-    for (int i = 0; i < 100; i++)
-
-    {
-      fill(random(255), random(255), random(255));
-      rect(random(1400), random(900), random(100), random(100));
-    }
-  }
-  
-  if(screen != 5.1211 && screen != 5.1212)
-  
-  {
-    song2.rewind();
-    song2.pause();
-    if (loopCount <= 10000)
-      {
-        song.play();  
-      }
-      
-  }
-  
-    if (screen == 5.1213)
-
-  {
-
-    song2.pause(); 
-    background(4);
-    fill(255);
-    textSize(25);
-    text("That was a very peculiar experience.", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
-    DrawButtons();
-    
-  }
-
-  if (screen == 5.2)
-
-  {
-
-    bloodstainedNoteGet=true;
-    background(4);
-    fill(255);
-    textSize(25);
-    text("Deciding that your relative safety is more valuable than investigating some unknown hole, you continue without checking it out. Instead, you continue south, sure that your legs will lead you in the right direction. Your eyes have mostly adapted to the darkness, though your vision is still very limited—so much so that your eyes nearly pass over a note in the middle of the path entirely. Hearing the sound of paper beneath your feet, however, you do a double take. There, clear as daylight beneath your foot (if crumbled a little bit from the impact) is a plain white note, scrawled on in near-illegible handwriting. Red splotches adorn the page, splattered here and there, seemingly at random. Is that...blood? Shivering, you attempt to read the note, but are unable to; while your eyes have adjusted to the darkness, it's still not enough for you to make out the wording on the letter. Sighing, you pocket the note, your desire to find a light source rekindled.\n\nWhat will you do?", textBoxX, textBoxY, textBoxWidth, textBoxHeight); 
-    DrawButtons();
-    Inventory();
-  }
-
-
-  if (screen == 6.0)
-
-  {
-    background(4);
-    fill(255);
-    textSize(25);
-    text("You...did nothing. You remain standing in the blackness, and nothing has happened. Boredom threatens to overwhelm you.", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
-    lookAround=0;
-    DrawButtons();
-    if (lookAround == 1)
-
-    {
-
-      background(0);
-      fill(255);
-      textSize(25);
-      text("You've done nothing since last looking around, and have already looked around here. Your doing nothing has, well, changed nothing, and there is no new scenery to observe. Wait, no, there's a rock you didn't pick up before. Nothing suspicious about it in the least, just a rock. There, you've looked around.\n\nWhat will you do?", 30, 30);
-      DrawButtons();
-    }
-  }
-
-  if (screen == 6.1)
-
-  {
-
-    background(4);
-    fill(255);
-    textSize(25);
-    text("Suddenly, out of nowhere...nothing happens. You continue to do nothing, not even twiddling your thumbs. Never in your life have you felt more lethargic.", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text("You've done nothing since last looking around, and have already looked around here. Your doing nothing has, well, changed nothing, and there is no new scenery to observe. Wait, no, there's a rock you didn't pick up before. Nothing suspicious about it in the least, just a rock. There, you've looked around.\n\nWhat will you do?", 30, 30);
     DrawButtons();
   }
+}
 
-  if (screen == 6.2)
+if (screen == 6.1)
 
-  { 
+{
 
-    background (4);
-    fill(255);
-    textSize(25);
-    text("Suddenly, you fall over backwards, unable to lift your head off the ground. You have literally died of boredom.", textBoxX, textBoxY, textBoxWidth, textBoxHeight);
-    DrawButtons();
-  }
+  background(4);
+  fill(255);
+  textSize(25);
+  text(screenText[49], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+  DrawButtons();
+}
 
-  println("Screen: " + screen, "Go West: " + goWest, "Go East: " + goEast, "Go South: "
-    + goSouth, "Go North: " + goNorth, "DoNothing: " + doNothing, "Look Around: " + lookAround,
-         "Time: " + millis()); //Prints screen number and state of variables to console for easier editing while game is open
+if (screen == 6.2)
+
+{ 
+
+  background (4);
+  fill(255);
+  textSize(25);
+  text(screenText[50], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+  DrawButtons();
+}
+
+println("Screen: " + screen, "Go West: " + goWest, "Go East: " + goEast, "Go South: "
+  + goSouth, "Go North: " + goNorth, "DoNothing: " + doNothing, "Look Around: " + lookAround, 
+  "Time: " + millis()); //Prints screen number and state of variables to console for easier editing while game is open
 }
 
 
@@ -1155,10 +1196,10 @@ void mousePressed() //Used for screen changes in place of actual "buttons"—if 
 
     screen=5.1212;
   }
-  
-    if ((mouseX >= width/2 - 100 && mouseX <= width/2 + 100 && mouseY >= 550 && mouseY <= 580 && screen == 5.1211 && goSouth == 5) ||
-        (mouseX >= width/2 - 100 && mouseX <= width/2 + 100 && mouseY >= 550 && mouseY <= 580 && screen == 5.1212 && goSouth == 5))
-    
+
+  if ((mouseX >= width/2 - 100 && mouseX <= width/2 + 100 && mouseY >= 550 && mouseY <= 580 && screen == 5.1211 && goSouth == 5) ||
+    (mouseX >= width/2 - 100 && mouseX <= width/2 + 100 && mouseY >= 550 && mouseY <= 580 && screen == 5.1212 && goSouth == 5))
+
   {
 
     screen=5.1213;
@@ -1215,6 +1256,7 @@ void mousePressed() //Used for screen changes in place of actual "buttons"—if 
     (mouseX >= 30 && mouseX <=130 && mouseY >= 550 && mouseY <= 580 && screen == 5.11) ||
     (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 5.11) ||
     (mouseX >= 930 && mouseX <= 1030 && mouseY >= 550 && mouseY <= 580 && screen == 5.11) ||
+    (mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 5.12) ||
     (mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 5.121) ||
     (mouseX >= width/2 - 100 && mouseX <= width/2 + 100 && mouseY >= 550 && mouseY <= 580 && screen == 5.1211) ||
     (mouseX >= width/2 - 100 && mouseX <= width/2 + 100 && mouseY >= 550 && mouseY <= 580 && screen == 5.1212)) 
