@@ -583,7 +583,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text(screenText[30], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[29], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -594,7 +594,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text(screenText[31], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[30], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -605,7 +605,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text(screenText[32], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[31], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -616,7 +616,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text(screenText[33], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[32], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -628,7 +628,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text(screenText[34], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[33], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -640,7 +640,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text(screenText[35], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[34], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -652,7 +652,7 @@ void draw()
 //    background(4);
 //    fill(255);
 //    textSize(25);
-//    text(screenText[36], 30, 30);
+//    text(screenText[35], 30, 30);
 //    DrawButtons();
 //  }
 
@@ -664,7 +664,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text(screenText[37], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[36], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -676,7 +676,7 @@ void draw()
     background(0);
     fill(255);
     textSize(25);
-    text(screenText[38], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[37], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
     Inventory();
     doNothing=0;
@@ -689,7 +689,7 @@ void draw()
     background(50);
     fill(255);
     textSize(25);
-    text(screenText[39], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[38], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
     Inventory();
   }
@@ -702,7 +702,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text(screenText[40], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[39], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -713,18 +713,18 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text(screenText[41], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[40], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
   if (screen == 5.12)
 
   {
-
+    goSouth=4;
     background(4);
     fill(255);
     textSize(25);
-    text(screenText[42], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[41], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -735,7 +735,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text(screenText[43], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[42], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     Button("Eat the Blue Mushroom", 300, 550, 240, 30, 15);
     Button("Eat the Red Mushroom", 800, 550, 240, 30, 15);
   }
@@ -743,14 +743,14 @@ void draw()
   if (screen == 5.1211)
 
   {
-
+    goSouth=6;
     song.rewind();
     song.pause();
     song2.play();
     background(4);
     fill(255);
     textSize(25);
-    text(screenText[44], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[43], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     Button("Stop Feeling Weird", width/2 - 100, 550, 200, 30, 15); 
     if (millis() - tripTimer >= 0)
   
@@ -772,7 +772,7 @@ void draw()
     background(4);
     fill(255);
     textSize(25);
-    text(screenText[45], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[44], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     Button("Stop Feeling Weird", width/2 - 100, 550, 200, 30, 15);   
       for (int i = 0; i < 100; i++)
       {
@@ -799,7 +799,7 @@ if (screen == 5.1213)
   background(4);
   fill(255);
   textSize(25);
-  text(screenText[46], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+  text(screenText[45], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
   DrawButtons();
 }
 
@@ -810,7 +810,7 @@ if (screen == 5.2)
   background(4);
   fill(255);
   textSize(25);
-  text(screenText[47], textBoxX, textBoxY, textBoxWidth, textBoxHeight); 
+  text(screenText[46], textBoxX, textBoxY, textBoxWidth, textBoxHeight); 
   DrawButtons();
   Inventory();
 }
@@ -820,7 +820,7 @@ if (screen == 6.0)
   background(4);
   fill(255);
   textSize(25);
-  text(screenText[48], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+  text(screenText[47], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
   lookAround=0;
   DrawButtons();
 
@@ -842,7 +842,7 @@ if (screen == 6.1)
   background(4);
   fill(255);
   textSize(25);
-  text(screenText[49], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+  text(screenText[48], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
   DrawButtons();
 }
 
@@ -853,7 +853,7 @@ if (screen == 6.2)
   background (4);
   fill(255);
   textSize(25);
-  text(screenText[50], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+  text(screenText[49], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
   DrawButtons();
 }
 
@@ -1197,8 +1197,8 @@ void mousePressed() //Used for screen changes in place of actual "buttons"—if 
     screen=5.1212;
   }
 
-  if ((mouseX >= width/2 - 100 && mouseX <= width/2 + 100 && mouseY >= 550 && mouseY <= 580 && screen == 5.1211 && goSouth == 5) ||
-    (mouseX >= width/2 - 100 && mouseX <= width/2 + 100 && mouseY >= 550 && mouseY <= 580 && screen == 5.1212 && goSouth == 5))
+  if ((mouseX >= width/2 - 100 && mouseX <= width/2 + 100 && mouseY >= 550 && mouseY <= 580 && screen == 5.1211 && goSouth == 6) ||
+    (mouseX >= width/2 - 100 && mouseX <= width/2 + 100 && mouseY >= 550 && mouseY <= 580 && screen == 5.1212 && goSouth == 6))
 
   {
 
@@ -1258,6 +1258,8 @@ void mousePressed() //Used for screen changes in place of actual "buttons"—if 
     (mouseX >= 930 && mouseX <= 1030 && mouseY >= 550 && mouseY <= 580 && screen == 5.11) ||
     (mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 5.12) ||
     (mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 5.121) ||
+    (mouseX >= 800 && mouseX <= 1040 && mouseY >= 550 && mouseY <= 580 && screen == 5.121) ||
+    (mouseX >= 300 && mouseX <= 540 && mouseY >= 550 && mouseY <= 580 && screen == 5.121) ||
     (mouseX >= width/2 - 100 && mouseX <= width/2 + 100 && mouseY >= 550 && mouseY <= 580 && screen == 5.1211) ||
     (mouseX >= width/2 - 100 && mouseX <= width/2 + 100 && mouseY >= 550 && mouseY <= 580 && screen == 5.1212)) 
 
