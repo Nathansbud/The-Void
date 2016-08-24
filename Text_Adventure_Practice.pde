@@ -56,7 +56,7 @@ String screenText[] = {
   "Making the choice to go north, you go on a walk of faith in the darkness, trusting your instincts not to lead you\nastray. Hopefully, the north will remember that you've chosen it as your path over all the others—apparently, it has a fairly solid memory. Unlike the other paths, the northern one seems to feel more...open, in a sense, almost as if you're nearing a clearing. The silence seems even quieter, in a way, ominously building up to something. But what could be in this ''clearing''? Continuining onwards, you proceed with a greater sense of caution, wary of anything that could happen in the open space.\n\nBut enough about that—driving any worried thoughts from your mind, you pause, catching your breath.\n\n\nWhat will you do?", //Screen 4.0
   "This already boring-seeming path seems increasingly less interesting the more you walk. Fears of predators are quickly replaced by the unrelenting pain of pure boredom, even in this unknown world. If a diety was in charge of\ncreating the paths you walk along, he seriously decided to make this one as boring as possible. You contemplate a\nnap, but decide against it—that'll be reservered for when you can take the boredom no longer. Must. Keep. Walking.\nCan't...fall...a...sleep........AWAKE! You're awake, you didn't even come CLOSE to thinking of falling asleep. Instead, you fill your mind with thoughts of adventure. This certainly feels adventure-y, doesn't it? Well, maybe a part of the adventure that would be cut out of the story books, but what can you do? Sighing, you step over a rock in the\npath (sadly, the most interesting part thus far), and...\n\n...plummet? Yes, in your boredom-ridden state, you failed to notice the literal cliff you just stepped off of, plummeting straight to your death, thousands of feet below. Rest in pieces.", //Screen 4.1
   "a", //Screen 4.2, placeholder
-  "Deciding to choose one of the non-lit options, you turn and head south, hoping that won’t be the direction things turn. Though difficult to orient yourself, you make your best effort to head in a straight line such that if things do not smoothly, you can always turn back around. Unfortunately, having chosen to go south instead of west, the source of minimal light fades away until it is little but a speck in the distance. If only you had a flashlight, this expedition to the south would be made a whole lot easier. But alas, you do not, and the journey will remain shrouded in darkness. What a shame. Really, a flashlight would make the journey a LOT easier. But enough about the flashlight that unfortunately you do not have at this moment in time. Your woes put on a back-burner, you pause at what seems as good a place as any to do so. If only you had a flashlight…\n\n\nWhat will you do?" , //Screen 5.0
+  "Deciding to choose one of the non-lit options, you turn and head south, hoping that won’t be the direction things turn. Though difficult to orient yourself, you make your best effort to head in a straight line such that if things do not smoothly, you can always turn back around. Unfortunately, having chosen to go south instead of west, the source of minimal light fades away until it is little but a speck in the distance. If only you had a flashlight, this expedition to the south would be made a whole lot easier. But alas, you do not, and the journey will remain shrouded in darkness. What a shame. Really, a flashlight would make the journey a LOT easier. But enough about the flashlight that unfortunately you do not have at this moment in time. Your woes put on a back-burner, you pause at what seems as good a place as any to do so. If only you had a flashlight…\n\n\nWhat will you do?", //Screen 5.0
   "Taking a moment to acquaint yourself with your surroundings, you pause and squint your eyes. The darkness has quickly turned annoying, as anyone would agree. What little you can see is hard to make out, your path harder still. However, you can just barely see hills on the horizon, sloping upwards in contrast to the mostly flat terrain you've covered thus far—though, without any real light, there could easily be mountains all around you. The light you saw earlier was back to the west (east from your current point of view), but it has long since disappeared from view. You can't make out anything else, as it all seems to be blocked by tall, comically leafy trees. A flashlight would really go a long way.\n\nAnd just like that, you feel your foot kick up against something. Could it be...? Nope, just a rock. But wait, what's that in front of the rock? Aha! Reaching out, you feel your hand close around what appears to be a fully functioning flashlight. With working batteries. In the middle of pitch-black nowhere. Hey, best not question it.\n\nYou got: A Flashlight! Your field of vision is now far greater. What will you do?", //Screen 5.01
   "Armed with a flashlight, you decide...to do nothing. Your flashlight bathes the world around you in luminescene, and with this newfound vision, you...decide to do absolutely nothing. Instead, you choose to waste your battery life, dawdling in what you now correctly know to be a tree-filled area. Yet, not even stopping to ponder what this means for the future of your journey, you decide to literally do nothing and wait for inspiriation to strike. No—since thinking would mean doing something, you stare blankly ahead. No, you do it with your eyes closed, as staring ahead would mean you were doing something. Instead, you completely and utterly waste your time doing nothing.\n\nWhat will you do?", //Screen 5.011
   "Sighing, you trudge onwards, still hung up on your utter lack of a light source. Perhaps somebody left one behind earlier and you missed one entirely, too stubborn to look around. That would be a real shame, all things considered. If you would just turn around, maybe you could scower the area for firewood, or some flint and steel, or who knows, perhaps a flashlight left in the middle of the path in plain sight even. But alas, that would be foolish—clearly, you would find nothing. Your stomach grumbles, and you begin to realize that you haven't eaten in what feels like days. Hopefully you find something to eat soon, or you may actually starve to death.\n\nTo your left (east), you notice a dip in the trees, the flora seeming to thin to make way for something. Curious, you glance over, and notice that there seems to be a hole in the ground, unmarked and unconspicuous. But what could be in the hole?", //Screen 5.1
@@ -70,7 +70,7 @@ String screenText[] = {
   "You...did nothing. You remain standing in the blackness, and nothing has happened. Boredom threatens to overwhelm you.", //Screen 6.0
   "Suddenly, out of nowhere...nothing happens. You continue to do nothing, not even twiddling your thumbs. Never in your life have you felt more lethargic.", //Screen 6.1
   "Suddenly, you fall over backwards, unable to lift your head off the ground. You have literally died of boredom."//Screen 6.2
-      };
+};
 float screen, r = 70.0; // Float Screen is used to keep track of the "screens"
 int loopCount, tripTimer, doNothing, goWest, goEast, goSouth, goNorth, lookAround, textBoxX = 30, textBoxY = 30, textBoxWidth = 1400, textBoxHeight = 550; // Fairly straightforward, each corrosponds to a respective directional integer, which can be increased/decreased on screen changes in order to corrospond to a certain screen without trigger two buttons at once on sequential screens. However, this system needs to be fixed. The textbox variables are, as can be seen by their naming, variables corrosponding to the textboxes on each screen—textBoxX = x coordinates, textBoxY = y coordinates, textBoxWidth and Height are width and height of the box (point at which text cuts off/goes to new line
 boolean flashlightGet, bloodstainedNoteGet; // Variables for inventory system—may be scrapped if time doesn't permit
@@ -152,7 +152,7 @@ void draw()
 
   {
 
-
+    goWest=1; 
     background(4);
     fill(255);
     textSize(25);
@@ -180,6 +180,7 @@ void draw()
   if (screen == 2.1)
 
   {
+    goWest=2;
     background(4);
     fill(255);
     textSize(25);
@@ -311,6 +312,7 @@ void draw()
   if (screen == 2.2)
 
   {
+    goWest=3;
     background(4);
     fill(255);
     textSize(25);
@@ -332,7 +334,7 @@ void draw()
   if (screen == 2.4)
 
   {
-
+    goWest=6;
     background(4);
     fill(255);
     textSize(25);
@@ -343,7 +345,7 @@ void draw()
   if (screen == 2.5)
 
   {
-
+    goWest=7;
     background(4);
     fill(255);
     textSize(25);
@@ -374,7 +376,7 @@ void draw()
   if (screen == 2.6)
 
   {
-
+    goWest=8;
     background(4);
     fill(255);
     textSize(25);
@@ -405,7 +407,7 @@ void draw()
   if (screen == 2.7)
 
   {
-
+    goWest=9;
     background(4);
     fill(255);
     textSize(25);
@@ -436,7 +438,7 @@ void draw()
   if (screen == 2.8)
 
   {
-
+    goWest=10;
     background(4);
     fill(255);
     textSize(25);
@@ -447,7 +449,7 @@ void draw()
   if (screen == 2.81)
 
   {
-
+    goWest=11;
     background(4);
     fill(255);
     textSize(25);
@@ -644,17 +646,17 @@ void draw()
     DrawButtons();
   }
 
-//  if (screen == 4.2)
+  //  if (screen == 4.2)
 
-//  {
+  //  {
 
 
-//    background(4);
-//    fill(255);
-//    textSize(25);
-//    text(screenText[35], 30, 30);
-//    DrawButtons();
-//  }
+  //    background(4);
+  //    fill(255);
+  //    textSize(25);
+  //    text(screenText[35], 30, 30);
+  //    DrawButtons();
+  //  }
 
   if (screen == 5.0)
 
@@ -753,7 +755,7 @@ void draw()
     text(screenText[43], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     Button("Stop Feeling Weird", width/2 - 100, 550, 200, 30, 15); 
     if (millis() - tripTimer >= 0)
-  
+
     {
       for (int i = 0; i < 100; i++)
       {
@@ -774,92 +776,92 @@ void draw()
     textSize(25);
     text(screenText[44], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     Button("Stop Feeling Weird", width/2 - 100, 550, 200, 30, 15);   
-      for (int i = 0; i < 100; i++)
-      {
-        fill(random(255), random(255), random(255));
-        rect(random(1400), random(900), random(100), random(100));
-      }
+    for (int i = 0; i < 100; i++)
+    {
+      fill(random(255), random(255), random(255));
+      rect(random(1400), random(900), random(100), random(100));
+    }
   }
 
-if (screen != 5.1211 && screen != 5.1212)
-{
-  song2.rewind();
-  song2.pause();
-
-  if (loopCount <= 10000)
+  if (screen != 5.1211 && screen != 5.1212)
   {
-    song.play();
+    song2.rewind();
+    song2.pause();
+
+    if (loopCount <= 10000)
+    {
+      song.play();
+    }
   }
-}
 
-if (screen == 5.1213)
-{
-
-  song2.pause(); 
-  background(4);
-  fill(255);
-  textSize(25);
-  text(screenText[45], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
-  DrawButtons();
-}
-
-if (screen == 5.2)
-{
-
-  bloodstainedNoteGet=true;
-  background(4);
-  fill(255);
-  textSize(25);
-  text(screenText[46], textBoxX, textBoxY, textBoxWidth, textBoxHeight); 
-  DrawButtons();
-  Inventory();
-}
-
-if (screen == 6.0)
-{
-  background(4);
-  fill(255);
-  textSize(25);
-  text(screenText[47], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
-  lookAround=0;
-  DrawButtons();
-
-  if (lookAround == 1)
-
+  if (screen == 5.1213)
   {
-    background(0);
+
+    song2.pause(); 
+    background(4);
     fill(255);
     textSize(25);
-    text("You've done nothing since last looking around, and have already looked around here. Your doing nothing has, well, changed nothing, and there is no new scenery to observe. Wait, no, there's a rock you didn't pick up before. Nothing suspicious about it in the least, just a rock. There, you've looked around.\n\nWhat will you do?", 30, 30);
+    text(screenText[45], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
-}
 
-if (screen == 6.1)
+  if (screen == 5.2)
+  {
 
-{
+    bloodstainedNoteGet=true;
+    background(4);
+    fill(255);
+    textSize(25);
+    text(screenText[46], textBoxX, textBoxY, textBoxWidth, textBoxHeight); 
+    DrawButtons();
+    Inventory();
+  }
 
-  background(4);
-  fill(255);
-  textSize(25);
-  text(screenText[48], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
-  DrawButtons();
-}
+  if (screen == 6.0)
+  {
+    background(4);
+    fill(255);
+    textSize(25);
+    text(screenText[47], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    lookAround=0;
+    DrawButtons();
 
-if (screen == 6.2)
+    if (lookAround == 1)
 
-{ 
+    {
+      background(0);
+      fill(255);
+      textSize(25);
+      text("You've done nothing since last looking around, and have already looked around here. Your doing nothing has, well, changed nothing, and there is no new scenery to observe. Wait, no, there's a rock you didn't pick up before. Nothing suspicious about it in the least, just a rock. There, you've looked around.\n\nWhat will you do?", 30, 30);
+      DrawButtons();
+    }
+  }
 
-  background (4);
-  fill(255);
-  textSize(25);
-  text(screenText[49], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
-  DrawButtons();
-}
+  if (screen == 6.1)
 
-println("Screen: " + screen, "Go West: " + goWest, "Go East: " + goEast, "Go South: "
-  + goSouth, "Go North: " + goNorth, "DoNothing: " + doNothing, "Look Around: " + lookAround, 
-  "Time: " + millis()); //Prints screen number and state of variables to console for easier editing while game is open
+  {
+
+    background(4);
+    fill(255);
+    textSize(25);
+    text(screenText[48], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    DrawButtons();
+  }
+
+  if (screen == 6.2)
+
+  { 
+
+    background (4);
+    fill(255);
+    textSize(25);
+    text(screenText[49], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    DrawButtons();
+  }
+
+  println("Screen: " + screen, "Go West: " + goWest, "Go East: " + goEast, "Go South: "
+    + goSouth, "Go North: " + goNorth, "DoNothing: " + doNothing, "Look Around: " + lookAround, 
+    "Time: " + millis()); //Prints screen number and state of variables to console for easier editing while game is open
 }
 
 
@@ -988,28 +990,28 @@ void mousePressed() //Used for screen changes in place of actual "buttons"—if 
     screen=2.7;
   }
 
-  if (mouseX >= 30 && mouseX <= 235 && mouseY >= 550 && mouseY <= 580 && screen == 2.7 && goWest == 8)
+  if (mouseX >= 30 && mouseX <= 235 && mouseY >= 550 && mouseY <= 580 && screen == 2.7 && goWest == 9)
 
   {
 
     screen=2.8;
   }
 
-  if (mouseX >= 30 && mouseX <= 135 && mouseY >= 550 && mouseY <= 580 && screen == 2.8 && goWest == 9)
+  if (mouseX >= 30 && mouseX <= 135 && mouseY >= 550 && mouseY <= 580 && screen == 2.8 && goWest == 10)
 
   {
 
     screen=2.81;
   }
 
-  if (mouseX >= 30 && mouseX <= 135 && mouseY >= 550 && mouseY <= 580 && screen == 2.81 && goWest == 10)
+  if (mouseX >= 30 && mouseX <= 135 && mouseY >= 550 && mouseY <= 580 && screen == 2.81 && goWest == 11)
 
   {
 
     screen=2.811;
   }
 
-  if (mouseX >= 330 && mouseX <= 435 && mouseY >= 550 && mouseY <= 580 && screen == 2.8 && goWest == 9)
+  if (mouseX >= 330 && mouseX <= 435 && mouseY >= 550 && mouseY <= 580 && screen == 2.8 && goWest == 10)
 
   {
 
@@ -1017,14 +1019,14 @@ void mousePressed() //Used for screen changes in place of actual "buttons"—if 
   }
 
 
-  if (mouseX >= 630 && mouseX <= 750 && mouseY >= 550 && mouseY <= 580 && screen == 2.8 && goWest == 9)
+  if (mouseX >= 630 && mouseX <= 750 && mouseY >= 550 && mouseY <= 580 && screen == 2.8 && goWest == 10)
 
   {
 
     screen=2.83;
   }
 
-  if (mouseX >=930 && mouseX <=1050 && mouseY >= 550 && mouseY <= 580 && screen == 2.8)
+  if (mouseX >=930 && mouseX <=1050 && mouseY >= 550 && mouseY <= 580 && screen == 2.8 && goWest == 10)
 
   {
 
@@ -1237,6 +1239,15 @@ void mousePressed() //Used for screen changes in place of actual "buttons"—if 
     screen=6.2;
   }
 
+  if ((mouseX >= 1230 && mouseX <= 1345 && mouseY >= 550 && mouseY <= 580 && screen == 2.3) ||   (mouseX >=630 && mouseX <=730 && mouseY >= 550 && mouseY <= 580 && screen == 2.3) || 
+    (mouseX >=930 && mouseX <=1030 && mouseY >= 550 && mouseY <= 580 && screen == 2.3) || 
+    (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 2.3) || 
+    (mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 2.3)) 
+  {
+    goWest += 1;
+  }
+
+
   if ((mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen >= 3.0 && screen < 4.0) ||
     (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 5.1) ||
     (mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 3.4) ||
@@ -1275,33 +1286,6 @@ void mousePressed() //Used for screen changes in place of actual "buttons"—if 
   {
 
     goNorth += 1;
-  }
-
-  if ((mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 1.0) ||
-    (mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen >= 2.0 && screen < 3.0) ||
-    (mouseX >= 30 && mouseX <= 145 && mouseY >= 550 && mouseY <= 580 && screen == 2.5) ||
-    (mouseX >= 300 && mouseX <= 530 && mouseY >= 550 && mouseY <=580 && screen == 2.1) ||
-    (mouseX >= 1230 && mouseX <= 1345 && mouseY >= 550 && mouseY <= 580 && screen == 2.2) || 
-    (mouseX >=930 && mouseX <=1030 && mouseY >= 550 && mouseY <= 580 && screen == 2.3) || 
-    (mouseX >=930 && mouseX <=1030 && mouseY >= 550 && mouseY <= 580 && screen == 2.2) || 
-    (mouseX >=630 && mouseX <=730 && mouseY >= 550 && mouseY <= 580 && screen == 2.2) ||
-    (mouseX >= 1230 && mouseX <= 1345 && mouseY >= 550 && mouseY <= 580 && screen == 2.4) ||
-    (mouseX >=930 && mouseX <=1030 && mouseY >= 550 && mouseY <= 580 && screen == 2.4) || 
-    (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 2.3) || 
-    (mouseX >=630 && mouseX <=730 && mouseY >= 550 && mouseY <= 580 && screen == 2.3) || 
-    (mouseX >= 1230 && mouseX <= 1345 && mouseY >= 550 && mouseY <= 580 && screen == 2.2) || 
-    (mouseX >=930 && mouseX <=1030 && mouseY >= 550 && mouseY <= 580 && screen == 2.2) ||
-    (mouseX >=630 && mouseX <=730 && mouseY >= 550 && mouseY <= 580 && screen == 2.2) ||
-    (mouseX >= 1230 && mouseX <= 1345 && mouseY >= 550 && mouseY <= 580 && screen == 2.3) ||
-    (mouseX >=930 && mouseX <=1030 && mouseY >= 550 && mouseY <= 580 && screen == 2.4) || 
-    (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 2.4) || 
-    (mouseX >=630 && mouseX <=730 && mouseY >= 550 && mouseY <= 580 && screen == 2.4) ||
-    (mouseX >= 30 && mouseX <= 135 && mouseY >= 550 && mouseY <= 580 && screen == 2.8) ||
-    (mouseX >= 630 && mouseX <= 750 && mouseY >= 550 && mouseY <= 565 && screen == 2.8))
-
-  {
-
-    goWest += 1;
   }
 
 
