@@ -528,6 +528,7 @@ void draw()
   if (screen == 3.0)
 
   {
+    goEast=1;
     background(4);
     fill(255);
     textSize(25);
@@ -538,7 +539,7 @@ void draw()
   if (screen == 3.02)
 
   {
-
+    goEast=1;
     background(4);
     fill(255);
     textSize(25);
@@ -549,6 +550,7 @@ void draw()
   if (screen == 3.1)
 
   {
+    goEast=2;
     background(4);
     fill(255);
     textSize(25);
@@ -560,7 +562,7 @@ void draw()
 
   {
 
-
+    goEast=3;
     background(4);
     fill(255);
     textSize(25);
@@ -582,7 +584,7 @@ void draw()
   if (screen == 3.3)
 
   {
-
+    goEast=4;
     background(4);
     fill(255);
     textSize(25);
@@ -593,7 +595,7 @@ void draw()
   if (screen == 3.4)
 
   {
-
+    goEast=5;
     background(4);
     fill(255);
     textSize(25);
@@ -604,7 +606,7 @@ void draw()
   if (screen == 3.5)
 
   {
-
+    goEast=6;
     background(4);
     fill(255);
     textSize(25);
@@ -627,7 +629,7 @@ void draw()
 
   {
 
-
+    goNorth=1;
     background(4);
     fill(255);
     textSize(25);
@@ -639,7 +641,7 @@ void draw()
 
   {
 
-
+    goNorth=2;
     background(4);
     fill(255);
     textSize(25);
@@ -663,6 +665,7 @@ void draw()
 
   {
 
+    goSouth=1;
     lookAround=0;
     background(4);
     fill(255);
@@ -674,7 +677,8 @@ void draw()
   if (screen == 5.01)
 
   {
-
+    goSouth=1; 
+    lookAround=1;
     flashlightGet=true;
     background(0);
     fill(255);
@@ -682,7 +686,6 @@ void draw()
     text(screenText[37], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
     Inventory();
-    doNothing=0;
   }
 
   if (screen == 5.011)
@@ -701,7 +704,7 @@ void draw()
   if (screen == 5.1)
 
   {
-
+    goSouth=2;
     background(4);
     fill(255);
     textSize(25);
@@ -712,7 +715,7 @@ void draw()
   if (screen == 5.11)
 
   {
-
+    goSouth=3;
     background(4);
     fill(255);
     textSize(25);
@@ -734,7 +737,7 @@ void draw()
   if (screen == 5.121)
 
   {
-
+    goSouth=5;
     background(4);
     fill(255);
     textSize(25);
@@ -769,6 +772,7 @@ void draw()
 
   if (screen == 5.1212)
   {
+    goSouth=1;
     song.rewind();
     song.pause();
     song2.play();
@@ -797,7 +801,7 @@ void draw()
 
   if (screen == 5.1213)
   {
-
+    goSouth=7;
     song2.pause(); 
     background(4);
     fill(255);
@@ -808,7 +812,7 @@ void draw()
 
   if (screen == 5.2)
   {
-
+    goSouth=2;
     bloodstainedNoteGet=true;
     background(4);
     fill(255);
@@ -820,6 +824,7 @@ void draw()
 
   if (screen == 6.0)
   {
+    doNothing=1;
     background(4);
     fill(255);
     textSize(25);
@@ -841,7 +846,7 @@ void draw()
   if (screen == 6.1)
 
   {
-
+    doNothing=2;
     background(4);
     fill(255);
     textSize(25);
@@ -852,7 +857,7 @@ void draw()
   if (screen == 6.2)
 
   { 
-
+    doNothing=3;
     background (4);
     fill(255);
     textSize(25);
@@ -1216,8 +1221,6 @@ void mousePressed() //Used for screen changes in place of actual "buttons"—if 
   }
 
 
-
-
   if ((mouseX >= 1230 && mouseX <= 1345 && mouseY >= 550 && mouseY <= 580 && screen == 1.0 && doNothing == 0) ||
     (mouseX >= 1230 && mouseX <= 1345 && mouseY >= 550 && mouseY <= 580 && screen == 2.01 && doNothing == 0))
 
@@ -1240,67 +1243,14 @@ void mousePressed() //Used for screen changes in place of actual "buttons"—if 
     screen=6.2;
   }
 
-  if ((mouseX >= 1230 && mouseX <= 1345 && mouseY >= 550 && mouseY <= 580 && screen == 2.3) ||   (mouseX >=630 && mouseX <=730 && mouseY >= 550 && mouseY <= 580 && screen == 2.3) || 
-    (mouseX >=930 && mouseX <=1030 && mouseY >= 550 && mouseY <= 580 && screen == 2.3) || 
-    (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 2.3) || 
-    (mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 2.3)) 
+  if ((mouseX >= 1230 && mouseX <= 1345 && mouseY >= 550 && mouseY <= 580 && screen == 2.3) ||
+      (mouseX >=630 && mouseX <=730 && mouseY >= 550 && mouseY <= 580 && screen == 2.3) || 
+      (mouseX >=930 && mouseX <=1030 && mouseY >= 550 && mouseY <= 580 && screen == 2.3) || 
+      (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 2.3) || 
+      (mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 2.3)) 
   {
     goWest += 1;
   }
-
-
-  if ((mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen >= 3.0 && screen < 4.0) ||
-    (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 5.1) ||
-    (mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 3.4) ||
-    (mouseX >= 300 && mouseX <= 530 && mouseY >= 550 && mouseY <= 580 && screen == 2.1) ||
-    (mouseX >= 630 && mouseX <= 730 && mouseY >= 550 && mouseY <= 580 && screen == 3.4) ||
-    (mouseX >= 930 && mouseX <= 1030 && mouseY >= 550 && mouseY <= 580 && screen == 3.4))
-
-
-  {
-
-    goEast += 1;
-  }
-
-
-  if ((mouseX >=630 && mouseX <=730 && mouseY >= 550 && mouseY <= 580 && screen >= 1.0) ||
-    (mouseX >= 630 && mouseX <= 730 && mouseY >= 550 && mouseY <= 580 && screen >= 5.0 && screen < 6.0) ||
-    (mouseX >= 30 && mouseX <=130 && mouseY >= 550 && mouseY <= 580 && screen == 5.11) ||
-    (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 5.11) ||
-    (mouseX >= 930 && mouseX <= 1030 && mouseY >= 550 && mouseY <= 580 && screen == 5.11) ||
-    (mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 5.12) ||
-    (mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 5.121) ||
-    (mouseX >= 800 && mouseX <= 1040 && mouseY >= 550 && mouseY <= 580 && screen == 5.121) ||
-    (mouseX >= 300 && mouseX <= 540 && mouseY >= 550 && mouseY <= 580 && screen == 5.121) ||
-    (mouseX >= width/2 - 100 && mouseX <= width/2 + 100 && mouseY >= 550 && mouseY <= 580 && screen == 5.1211) ||
-    (mouseX >= width/2 - 100 && mouseX <= width/2 + 100 && mouseY >= 550 && mouseY <= 580 && screen == 5.1212)) 
-
-  {
-
-    goSouth += 1;
-  }
-
-
-  if ((mouseX >=930 && mouseX <=1030 && mouseY >= 550 && mouseY <= 580 && screen == 1.0) ||
-    (mouseX >=930 && mouseX <=1030 && mouseY >= 550 && mouseY <= 580 && screen >= 4.0 && screen < 5.0))
-
-  {
-
-    goNorth += 1;
-  }
-
-
-  if ((mouseX >= 1230 && mouseX <= 1345 && mouseY >= 550 && mouseY <= 580 && screen==1.0) ||
-    (mouseX >= 1230 && mouseX <= 1345 && mouseY >= 550 && mouseY <= 580 && screen == 6.0) ||
-    (mouseX >= 1230 && mouseX <= 1345 && mouseY >= 550 && mouseY <= 580 && screen == 6.1) ||
-    (mouseX >= 1230 && mouseX <= 1345 && mouseY >= 550 && mouseY <= 580 && screen == 5.01))
-
-  {
-
-    doNothing +=1;
-  }
-
-
 
   if (mouseX >= 30 && mouseX <= 165 && mouseY >= 680 && mouseY <= 710 && screen >= 1.0)
 
