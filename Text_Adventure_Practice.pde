@@ -9,7 +9,7 @@
  Welcome to the Void.
  
  */
-
+ 
 import ddf.minim.*; 
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
@@ -71,6 +71,7 @@ String screenText[] = {
   "Suddenly, out of nowhere...nothing happens. You continue to do nothing, not even twiddling your thumbs. Never in your life have you felt more lethargic.", //Screen 6.1
   "Suddenly, you fall over backwards, unable to lift your head off the ground. You have literally died of boredom."//Screen 6.2
 };
+
 float screen, r = 70.0; // Float Screen is used to keep track of the "screens"
 int loopCount, tripTimer, doNothing, goWest, goEast, goSouth, goNorth, lookAround, textBoxX = 30, textBoxY = 30, textBoxWidth = 1400, textBoxHeight = 550; // Fairly straightforward, each corrosponds to a respective directional integer, which can be increased/decreased on screen changes in order to corrospond to a certain screen without trigger two buttons at once on sequential screens. However, this system needs to be fixed. The textbox variables are, as can be seen by their naming, variables corrosponding to the textboxes on each screen—textBoxX = x coordinates, textBoxY = y coordinates, textBoxWidth and Height are width and height of the box (point at which text cuts off/goes to new line
 boolean flashlightGet, bloodstainedNoteGet; // Variables for inventory system—may be scrapped if time doesn't permit
