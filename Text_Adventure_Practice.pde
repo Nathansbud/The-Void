@@ -9,7 +9,7 @@
  Welcome to the Void.
  
  */
- 
+
 import ddf.minim.*; 
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
@@ -69,7 +69,8 @@ String screenText[] = {
   "Deciding that your relative safety is more valuable than investigating some unknown hole, you continue without checking it out. Instead, you continue south, sure that your legs will lead you in the right direction. Your eyes have mostly adapted to the darkness, though your vision is still very limited—so much so that your eyes nearly pass over a note in the middle of the path entirely. Hearing the sound of paper beneath your feet, however, you do a double take. There, clear as daylight beneath your foot (if crumbled a little bit from the impact) is a plain white note, scrawled on in near-illegible handwriting. Red splotches adorn the page, splattered here and there, seemingly at random. Is that...blood? Shivering, you attempt to read the note, but are unable to; while your eyes have adjusted to the darkness, it's still not enough for you to make out the wording on the letter. Sighing, you pocket the note, your desire to find a light source rekindled.\n\nWhat will you do?", //Screen 5.2
   "You...did nothing. You remain standing in the blackness, and nothing has happened. Boredom threatens to overwhelm you.", //Screen 6.0
   "Suddenly, out of nowhere...nothing happens. You continue to do nothing, not even twiddling your thumbs. Never in your life have you felt more lethargic.", //Screen 6.1
-  "Suddenly, you fall over backwards, unable to lift your head off the ground. You have literally died of boredom."//Screen 6.2
+  "Suddenly, you fall over backwards, unable to lift your head off the ground. You have literally died of boredom.", //Screen 6.2
+  "Feeling that you still need to communicate with the men, you wave your hands around furiously, hoping they'll reciprocate. Instead, they remain transfixed on the flames in front of them, ignoring your pointless hand waving. Sighing, you relent, moving to sit down next to them to warm yourself at the fire. Neither seems to object to your presence (contrary to what their spear-wielding may have suggested), so you settle down in front of the heat, feeling the warmth return to your fingertips. You hear odd noises coming from deeper in the caves, but neither of the two seem pertubed in the least by the sounds. Against your better judgement, you force your ears to close themselves off to the sounds, instead focusing solely on the crackling of the hearth in front of you.\n\nWhat will you do?", //Screen 2.123
 };
 
 float screen, r = 70.0; // Float Screen is used to keep track of the "screens"
@@ -86,8 +87,9 @@ void setup()
   song = minim.loadFile("Princess of Helium.mp3");
   song2 = minim.loadFile("Coffee Break.mp3");
   song.loop(loopCount); // Minim information
-  tripTimer = millis() + 5000;
+  tripTimer = 0;
   loopCount = 10000;
+  textSize(25);
 }
 
 
@@ -150,9 +152,7 @@ void draw()
   }
 
   if (screen == 2.0) //Go West path; screen >= 2.0 && screen < 3.0 are all west path
-
   {
-
     goWest=1; 
     background(4);
     fill(255);
@@ -162,9 +162,7 @@ void draw()
   }
 
   if (screen == 2.01)
-
   {
-
     background(4);
     fill(255);
     textSize(25);
@@ -179,7 +177,6 @@ void draw()
   }
 
   if (screen == 2.1)
-
   {
     goWest=2;
     background(4);
@@ -190,9 +187,7 @@ void draw()
   }
 
   if (screen == 2.11)
-
   {
-
     background(4);
     fill(255);
     textSize(25);
@@ -206,38 +201,52 @@ void draw()
   }
 
   if (screen == 2.12)
+  {
+    goWest=3;
+    background(4);
+    fill(255);
+    textSize(25);
+    text(screenText[7], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    DrawButtons();
+  }
+
+  if (screen == 2.123)
 
   {
 
     background(4);
     fill(255);
     textSize(25);
-    text(screenText[7], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[50], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    DrawButtons();
+    /*
     rect(30, 550, 225, 30, 15);
-    fill(0);
-    textSize(20);
-    text("Go Further Into Cave", 37, 573);   
-    fill(255);
-    rect(360, 550, 110, 30, 15);
-    fill(0);
-    textSize(20);
-    text("Sit At Fire", 367, 573);
-    fill(255);
-    rect(610, 550, 270, 30, 30);
-    fill(0);
-    textSize(20);
-    text("Try to Communicate Again", 615, 573);
-    fill(255);
-    rect(1000, 550, 120, 30, 30);
-    fill(0);
-    textSize(20);
-    text("Leave Cave", 1007, 573);
-    fill(255);
-    rect(1260, 550, 125, 30, 30);
-    fill(0);
-    textSize(20);
-    text("Do Nothing", 1265, 573);
-    Button("Look Around", 30, 680, 135, 30, 15);
+     fill(0);
+     textSize(20); 
+     text("Go Further Into Cave", 37, 573);   
+     fill(255);
+     rect(360, 550, 110, 30, 15);
+     fill(0);
+     textSize(20);
+     text("Sit At Fire", 367, 573);
+     fill(255);
+     rect(610, 550, 270, 30, 30);
+     fill(0);
+     textSize(20);
+     text("Try to Communicate Again", 615, 573);
+     fill(255);
+     rect(1000, 550, 120, 30, 30);
+     fill(0);
+     textSize(20);
+     text("Leave Cave", 1007, 573);
+     fill(255);
+     rect(1260, 550, 125, 30, 30);
+     fill(0);
+     textSize(20);
+     text("Do Nothing", 1265, 573);
+     Button("Look Around", 30, 680, 135, 30, 15);
+     
+     */
   }
 
   if (screen == 2.13)
@@ -758,7 +767,7 @@ void draw()
     textSize(25);
     text(screenText[43], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     Button("Stop Feeling Weird", width/2 - 100, 550, 200, 30, 15); 
-    if (millis() - tripTimer >= 0)
+    if ((millis() - tripTimer >= 5000))
 
     {
       for (int i = 0; i < 100; i++)
@@ -781,10 +790,15 @@ void draw()
     textSize(25);
     text(screenText[44], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     Button("Stop Feeling Weird", width/2 - 100, 550, 200, 30, 15);   
-    for (int i = 0; i < 100; i++)
+
+    if ((millis() - tripTimer >= 5000))
     {
-      fill(random(255), random(255), random(255));
-      rect(random(1400), random(900), random(100), random(100));
+      for (int i = 0; i < 100; i++)
+      {
+        color c = color(random(255), random(255), random(255));
+        fill(c);
+        ellipse(random(1400), random(900), r, r);
+      }
     }
   }
 
@@ -833,7 +847,6 @@ void draw()
     DrawButtons();
 
     if (lookAround == 1)
-
     {
       background(0);
       fill(255);
@@ -844,7 +857,6 @@ void draw()
   }
 
   if (screen == 6.1)
-
   {
     doNothing=2;
     background(4);
@@ -855,7 +867,6 @@ void draw()
   }
 
   if (screen == 6.2)
-
   { 
     doNothing=3;
     background (4);
@@ -873,237 +884,175 @@ void draw()
 
 
 void keyPressed()
-
 {
 
   if (key == BACKSPACE) //Reset
-
   {
 
     screen=0.1;
   }
 
   if (key == 'r' && screen >= 1.0) //Reset Game
-
   {  
 
     screen=1.0;
   }
 }
 
-
 void mousePressed() //Used for screen changes in place of actual "buttons"—if mouseX, mouseY, screen, and variables are at a certain state, a corrosponding screen change will take place when the mouse is pressed.
-
 {
 
 
   if ((mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 1.0 && goWest == 0)||
     (mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 2.01 && goWest == 0))
-
   {
-
     screen=2.0;
   }
 
   if (mouseX >= 30 && mouseX <= 145 && mouseY >= 550 && mouseY <= 580 && screen == 2.0 && goWest == 1)
-
   {
-
     screen=2.1;
   }
 
   if (mouseX >= 300 && mouseX <= 530 &&  mouseY >= 550 && mouseY <= 580 && screen == 2.1 && goWest == 2)
-
   {
-
     screen=2.11;
   }
 
   if (mouseX >= 610 && mouseX <= 865 &&  mouseY >= 550 && mouseY <= 580 && screen == 2.1 && goWest == 2)
-
   {
-
     screen=2.12;
   }
 
-  if (mouseX >= 960 && mouseX <= 1070 &&  mouseY >= 550 && mouseY <= 580 && screen == 2.1 && goWest == 2)
-
+  if (mouseX >= 610 && mouseX <= 880 &&  mouseY >= 550 && mouseY <= 580 && screen == 2.12 && goWest == 3)
   {
+    screen=2.123;
+  }
 
+  if (mouseX >= 960 && mouseX <= 1070 &&  mouseY >= 550 && mouseY <= 580 && screen == 2.1 && goWest == 2)
+  {
     screen=2.13;
   }
 
-
   if (mouseX >= 1260 && mouseX <= 1385 && mouseY >= 550 && mouseY <= 580 && screen == 2.1 && goWest == 2)
-
   {
-
     screen=2.14;
   }
 
   if (mouseX >= 30 && mouseX <= 150 && mouseY >= 550 && mouseY <= 580 && screen == 2.1 && goWest == 2)
-
   {
 
     screen=2.2;
   }
-
-
-
 
   if ((mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 2.2 && goWest == 3) || 
     (mouseX >=930 && mouseX <=1030 && mouseY >= 550 && mouseY <= 580 && screen == 2.2 && goWest == 3) || 
     (mouseX >=630 && mouseX <=730 && mouseY >= 550 && mouseY <= 580 && screen == 2.2 && goWest == 3) ||
     (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 2.2 && goWest == 3) || 
     (mouseX >= 1230 && mouseX <= 1345 && mouseY >= 550 && mouseY <= 580 && screen == 2.2 && goWest == 3))
-
   {
-
     screen=2.3;
   }
-
 
   if  ((mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 2.3 && goWest == 5) || 
     (mouseX >=930 && mouseX <=1030 && mouseY >= 550 && mouseY <= 580 && screen == 2.3 && goWest == 5) || 
     (mouseX >=630 && mouseX <=730 && mouseY >= 550 && mouseY <= 580 && screen == 2.3 && goWest == 5)||
     (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 2.3 && goWest == 5) || 
     (mouseX >= 1230 && mouseX <= 1345 && mouseY >= 550 && mouseY <= 580 && screen == 2.3 && goWest == 5))
-
   {
-
     screen=2.4;
   }
 
-
   if ((mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 2.4 && goWest == 6) || (mouseX >=930 && mouseX <=1030 && mouseY >= 550 && mouseY <= 580 && screen == 2.4 && goWest == 6) || (mouseX >=630 && mouseX <=730 && mouseY >= 550 && mouseY <= 580 && screen == 2.4 && goWest == 6)||(mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 2.4 && goWest == 6))
-
   {
-
     screen=2.5;
   }
 
   if (mouseX >= 30 && mouseX <= 145 && mouseY >= 550 && mouseY <= 580 && screen == 2.5 && goWest == 7)
-
   {
-
     screen=2.6;
   }
 
   if (mouseX >= 30 && mouseX <= 230 && mouseY >= 550 && mouseY <= 580 && screen == 2.6 && goWest == 8)
-
   {
-
     screen=2.7;
   }
 
   if (mouseX >= 30 && mouseX <= 235 && mouseY >= 550 && mouseY <= 580 && screen == 2.7 && goWest == 9)
-
   {
-
     screen=2.8;
   }
 
   if (mouseX >= 30 && mouseX <= 135 && mouseY >= 550 && mouseY <= 580 && screen == 2.8 && goWest == 10)
-
   {
-
     screen=2.81;
   }
 
   if (mouseX >= 30 && mouseX <= 135 && mouseY >= 550 && mouseY <= 580 && screen == 2.81 && goWest == 11)
-
   {
-
     screen=2.811;
   }
 
   if (mouseX >= 330 && mouseX <= 435 && mouseY >= 550 && mouseY <= 580 && screen == 2.8 && goWest == 10)
-
   {
-
     screen=2.82;
   }
-
-
+  
   if (mouseX >= 630 && mouseX <= 750 && mouseY >= 550 && mouseY <= 580 && screen == 2.8 && goWest == 10)
-
   {
-
     screen=2.83;
   }
-
+  
   if (mouseX >=930 && mouseX <=1050 && mouseY >= 550 && mouseY <= 580 && screen == 2.8 && goWest == 10)
-
   {
-
     screen=2.84;
   }
 
   if (mouseX >=330 && mouseX <=435 && mouseY >= 680 && mouseY <= 710 && screen == 2.84)
-
   {
-
     screen=2.841;
   }
 
   if ((mouseX >= 1230 && mouseX <= 1345 && mouseY >= 550 && mouseY <= 580 && screen == 2.8) ||
     (mouseX >= 1230 && mouseX <= 1345 && mouseY >= 550 && mouseY <= 580 && screen == 2.84))
-
   {
-
     screen=2.85;
   }
 
   if ((mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 1.0 && goEast == 0) ||
     (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 2.01 && goEast == 0))
   {
-
     screen=3.0;
   }
 
   if (mouseX >= 330 && mouseX <= 465 && mouseY >= 680 && mouseY <= 710 && screen == 3.0)
-
   {
-
     screen=3.02;
   }
 
-
   if ((mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 3.0 && goEast == 1) ||
     (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 3.02 && goEast == 1))
-
   {
-
-
     screen=3.1;
   }
 
-
   if (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 3.1 && goEast == 2)
-
   {
-
     screen=3.2;
   }
 
   if (mouseX >= 330 && mouseX <= 465 && mouseY >= 680 && mouseY <= 710 && screen == 3.2)
-
   {
-
     screen=3.21;
   }
 
   if (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 3.2 && goEast == 3)
-
   {
-
     screen=3.3;
   }
 
   if (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 3.3 && goEast == 4)
-
   {
-
     screen=3.4;
   }
 
@@ -1111,67 +1060,49 @@ void mousePressed() //Used for screen changes in place of actual "buttons"—if 
     (mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 3.4 && goEast == 5) ||
     (mouseX >= 630 && mouseX <= 730 && mouseY >= 550 && mouseY <= 580 && screen == 3.4 && goEast == 5) ||
     (mouseX >= 930 && mouseX <= 1030 && mouseY >= 550 && mouseY <= 580 && screen == 3.4 && goEast == 5))
-
   {
-
     screen=3.5;
   }
-
 
   if ((mouseX >=930 && mouseX <=1030 && mouseY >= 550 && mouseY <= 580 && screen == 1.0 && goNorth == 0) ||
     (mouseX >= 930 && mouseX <= 1030 && mouseY >= 550 && mouseY <= 580 && screen == 2.01))
   {
-
     screen=4.0;
   }
 
   if (mouseX >=930 && mouseX <=1030 && mouseY >= 550 && mouseY <= 580 && screen == 4.0 && goNorth == 1)
-
   {
-
     screen=4.1;
   }
 
   //  if (mouseX >=930 && mouseX <=1030 && mouseY >= 550 && mouseY <= 580 && screen == 4.1 && goNorth == 2)
-
   //  {
-
   //    screen=4.2;
   //  }
 
   if ((mouseX >=630 && mouseX <=730 && mouseY >= 550 && mouseY <= 580 && screen == 1.0) ||
     (mouseX >= 630 && mouseX <= 730 && mouseY >= 550 && mouseY <= 580 && screen == 2.01))
-
   {
-
     screen=5.0;
   }
 
   if (mouseX >= 30 && mouseX <= 165 && mouseY >= 680 && mouseY <= 710 && screen == 5.0 && lookAround == 0)
-
   {
-
     screen=5.01;
   }
 
   if (mouseX >= 1230 && mouseX <= 1345 && mouseY >= 550 && mouseY <= 580 && screen == 5.01 && lookAround == 1)
-
   {
-
     screen=5.011;
   }
 
   if (mouseX >=630 && mouseX <=730 && mouseY >= 550 && mouseY <= 580 && screen == 5.0 && goSouth == 1)
-
   {
-
     screen=5.1;
   }
 
   if (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 5.1 && goSouth == 2)
-
   {
-
     screen=5.11;
   }
 
@@ -1180,109 +1111,83 @@ void mousePressed() //Used for screen changes in place of actual "buttons"—if 
     (mouseX >= 630 && mouseX <= 730 && mouseY >= 550 && mouseY <= 580 && screen == 5.11 & goSouth == 3) ||
     (mouseX >= 930 && mouseX <= 1030 && mouseY >= 550 && mouseY <= 580 && screen == 5.11 & goSouth == 3))
   {
-
     screen=5.12;
   }
 
   if (mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 5.12 && goSouth == 4)
-
   {
-
     screen=5.121;
   }
 
   if (mouseX >= 300 && mouseX <= 540 && mouseY >= 550 && mouseY <= 580 && screen == 5.121 && goSouth == 5)
-
   {
-
     screen=5.1211;
   }
 
   if (mouseX >= 800 && mouseX <= 1040 && mouseY >= 550 && mouseY <= 580 && screen == 5.121 && goSouth == 5)
-
   {
-
     screen=5.1212;
   }
 
   if ((mouseX >= width/2 - 100 && mouseX <= width/2 + 100 && mouseY >= 550 && mouseY <= 580 && screen == 5.1211 && goSouth == 6) ||
     (mouseX >= width/2 - 100 && mouseX <= width/2 + 100 && mouseY >= 550 && mouseY <= 580 && screen == 5.1212 && goSouth == 6))
-
   {
-
     screen=5.1213;
   }
 
   if (mouseX >=630 && mouseX <=730 && mouseY >= 550 && mouseY <= 580 && screen == 5.1 && goSouth == 2)
-
   {
-
     screen=5.2;
   }
 
 
   if ((mouseX >= 1230 && mouseX <= 1345 && mouseY >= 550 && mouseY <= 580 && screen == 1.0 && doNothing == 0) ||
     (mouseX >= 1230 && mouseX <= 1345 && mouseY >= 550 && mouseY <= 580 && screen == 2.01 && doNothing == 0))
-
   {
-
     screen=6.0;
   }
 
   if (mouseX >= 1230 && mouseX <= 1345 && mouseY >= 550 && mouseY <= 580 && screen == 6.0 && doNothing == 1)
-
   {
-
     screen=6.1;
   }
 
   if (mouseX >= 1230 && mouseX <= 1345 && mouseY >= 550 && mouseY <= 580 && screen == 6.1 && doNothing == 2)
-
   {
-
     screen=6.2;
   }
 
   if ((mouseX >= 1230 && mouseX <= 1345 && mouseY >= 550 && mouseY <= 580 && screen == 2.3) ||
-      (mouseX >=630 && mouseX <=730 && mouseY >= 550 && mouseY <= 580 && screen == 2.3) || 
-      (mouseX >=930 && mouseX <=1030 && mouseY >= 550 && mouseY <= 580 && screen == 2.3) || 
-      (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 2.3) || 
-      (mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 2.3)) 
+    (mouseX >=630 && mouseX <=730 && mouseY >= 550 && mouseY <= 580 && screen == 2.3) || 
+    (mouseX >=930 && mouseX <=1030 && mouseY >= 550 && mouseY <= 580 && screen == 2.3) || 
+    (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 2.3) || 
+    (mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 2.3)) 
   {
     goWest += 1;
   }
 
   if (mouseX >= 30 && mouseX <= 165 && mouseY >= 680 && mouseY <= 710 && screen >= 1.0)
-
   {
-
     lookAround += 1;
   }
 }
 
 
 void mouseReleased() // Certain buttons are in void mouseReleased due to overlapping issues not fixed by variable, though likely now just a relic of poor organization
-
 {
 
   if (mouseX >= width/2 - 100 && mouseX <= width/2 && mouseY >= 550 && mouseY <= 580 && screen == 0.1)
-
   {
-
     screen=1.0;
   }
 
   if (mouseX >= width/2 - 100 && mouseX <= width/2 && mouseY >= 600 && mouseY <= 630 && screen == 0.1)
-
   {
-
     screen=0.2;
   }
 
   if (mouseX >= width/2 - 100 && mouseX <= width/2 && mouseY >= 650 && mouseY <= 680 && screen == 0.1)
-
   {
-
     exit();
   }
 
@@ -1292,10 +1197,7 @@ void mouseReleased() // Certain buttons are in void mouseReleased due to overlap
     (mouseX >= width/2 - 100 && mouseX <= width/2 && mouseY >= 550 && mouseY <= 580 && screen == 2.811) ||
     (mouseX >= width/2 - 100 && mouseX <= width/2 && mouseY >= 550 && mouseY <= 580 && screen == 4.1) ||
     (mouseX >= width/2 - 100 && mouseX <= width/2 && mouseY >= 550 && mouseY <= 580 && screen == 6.2))
-
-
   {
-
     screen=1.0;
     doNothing=0;
     goWest=0;
@@ -1306,39 +1208,29 @@ void mouseReleased() // Certain buttons are in void mouseReleased due to overlap
   }
 
   if (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 2.0 && goWest == 1)
-
   {
-
     screen=2.01;
   }
 }
 
 void Inventory() // Custom function which shows your current inventory
-
 {
-
+ 
   if (flashlightGet == true)
-
   {
-
     fill(255);
     textSize(20);
     text("Items: Flashlight", width/2 - 115, height - 50);
   }
-
   if (bloodstainedNoteGet == true)
-
   {
-
     fill(255);
     textSize(20);
     text("Items: Stained Note", width/2 - 115, height - 50);
   }
 
   if (bloodstainedNoteGet == true && flashlightGet == true)
-
   {
-
     fill(255);
     textSize(20);
     text("Items: Flashlight, Stained Note", width/2 - 200, height - 50);
@@ -1347,11 +1239,9 @@ void Inventory() // Custom function which shows your current inventory
 
 
 void DrawButtons() //Custom function which draws the buttons rather than relying on drawing them in each screen. 
-
 {
 
   if (screen == 0.1)
-
   {
     Button("Start", width/2 - 100, 550, 100, 30, 15);
     Button("About", width/2 - 100, 600, 100, 30, 15);
@@ -1359,7 +1249,6 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
   }
 
   if (screen == 2.0)
-
   {
     Button("Enter Cave", 30, 550, 115, 30, 15);
     Button("Go East", 330, 550, 100, 30, 15);
@@ -1370,9 +1259,7 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
   }
 
   if (screen == 2.1)
-
   {
-
     Button("Grab Rocks", 30, 550, 120, 30, 15);
     Button("Run Further Into Cave", 300, 550, 230, 30, 15);
     Button("Attempt to Communicate", 610, 550, 255, 30, 15);
@@ -1381,10 +1268,18 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
     Button("Look Around", 30, 680, 135, 30, 15);
   }
 
-  if ((screen == 2.2) || (screen == 2.3))
-
+  if (screen == 2.12)
   {
+    Button("Go Further Into Cave", 30, 550, 225, 30, 15);   
+    Button("Sit At Fire", 360, 550, 110, 30, 15);
+    Button("Try to Communicate Again", 610, 550, 270, 30, 15);
+    Button("Leave Cave", 1000, 550, 120, 30, 15);
+    Button("Do Nothing", 1260, 550, 125, 30, 15);
+    Button("Look Around", 30, 680, 135, 30, 15);
+  }
 
+  if ((screen == 2.2) || (screen == 2.3))
+  {
     Button("Zzz? Zzz", 30, 550, 100, 30, 15);
     Button("Zzz, zzz", 330, 550, 100, 30, 15);
     Button("Zzz.....", 630, 550, 100, 30, 15);
@@ -1393,7 +1288,6 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
   }
 
   if (screen == 2.4)
-
   {
     Button("Wake Up", 30, 550, 100, 30, 15);
     Button("Wake Up", 330, 550, 100, 30, 15);
@@ -1403,9 +1297,7 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
   } 
 
   if (screen == 2.8)
-
   {
-
     Button("Run Away", 30, 550, 105, 30, 15);
     Button("Play Dead", 330, 550, 105, 30, 15);
     Button("Grab Torch", 630, 550, 120, 30, 15);
@@ -1415,9 +1307,7 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
   }
 
   if (screen == 3.0)
-
   {
-
     Button("Go West", 30, 550, 100, 30, 15);
     Button("Go East", 330, 550, 100, 30, 15);
     Button("Go South", 630, 550, 100, 30, 15);
@@ -1428,9 +1318,7 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
   }
 
   if (screen == 3.2)
-
   {
-
     Button("Go West", 30, 550, 100, 30, 15);
     Button("Go East", 330, 550, 100, 30, 15);
     Button("Go South", 630, 550, 100, 30, 15);
@@ -1441,9 +1329,7 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
   }
 
   if (screen == 3.4)
-
   {
-
     Button("Struggle", 30, 550, 100, 30, 15);
     Button("Struggle", 330, 550, 100, 30, 15);
     Button("Struggle", 630, 550, 100, 30, 15);
@@ -1453,9 +1339,7 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
   }
 
   if (screen == 5.11)
-
   {
-
     Button("Descend", 30, 550, 100, 30, 15);
     Button("Descend", 330, 550, 100, 30, 15);
     Button("Descend", 630, 550, 100, 30, 15);
@@ -1465,21 +1349,16 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
   }
 
   if ((screen == 2.82) || (screen == 2.841) ||(screen == 2.85) || (screen == 2.811) || (screen == 4.1) || (screen == 6.2))
-
   {
-
     Button("Restart", width/2 - 100, 550, 100, 30, 15);
   }
-
 
   if (screen != 0.1 && screen != 2.0 && screen != 2.4 && screen != 3.0 
     && screen != 2.85 && screen != 4.1 && screen != 6.2 && screen != 2.1 
     && screen != 2.2 && screen != 2.3 && screen != 3.2 && screen != 2.841
     && screen != 3.4 && screen != 2.811 && screen != 2.8 && screen != 2.82
-    && screen != 5.11) //This is the default set of buttons—if screen != the above values, this will be the DrawButtons that shows ups
-
+    && screen != 5.11 && screen != 2.12) //This is the default set of buttons—if screen != the above values, this will be the DrawButtons that shows ups
   {
-
     Button("Go West", 30, 550, 100, 30, 15);
     Button("Go East", 330, 550, 100, 30, 15);
     Button("Go South", 630, 550, 100, 30, 15);
@@ -1491,13 +1370,10 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
 
 
 void Button(String labelText, int posX, int posY, int buttonWidth, int buttonHeight, int buttonCurve) // Custom function Button, which allows DrawButtons to function in the first place.
-
 {
 
   if (screen != 0.1)
-
   {
-
     fill(255);
     rect(posX, posY, buttonWidth, buttonHeight, buttonCurve);
     fill(0);
@@ -1506,9 +1382,7 @@ void Button(String labelText, int posX, int posY, int buttonWidth, int buttonHei
   }
 
   if (screen == 0.1)
-
   {
-
     fill(255);
     rect(posX, posY, buttonWidth, buttonHeight, buttonCurve);
     fill(0);
