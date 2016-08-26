@@ -19,7 +19,7 @@ import ddf.minim.ugens.*;
 Minim minim;
 AudioPlayer song, song2;
 AudioInput input; // All the information above is for the Minim library, to play songs
-String screenText[] = { 
+String screenText[] = { //Array usage to store screen text, each line marked for its respective screen—will be transferred to a text file soon.
   "Welcome to the Void", //Screen 0.1
   "Hi! I'm Zack, though I tend to go by the pseudonym ''Nathansbud.'' I've been enamored with coding lately, so I decided to attempt a quote-on-quote text adventure. It's a work in progress! Unfortunately, since I'm still VERY much a beginner (and thus, lacking knowledge of most coding-y things), this process is pretty tedious. Hopefully I finish before I die from exaustion.\n\n\nWish me luck!\n\n\n\n\n...and also hit delete because I really didn't want to code in a button. Thanks! If you ever want to go back to the beginning, just hit the respective key (delete will take you back to the intro, r to the beginning of The Void once you've hit start on the intro page).", //Screen 0.2 
   "You wake up in a black void. An eerie silence hangs in the air, little visible save for an almost unnoticable source of light to the west. To the north, south, and east, not much can be seen, though stumbling off in the darkness is a viable possibility nonetheless.\n\n\nWhat will you do?", //Screen 1.0
@@ -28,7 +28,7 @@ String screenText[] = {
   "Entering the cave, you see three hooded figures sitting around a campfire. Evidently, this was the source of the light. The tallest of the three looks up from the flames, before barking at the other two in a language you can't understand. The three stand in unison, grabbing what appears to be a stone-tipped spear from the back of their robes. Grunting, they advance towards you at a frightening rate, the heads of their spears getting closer and closer by the second. On the ground near your foot you spot a few jagged rocks, but no other form of weaponry is in sight.\n\nWhat will you do?", //Screen 2.1
   "Fearing for your life, you make a mad dash past the three figures, choosing the rash decision to descend deeper into the cave. Startled by your sudden movements, the nearest one jabs his spear into your side, causing you to cry out in pain. And, from the looks in the other two's eyes, it doesn't seem like their thoughts are very far from their comrade's. So, ignoring the throbbing pain and outpouring of blood, you sprint as well as you can manage down into the depths of the cave, praying for safety. Instead of safety, it seems that the only thing in the depths at the present time is...more hooded people. Rats. Their conversation dies down instantly as they all whip around to glare at you. Double rats. For a few seconds, nobody moves, the air frozen in anticipation. Then, the hooded figures take note of your wounded side, and grab their own respective spears. Why does everybody in this stupid cave have to have spears? Sighing, you try and think up a plan as quickly as you can. Indeed, it seems like your friends from earlier caught wind of this, as they approach behind you, eager to help your brainstoring process. Triple. Rats.\n\nWhat will you do?", //Screen 2.11
   "Trying to figure out a way to communicate, you yell ''stop,'' but they don't seem to understand. That, or ''stop'' to them means ''go twice as fast,'' which is what they decide to do. The pointy end nearing, you wave your hands in the air, though that too appeared to have no affect on the men. Out of options, you close your eyes and put a hand out in front of you—if that doesn't work, nothing else will. Resigning yourself to your wait, you close your eyes and wait...yet, nothing happens. Worried that you've just gone numb from the excruciating pain, you open one eye, only to see the men crouching with their spears on the ground in front of them. They...stopped? Apparently your communication tactic worked. They seem fairly docile now, and two already moved back to the campfire.\n\nWhat will you do?", //Screen 2.12
-  "Dankest", //Screen 2.13, placeholder
+  "Valuing your life over your curiosity, you hightail it out of there, not even stopping to glance back at the figures. Though you can't hear any sounds of pursuit, you continue to run as fast as your little legs can carry you, panting all the while—you're not exactly the picture of fitness, unfortunately. Short of breath, you collapse, a safe-feeling distance away from the entrance of the gave. Coincidentally, you happen to be incredibly close to where you initially started, making things very easy in terms of reorienting yourself. You can choose to go back into the cave (though the figures still inhabit it), or head out into the darkness of the south, east, and north. Either way, you need a moment to catch your breath.\n\nWhat will you do?", //Screen 2.13, placeholder
   "DankestMemes", //Screen 2.14, placeholder
   "Bending down, you grab as many rocks as you can, hurling them at the approaching figures. Unfortunately, rather\nthan slowing down, they speed up their approach, clearly angered by being hurled rocks at. A stone connects with\nthe nearest one's head, causing him to stumble backwards, but the other two are nearly an arm's length away.\nPicking up another stone is futile, and one of the figures thrusts outwards with the spear, jabbing you in the side.\n\nImmediately, searing pain travels throughout your body, and your vision clouds. Blood begins gushing out of the wound, and you have to clench your fists to stop from passing out. Even still, you fall over backwards, out cold. The men put down their spears, lifting you and moving your body over to the fireplace. Attempting to cauterize the wound, one of the figures thrusts their spear into the flames, holding the stone to the wound. The other grabs a length of cloth, tightly wrapping the wound to stop the blood flow. Who are these men? Why are they here? What do they want? What will you do?\n\n(Hint: Nothing, you're passed out)", //Screen 2.2
   "Zzzz, zzz zzzzzz zz z. Zzz, zz! Zzzz, zz? Z, zzz, zzzzzzz...zzz...z. Zzz. Z. Z? Z! Zzzzzzzz...\n\nZzz...zzzzzzzzzzzz...! Z. Z. Zzzzz...! Zzz zzzz z z zz zzzz zzzz zzz.", //Screen 2.3
@@ -52,7 +52,7 @@ String screenText[] = {
   "Choosing the wisest option for your safety, you decide to give the rope trap a wide berth, continuing on in the direction you intended. The kind of people who set traps in the dark don't seem like the kind of people you want to associate with in your current defenseless state. So, quiet as a whisper, you tread east, hoping to find some way of understanding where you are and what you're meant to be doing. Much to your dismay, the trees don't seem to have mouths, and if they do, they seem to be quite tight-lipped about your current situation. Mentally cursing them out as loudly as you can, you wave your fists angrily in their general direction. Damn trees. You almost fail to notice another rope trap to your right in your anger at the trees, though luckily, you managed to take note of it before triggering it, and are able to walk off unscathed. Betrayed, you glare at the trees. This was probably their doing.\n\nWhat will you do?", //Screen 3.3
   "Not concerned by the first nor the second rope trap, you continue east; no pesky traps will stop you from getting to where you want to go. You spot multiple more rope traps around your path, but ignore them completely. Even still, giving them as little thought as you are attempting to do, it's hard not to notice their increasing frequency. Along with the sudden rise in rope traps, there seems to be a noticable rise in light level. And, since it doesn't seem to be sunlight (if there even is sunlight wherever you are), the light has to be coming from somebody...or, well, something. Unsure of whether or not this equates news or bad news, you continue walking, hoping moreso for the former than the latter. However, due to your emphatic trap-ignoring mindset, the rope in the middle of your pathway goes unnoticed until you step right into the middle of it, sweeping you up into a net. Damn it. You hear yelling in the distance, and the source of light seems to be nearing you.\n\nWhat will you do?", //Screen 3.4
   "Struggling in the rope trap is getting you nowhere, and the pitter-patter of approaching footsteps has nearly reached a defeaning volume. With no form of escape from the net besides cutting yourself out, your options seem rather slim for the time being. And, seeing as the gaps in the net aren't large enough for you to attempt to squeeze through, you're probably going to be making some friends fairly soon. With the uncanny ability things have to appear right after you think of them, the oncoming stampede arrives, brandishing torches and what appears to be...bows? Whatever they are, they certainly don't look pleasant. The nearest one—their chief, from the looks of things—points at you and yells up at you in a hard to understand accent, though is speaking English nonetheless.\n\n''Who...are you? Why have you come to our lands?'' You stare back bewildered, though grateful for some human interaction. Gesturing to two men in the back, the leader steps forward, cutting you down from the net. ''Come,'' he says, nodding. What will you do?", //Screen 3.5
-  "Ipsen", //Screen 3.6, placeholder
+  "Ignoring the fact that the men were the reason you were caught in a trap in the first place, you jog after them, quickly closing the distance. The apparent chief turns his head around, acknowledging your presence, then shifts to look ahead—judging by the speed at which they reached you, it doesn't seem too far-fetched to assumed that the people live nearby. However, it may have simply been your mind playing tricks on you out of fear, as you seem to be a ways away. None of the men walk next to you, instead choosing to walk in an organized march, side-by-side in rows of three. None of the men seem to pass in front of the head of the pack, the chief—and, judging by the overall silence and unquestioning of his commands, he seems to be the leader of this group of people.\n\nAfter a few more minutes, you notice the tip of a hut on the horizon, then another, then another. Your eyes strain from the sudden light (strangely masked before), but you're thankful to be rid of the darkness nonetheless. As the men poor into the makeshift village, they disperse, breaking the army-like marching rows. The chief himself stays behind, beckoning to you as he steps into a large in front of you, by far the largest of the bunch. What will you do?", //Screen 3.6, placeholder
   "Making the choice to go north, you go on a walk of faith in the darkness, trusting your instincts not to lead you\nastray. Hopefully, the north will remember that you've chosen it as your path over all the others—apparently, it has a fairly solid memory. Unlike the other paths, the northern one seems to feel more...open, in a sense, almost as if you're nearing a clearing. The silence seems even quieter, in a way, ominously building up to something. But what could be in this ''clearing''? Continuining onwards, you proceed with a greater sense of caution, wary of anything that could happen in the open space.\n\nBut enough about that—driving any worried thoughts from your mind, you pause, catching your breath.\n\n\nWhat will you do?", //Screen 4.0
   "This already boring-seeming path seems increasingly less interesting the more you walk. Fears of predators are quickly replaced by the unrelenting pain of pure boredom, even in this unknown world. If a diety was in charge of\ncreating the paths you walk along, he seriously decided to make this one as boring as possible. You contemplate a\nnap, but decide against it—that'll be reservered for when you can take the boredom no longer. Must. Keep. Walking.\nCan't...fall...a...sleep........AWAKE! You're awake, you didn't even come CLOSE to thinking of falling asleep. Instead, you fill your mind with thoughts of adventure. This certainly feels adventure-y, doesn't it? Well, maybe a part of the adventure that would be cut out of the story books, but what can you do? Sighing, you step over a rock in the\npath (sadly, the most interesting part thus far), and...\n\n...plummet? Yes, in your boredom-ridden state, you failed to notice the literal cliff you just stepped off of, plummeting straight to your death, thousands of feet below. Rest in pieces.", //Screen 4.1
   "a", //Screen 4.2, placeholder
@@ -73,36 +73,28 @@ String screenText[] = {
   "Feeling that you still need to communicate with the men, you wave your hands around furiously, hoping they'll reciprocate. Instead, they remain transfixed on the flames in front of them, ignoring your pointless hand waving. Sighing, you relent, moving to sit down next to them to warm yourself at the fire. Neither seems to object to your presence (contrary to what their spear-wielding may have suggested), so you settle down in front of the heat, feeling the warmth return to your fingertips. You hear odd noises coming from deeper in the caves, but neither of the two seem pertubed in the least by the sounds. Against your better judgement, you force your ears to close themselves off to the sounds, instead focusing solely on the crackling of the hearth in front of you.\n\nWhat will you do?", //Screen 2.123
 };
 
-float screen, r = 70.0; // Float Screen is used to keep track of the "screens"
+float screen; // r = 70.0; // Float Screen is used to keep track of the "screens," 
 int loopCount, tripTimer, doNothing, goWest, goEast, goSouth, goNorth, lookAround, textBoxX = 30, textBoxY = 30, textBoxWidth = 1400, textBoxHeight = 550; // Fairly straightforward, each corrosponds to a respective directional integer, which can be increased/decreased on screen changes in order to corrospond to a certain screen without trigger two buttons at once on sequential screens. However, this system needs to be fixed. The textbox variables are, as can be seen by their naming, variables corrosponding to the textboxes on each screen—textBoxX = x coordinates, textBoxY = y coordinates, textBoxWidth and Height are width and height of the box (point at which text cuts off/goes to new line
 boolean flashlightGet, bloodstainedNoteGet; // Variables for inventory system—may be scrapped if time doesn't permit
 
-
 void setup()
-
 {
   fullScreen();
   screen = 0.1;
-  minim = new Minim(this);
+  minim = new Minim(this); 
   song = minim.loadFile("Princess of Helium.mp3");
-  song2 = minim.loadFile("Coffee Break.mp3");
-  song.loop(loopCount); // Minim information
-  tripTimer = 0;
+  song2 = minim.loadFile("Coffee Break.mp3"); 
+  song.loop(loopCount);
   loopCount = 10000;
-  textSize(25);
+  tripTimer = 0; //Timer variable for drug trip
 }
 
 
 void draw()
-
 {
 
-
-
   if (screen == 0.1) //Intro Screen
-
   {
-
     background(4);
     fill(255);
     textSize(50);
@@ -117,9 +109,7 @@ void draw()
   }
 
   if (screen == 0.2) //About Screen
-
   {
-
     background(255);
     fill(0);
     textSize(25);
@@ -127,7 +117,6 @@ void draw()
   }
 
   if (screen == 1.0) //Start of Void
-
   {
     background(0);
     fill(255);
@@ -211,9 +200,7 @@ void draw()
   }
 
   if (screen == 2.123)
-
   {
-
     background(4);
     fill(255);
     textSize(25);
@@ -250,44 +237,22 @@ void draw()
   }
 
   if (screen == 2.13)
-
   {
-
+    goWest=3;
     background(4);
     fill(255);
     textSize(25);
-    text(screenText[8], textBoxX, textBoxY, textBoxWidth, textBoxHeight); //Screen not finished text-wise, screen has been created, though
-    rect(30, 550, 120, 30, 15);
-    fill(0);
-    textSize(20);
-    text("Grab Rocks", 37, 573);   
-    fill(255);
-    rect(300, 550, 230, 30, 15);
-    fill(0);
-    textSize(20);
-    text("Run Further Into Cave", 310, 573);
-    fill(255);
-    rect(610, 550, 255, 30, 30);
-    fill(0);
-    textSize(20);
-    text("Attempt to Communicate", 615, 573);
-    fill(255);
-    rect(960, 550, 110, 30, 30);
-    fill(0);
-    textSize(20);
-    text("Run Away", 965, 573);
-    fill(255);
-    rect(1260, 550, 125, 30, 30);
-    fill(0);
-    textSize(20);
-    text("Do Nothing", 1265, 573);
+    text(screenText[8], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    Button("Turn Around", 30, 550, 135, 30, 15);
+    Button("Go East", 330, 550, 100, 30, 15);
+    Button("Go South", 630, 550, 100, 30, 15);
+    Button("Go North", 930, 550, 100, 30, 15);
+    Button("Do Nothing", 1230, 550, 125, 30, 15);
     Button("Look Around", 30, 680, 135, 30, 15);
   }
 
   if (screen == 2.14)
-
   {
-
     background(4);
     fill(255);
     textSize(25);
@@ -320,7 +285,6 @@ void draw()
   }
 
   if (screen == 2.2)
-
   {
     goWest=3;
     background(4);
@@ -331,9 +295,7 @@ void draw()
   }
 
   if (screen == 2.3)
-
   {
-
     background (4);
     fill(255);
     textSize(25);
@@ -342,7 +304,6 @@ void draw()
   }
 
   if (screen == 2.4)
-
   {
     goWest=6;
     background(4);
@@ -353,7 +314,6 @@ void draw()
   }
 
   if (screen == 2.5)
-
   {
     goWest=7;
     background(4);
@@ -384,7 +344,6 @@ void draw()
   }
 
   if (screen == 2.6)
-
   {
     goWest=8;
     background(4);
@@ -415,7 +374,6 @@ void draw()
   }
 
   if (screen == 2.7)
-
   {
     goWest=9;
     background(4);
@@ -446,7 +404,6 @@ void draw()
   }
 
   if (screen == 2.8)
-
   {
     goWest=10;
     background(4);
@@ -457,7 +414,6 @@ void draw()
   }
 
   if (screen == 2.81)
-
   {
     goWest=11;
     background(4);
@@ -468,7 +424,6 @@ void draw()
   }
 
   if (screen == 2.811)
-
   {
 
     background(4);
@@ -479,7 +434,6 @@ void draw()
   }
 
   if (screen == 2.82)
-
   {
 
     background(4);
@@ -490,7 +444,6 @@ void draw()
   }
 
   if (screen == 2.83)
-
   {
 
     background(4);
@@ -501,9 +454,7 @@ void draw()
   }
 
   if (screen == 2.84)
-
   {
-
     background(4);
     fill(255);
     textSize(25);
@@ -513,9 +464,7 @@ void draw()
   }
 
   if (screen == 2.841)
-
   {
-
     background(4);
     fill(255);
     textSize(25);
@@ -524,7 +473,6 @@ void draw()
   }
 
   if (screen == 2.85)
-
   {
 
     background(4);
@@ -534,8 +482,7 @@ void draw()
     DrawButtons();
   }
 
-  if (screen == 3.0)
-
+  if (screen == 3.0) //Go East path, 3.0 -> 3.999...
   {
     goEast=1;
     background(4);
@@ -546,7 +493,6 @@ void draw()
   }
 
   if (screen == 3.02)
-
   {
     goEast=1;
     background(4);
@@ -557,7 +503,6 @@ void draw()
   }
 
   if (screen == 3.1)
-
   {
     goEast=2;
     background(4);
@@ -568,7 +513,6 @@ void draw()
   }
 
   if (screen == 3.2)
-
   {
 
     goEast=3;
@@ -580,7 +524,6 @@ void draw()
   }
 
   if (screen == 3.21)
-
   {
 
     background(4);
@@ -591,7 +534,6 @@ void draw()
   }
 
   if (screen == 3.3)
-
   {
     goEast=4;
     background(4);
@@ -602,7 +544,6 @@ void draw()
   }
 
   if (screen == 3.4)
-
   {
     goEast=5;
     background(4);
@@ -613,20 +554,22 @@ void draw()
   }
 
   if (screen == 3.5)
-
   {
     goEast=6;
     background(4);
     fill(255);
     textSize(25);
     text(screenText[31], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
-    DrawButtons();
+    Button("Run Away", 30, 550, 105, 30, 15);
+    Button("Follow Men", 330, 550, 120, 30, 15);
+    Button("Go South", 630, 550, 100, 30, 15);
+    Button("Go North", 930, 550, 100, 30, 15);
+    Button("Do Nothing", 1230, 550, 125, 30, 15);
+    Button("Look Around", 30, 680, 135, 30, 15);
   }
 
   if (screen == 3.6)
-
   {
-
     background(4);
     fill(255);
     textSize(25);
@@ -634,10 +577,8 @@ void draw()
     DrawButtons();
   }
 
-  if (screen == 4.0)
-
+  if (screen == 4.0) //Go North, 4.0 -> 4.999...
   {
-
     goNorth=1;
     background(4);
     fill(255);
@@ -647,9 +588,7 @@ void draw()
   }
 
   if (screen == 4.1)
-
   {
-
     goNorth=2;
     background(4);
     fill(255);
@@ -659,10 +598,7 @@ void draw()
   }
 
   //  if (screen == 4.2)
-
   //  {
-
-
   //    background(4);
   //    fill(255);
   //    textSize(25);
@@ -670,10 +606,8 @@ void draw()
   //    DrawButtons();
   //  }
 
-  if (screen == 5.0)
-
+  if (screen == 5.0) //Go South, 5.0 -> 5.999...
   {
-
     goSouth=1;
     lookAround=0;
     background(4);
@@ -684,7 +618,6 @@ void draw()
   }
 
   if (screen == 5.01)
-
   {
     goSouth=1; 
     lookAround=1;
@@ -698,7 +631,6 @@ void draw()
   }
 
   if (screen == 5.011)
-
   {
     flashlightGet=true;
     background(50);
@@ -709,9 +641,7 @@ void draw()
     Inventory();
   }
 
-
   if (screen == 5.1)
-
   {
     goSouth=2;
     background(4);
@@ -722,7 +652,6 @@ void draw()
   }
 
   if (screen == 5.11)
-
   {
     goSouth=3;
     background(4);
@@ -733,7 +662,6 @@ void draw()
   }
 
   if (screen == 5.12)
-
   {
     goSouth=4;
     background(4);
@@ -744,7 +672,6 @@ void draw()
   }
 
   if (screen == 5.121)
-
   {
     goSouth=5;
     background(4);
@@ -756,7 +683,6 @@ void draw()
   }
 
   if (screen == 5.1211)
-
   {
     goSouth=6;
     song.rewind();
@@ -768,20 +694,19 @@ void draw()
     text(screenText[43], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     Button("Stop Feeling Weird", width/2 - 100, 550, 200, 30, 15); 
     if ((millis() - tripTimer >= 5000))
-
     {
       for (int i = 0; i < 100; i++)
       {
         color c = color(random(255), random(255), random(255));
         fill(c);
-        ellipse(random(1400), random(900), r, r);
+        ellipse(random(1400), random(900), 70, 70);
       }
     }
   }
 
   if (screen == 5.1212)
   {
-    goSouth=1;
+    goSouth=6;
     song.rewind();
     song.pause();
     song2.play();
@@ -790,27 +715,22 @@ void draw()
     textSize(25);
     text(screenText[44], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     Button("Stop Feeling Weird", width/2 - 100, 550, 200, 30, 15);   
-
     if ((millis() - tripTimer >= 5000))
     {
       for (int i = 0; i < 100; i++)
       {
         color c = color(random(255), random(255), random(255));
         fill(c);
-        ellipse(random(1400), random(900), r, r);
+        rect(random(1400), random(900), random(100), random(100));
       }
     }
   }
 
   if (screen != 5.1211 && screen != 5.1212)
-  {
+  {    
     song2.rewind();
     song2.pause();
-
-    if (loopCount <= 10000)
-    {
-      song.play();
-    }
+    song.play();
   }
 
   if (screen == 5.1213)
@@ -836,7 +756,7 @@ void draw()
     Inventory();
   }
 
-  if (screen == 6.0)
+  if (screen == 6.0) //Do Nothing, 6.0 -> 6.999...
   {
     doNothing=1;
     background(4);
@@ -878,7 +798,7 @@ void draw()
 
   println("Screen: " + screen, "Go West: " + goWest, "Go East: " + goEast, "Go South: "
     + goSouth, "Go North: " + goNorth, "DoNothing: " + doNothing, "Look Around: " + lookAround, 
-    "Time: " + millis()); //Prints screen number and state of variables to console for easier editing while game is open
+    "Time: " + millis(), "Song Loop Status: " + isLooping()); //Prints screen number and state of variables to console for easier editing while game is open
 }
 
 
@@ -997,12 +917,12 @@ void mousePressed() //Used for screen changes in place of actual "buttons"—if 
   {
     screen=2.82;
   }
-  
+
   if (mouseX >= 630 && mouseX <= 750 && mouseY >= 550 && mouseY <= 580 && screen == 2.8 && goWest == 10)
   {
     screen=2.83;
   }
-  
+
   if (mouseX >=930 && mouseX <=1050 && mouseY >= 550 && mouseY <= 580 && screen == 2.8 && goWest == 10)
   {
     screen=2.84;
@@ -1063,6 +983,13 @@ void mousePressed() //Used for screen changes in place of actual "buttons"—if 
   {
     screen=3.5;
   }
+
+
+  if (mouseX >= 330 && mouseX <=450 && mouseY >= 550 && mouseY <= 580 && screen == 3.5 && goEast == 6)
+  {
+    screen=3.6;
+  }
+
 
   if ((mouseX >=930 && mouseX <=1030 && mouseY >= 550 && mouseY <= 580 && screen == 1.0 && goNorth == 0) ||
     (mouseX >= 930 && mouseX <= 1030 && mouseY >= 550 && mouseY <= 580 && screen == 2.01))
@@ -1215,7 +1142,7 @@ void mouseReleased() // Certain buttons are in void mouseReleased due to overlap
 
 void Inventory() // Custom function which shows your current inventory
 {
- 
+
   if (flashlightGet == true)
   {
     fill(255);
