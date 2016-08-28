@@ -30,7 +30,7 @@ String screenText[] = { //Array usage to store screen text, each line marked for
   "Trying to figure out a way to communicate, you yell ''stop,'' but they don't seem to understand. That, or ''stop'' to them means ''go twice as fast,'' which is what they decide to do. The pointy end nearing, you wave your hands in the air, though that too appeared to have no affect on the men. Out of options, you close your eyes and put a hand out in front of you—if that doesn't work, nothing else will. Resigning yourself to your wait, you close your eyes and wait...yet, nothing happens. Worried that you've just gone numb from the excruciating pain, you open one eye, only to see the men crouching with their spears on the ground in front of them. They...stopped? Apparently your communication tactic worked. They seem fairly docile now, and two already moved back to the campfire.\n\nWhat will you do?", //Screen 2.12
   "Valuing your life over your curiosity, you hightail it out of there, not even stopping to glance back at the figures. Though you can't hear any sounds of pursuit, you continue to run as fast as your little legs can carry you, panting all the while—you're not exactly the picture of fitness, unfortunately. Short of breath, you collapse, a safe-feeling distance away from the entrance of the gave. Coincidentally, you happen to be incredibly close to where you initially started, making things very easy in terms of reorienting yourself. You can choose to go back into the cave (though the figures still inhabit it), or head out into the darkness of the south, east, and north. Either way, you need a moment to catch your breath.\n\nWhat will you do?", //Screen 2.13, placeholder
   "DankestMemes", //Screen 2.14, placeholder
-  "Bending down, you grab as many rocks as you can, hurling them at the approaching figures. Unfortunately, rather\nthan slowing down, they speed up their approach, clearly angered by being hurled rocks at. A stone connects with\nthe nearest one's head, causing him to stumble backwards, but the other two are nearly an arm's length away.\nPicking up another stone is futile, and one of the figures thrusts outwards with the spear, jabbing you in the side.\n\nImmediately, searing pain travels throughout your body, and your vision clouds. Blood begins gushing out of the wound, and you have to clench your fists to stop from passing out. Even still, you fall over backwards, out cold. The men put down their spears, lifting you and moving your body over to the fireplace. Attempting to cauterize the wound, one of the figures thrusts their spear into the flames, holding the stone to the wound. The other grabs a length of cloth, tightly wrapping the wound to stop the blood flow. Who are these men? Why are they here? What do they want? What will you do?\n\n(Hint: Nothing, you're passed out)", //Screen 2.2
+  "Bending down, you grab as many rocks as you can, hurling them at the approaching figures. Unfortunately, rather\nthan slowing down, they speed up their approach, clearly angered by being hurled rocks at. A stone connects with\nthe nearest one's head, causing him to stumble backwards, but the other two are nearly an arm's length away.\nPicking up another stone is futile, and one of the figures thrusts outwards with the spear, jabbing you in the side.\n\nImmediately, searing pain travels throughout your body, and your vision clouds. Blood begins gushing out of the wound, and you have to clench your fists to stop from passing out. Even still, you fall over backwards, out cold. The men put down their spears, lifting you try to moving your body over to the fireplace. Attempting to cauterize the wound, one of the figures thrusts their spear into the flames, holding the stone to the wound. The other grabs a length of cloth, tightly wrapping the wound to stop the blood flow. Who are these men? Why are they here? What do they want? What will you do?\n\n(Hint: Nothing, you're passed out)", //Screen 2.2
   "Zzzz, zzz zzzzzz zz z. Zzz, zz! Zzzz, zz? Z, zzz, zzzzzzz...zzz...z. Zzz. Z. Z? Z! Zzzzzzzz...\n\nZzz...zzzzzzzzzzzz...! Z. Z. Zzzzz...! Zzz zzzz z z zz zzzz zzzz zzz.", //Screen 2.3
   "Zzz?", //Screen 2.4
   "Finally coming to, you groan, your side aching in pain. It feels—fittingly so—like you've just been stabbed. Your head feels woozy from blood loss, and the your vision seems to be cloudy. The three figures from earlier sit are nowhere to be found, though the campfire they previously sat around remains burning brightly. You aren't bleeding, though moving may cause the wound to reopen. Continuing west will take you deeper into the cave, and your hear sounds belonging to unknown voices within. However, leaving the cave is a still a viable option, or you could simply choose to do nothing. Having been passed out only moments prior, you have no idea where the hooded figures went nor when they will return, but you have a sneaking suspicion it may have something to do with the noises from deeper in the cave.\n\nWhat will you do?", //Screen 2.5
@@ -71,11 +71,14 @@ String screenText[] = { //Array usage to store screen text, each line marked for
   "Suddenly, out of nowhere...nothing happens. You continue to do nothing, not even twiddling your thumbs. Never in your life have you felt more lethargic.", //Screen 6.1
   "Suddenly, you fall over backwards, unable to lift your head off the ground. You have literally died of boredom.", //Screen 6.2
   "Feeling that you still need to communicate with the men, you wave your hands around furiously, hoping they'll reciprocate. Instead, they remain transfixed on the flames in front of them, ignoring your pointless hand waving. Sighing, you relent, moving to sit down next to them to warm yourself at the fire. Neither seems to object to your presence (contrary to what their spear-wielding may have suggested), so you settle down in front of the heat, feeling the warmth return to your fingertips. You hear odd noises coming from deeper in the caves, but neither of the two seem pertubed in the least by the sounds. Against your better judgement, you force your ears to close themselves off to the sounds, instead focusing solely on the crackling of the hearth in front of you.\n\nWhat will you do?", //Screen 2.123
+  "Pondering the idea of entering the chief's hut, you take a step forward, then pause. Do you...do you really want to enter the chief's hut right now? Moreover, do you really want to do anything right now? And then it hits you: what you want to do is flail aimlessly. Yes, the thought has stuck a cord with you, and you make yourself go limp, throwing your arms out every which way. The few passersby gaze at you shifty, questioning your choice of actions. But you pay them no mind, flailing freely. You kick legs out from under you, hitting your head on the pavement. In your seizing state, you somehow (in a miraculous feat of special snowflakery) manage to snap your neck, the life fading from your eyes. The chief peeks out of hut, looking down at you condescendingly and shaking his head. He steps forward, scooping you up in his arms, then bringing you into his hut. \n\nRest in peace, idiot.", //Screen 3.63
+  "Continuing forwards, note in hand, you feel a sense of dread. The note itself not withstanding, something about the path you're walking along seems...creepy. You feel your foot brush up against something, and kick it, hearing a crack as the object—whatever it was—goes sailing through the air. However, its not long before you feel something else, which you bend over to inspect. It feels rounded, almost egg-like on the back, though it dips forwards. You feel two holes in the front, and the shape plateaus downwards, though the texture is anything but smooth. Taking a closer look at it, you realize that what you're holding is anything but inconspicious: in your hands, clear as day, you're holding a human skull. Fighting back a scream, you throw the skull as hard as you can manage, hearing a cracking noise as it reaches the ground in the distance. Shuddering, you and make sense of the fact that you've just found a skull (and, that there are seemingly many more).\n\nWhat will you do?", //Screen 5.3
+  "Not wanting to keep the man waiting, you hastily step into his hut (more of a teepee, really). Inside, torches adorn the walls, and what seems to be a line of skulls sits in the corner—how they got there, you don't feel like asking. Gesturing to a spot on the ground, the man nods his head at you. Then, in a raspy voice, he says, ''Sit.'' Not wanting to offend, you sit down, eager to milk him for information. As the only person you've met thus far, you don't exactly want to get on his bad side. The man seems fairly quiet, though, preferring to communicate through actions rather than words. Grabbing a mug of sorts, he hands you a cup of warm tea—at least, you hope its tea. He nods, taking a sip from a mug of his own. You sit in silence, sipping the drinks, neither of you saying a word to one another. Barring the traps that got you into this situation in the first place (and, well, the seemingly very human line of skulls), the man seems very docile. The room itself is devoid of weaponry, and judging by the way you've been treated so far, it doesn't seem like the man perceives you as a threat. Even still, being cautiously wary might be a good idea.\n\nWhat will you do?", //Screen 3.7
 };
 
 float screen; // r = 70.0; // Float Screen is used to keep track of the "screens," 
 int loopCount, tripTimer, doNothing, goWest, goEast, goSouth, goNorth, lookAround, textBoxX = 30, textBoxY = 30, textBoxWidth = 1400, textBoxHeight = 550; // Fairly straightforward, each corrosponds to a respective directional integer, which can be increased/decreased on screen changes in order to corrospond to a certain screen without trigger two buttons at once on sequential screens. However, this system needs to be fixed. The textbox variables are, as can be seen by their naming, variables corrosponding to the textboxes on each screen—textBoxX = x coordinates, textBoxY = y coordinates, textBoxWidth and Height are width and height of the box (point at which text cuts off/goes to new line
-boolean flashlightGet, bloodstainedNoteGet; // Variables for inventory system—may be scrapped if time doesn't permit
+boolean flashlightGet, bloodstainedNoteGet, songRestart; // Variables for inventory system—may be scrapped if time doesn't permit, as well as a variable for attempting to get the song to start after Drug Trip
 
 void setup()
 {
@@ -88,7 +91,6 @@ void setup()
   loopCount = 10000;
   tripTimer = 0; //Timer variable for drug trip
 }
-
 
 void draw()
 {
@@ -570,12 +572,44 @@ void draw()
 
   if (screen == 3.6)
   {
+    goEast=7;
     background(4);
     fill(255);
     textSize(25);
     text(screenText[32], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    Button("Leave Village", 30, 550, 145, 30, 15);
+    Button("Enter Hut", 330, 550, 105, 30, 15);
+    Button("Explore Area", 630, 550, 140, 30, 15);
+    Button("Flail Aimlessly", 930, 550, 147, 30, 15);
+    Button("Do Nothing", 1230, 550, 125, 30, 15);
+    Button("Look Around", 30, 680, 135, 30, 15);
+  }
+
+  if (screen == 3.7)
+  {
+    goEast=8;
+    background(4);
+    fill(255);
+    textSize(25);
+    text(screenText[53], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    Button("Leave Village", 30, 550, 145, 30, 15);
+    Button("Enter Hut", 330, 550, 105, 30, 15);
+    Button("Explore Area", 630, 550, 140, 30, 15);
+    Button("Flail Aimlessly", 930, 550, 147, 30, 15);
+    Button("Do Nothing", 1230, 550, 125, 30, 15);
+    Button("Look Around", 30, 680, 135, 30, 15);
+  }
+
+  if (screen == 3.63)
+  {
+    goEast=8;
+    background(4);
+    fill(255);
+    textSize(25);
+    text(screenText[51], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
+
 
   if (screen == 4.0) //Go North, 4.0 -> 4.999...
   {
@@ -746,12 +780,24 @@ void draw()
 
   if (screen == 5.2)
   {
-    goSouth=2;
+    goSouth=3;
     bloodstainedNoteGet=true;
     background(4);
     fill(255);
     textSize(25);
     text(screenText[46], textBoxX, textBoxY, textBoxWidth, textBoxHeight); 
+    DrawButtons();
+    Inventory();
+  }
+
+  if (screen == 5.3)
+  {
+    goSouth=4;
+    bloodstainedNoteGet=true;
+    background(4);
+    fill(255);
+    textSize(25);
+    text(screenText[52], textBoxX, textBoxY, textBoxWidth, textBoxHeight); 
     DrawButtons();
     Inventory();
   }
@@ -989,7 +1035,16 @@ void mousePressed() //Used for screen changes in place of actual "buttons"—if 
   {
     screen=3.6;
   }
+  
+  if (mouseX >= 330 && mouseX <=435 && mouseY >= 550 && mouseY <= 580 && screen == 3.6 && goEast == 7)
+  {
+    screen=3.7;
+  }
 
+  if (mouseX >= 930 && mouseX <=1077 && mouseY >= 550 && mouseY <= 580 && screen == 3.6 && goEast == 7)
+  {
+    screen=3.63;
+  }
 
   if ((mouseX >=930 && mouseX <=1030 && mouseY >= 550 && mouseY <= 580 && screen == 1.0 && goNorth == 0) ||
     (mouseX >= 930 && mouseX <= 1030 && mouseY >= 550 && mouseY <= 580 && screen == 2.01))
@@ -1067,6 +1122,10 @@ void mousePressed() //Used for screen changes in place of actual "buttons"—if 
     screen=5.2;
   }
 
+  if (mouseX >=630 && mouseX <=730 && mouseY >= 550 && mouseY <= 580 && screen == 5.2 && goSouth == 3)
+  {
+    screen=5.3;
+  }
 
   if ((mouseX >= 1230 && mouseX <= 1345 && mouseY >= 550 && mouseY <= 580 && screen == 1.0 && doNothing == 0) ||
     (mouseX >= 1230 && mouseX <= 1345 && mouseY >= 550 && mouseY <= 580 && screen == 2.01 && doNothing == 0))
@@ -1122,6 +1181,7 @@ void mouseReleased() // Certain buttons are in void mouseReleased due to overlap
     (mouseX >= width/2 - 100 && mouseX <= width/2 && mouseY >= 550 && mouseY <= 580 && screen == 2.841) ||
     (mouseX >= width/2 - 100 && mouseX <= width/2 && mouseY >= 550 && mouseY <= 580 && screen == 2.85) ||
     (mouseX >= width/2 - 100 && mouseX <= width/2 && mouseY >= 550 && mouseY <= 580 && screen == 2.811) ||
+    (mouseX >= width/2 - 100 && mouseX <= width/2 && mouseY >= 550 && mouseY <= 580 && screen == 3.63) ||
     (mouseX >= width/2 - 100 && mouseX <= width/2 && mouseY >= 550 && mouseY <= 580 && screen == 4.1) ||
     (mouseX >= width/2 - 100 && mouseX <= width/2 && mouseY >= 550 && mouseY <= 580 && screen == 6.2))
   {
@@ -1275,7 +1335,7 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
     Button("Look Around", 30, 680, 135, 30, 15);
   }
 
-  if ((screen == 2.82) || (screen == 2.841) ||(screen == 2.85) || (screen == 2.811) || (screen == 4.1) || (screen == 6.2))
+  if ((screen == 3.63) || (screen == 2.82) || (screen == 2.841) ||(screen == 2.85) || (screen == 2.811) || (screen == 4.1) || (screen == 6.2))
   {
     Button("Restart", width/2 - 100, 550, 100, 30, 15);
   }
@@ -1284,7 +1344,7 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
     && screen != 2.85 && screen != 4.1 && screen != 6.2 && screen != 2.1 
     && screen != 2.2 && screen != 2.3 && screen != 3.2 && screen != 2.841
     && screen != 3.4 && screen != 2.811 && screen != 2.8 && screen != 2.82
-    && screen != 5.11 && screen != 2.12) //This is the default set of buttons—if screen != the above values, this will be the DrawButtons that shows ups
+    && screen != 5.11 && screen != 2.12 && screen != 3.63) //This is the default set of buttons—if screen != the above values, this will be the DrawButtons that shows ups
   {
     Button("Go West", 30, 550, 100, 30, 15);
     Button("Go East", 330, 550, 100, 30, 15);
@@ -1298,7 +1358,6 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
 
 void Button(String labelText, int posX, int posY, int buttonWidth, int buttonHeight, int buttonCurve) // Custom function Button, which allows DrawButtons to function in the first place.
 {
-
   if (screen != 0.1)
   {
     fill(255);
