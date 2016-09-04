@@ -28,7 +28,7 @@ String screenText[] = { //Array usage to store screen text, each line marked for
   "Weighing your current options, you decide it would be best to leave whatever is causing the light alone, and persue other options instead. So, turning back to the east, you head back to where you started. You can continue east, south, or north (none of which are lit, at least at first glance), or change your mind and head back west.\n\nWhat will you do?", //Screen 2.01
   "Entering the cave, you see three hooded figures sitting around a campfire. Evidently, this was the source of the light. The tallest of the three looks up from the flames, before barking at the other two in a language you can't understand. The three stand in unison, grabbing what appears to be a stone-tipped spear from the back of their robes. Grunting, they advance towards you at a frightening rate, the heads of their spears getting closer and closer by the second. On the ground near your foot you spot a few jagged rocks, but no other form of weaponry is in sight.\n\nWhat will you do?", //Screen 2.1
   "Fearing for your life, you make a mad dash past the three figures, choosing the rash decision to descend deeper into the cave. Startled by your sudden movements, the nearest one jabs his spear into your side, causing you to cry out in pain. And, from the looks in the other two's eyes, it doesn't seem like their thoughts are very far from their comrade's. So, ignoring the throbbing pain and outpouring of blood, you sprint as well as you can manage down into the depths of the cave, praying for safety. Instead of safety, it seems that the only thing in the depths at the present time is...more hooded people. Rats. Their conversation dies down instantly as they all whip around to glare at you. Double rats. For a few seconds, nobody moves, the air frozen in anticipation. Then, the hooded figures take note of your wounded side, and grab their own respective spears. Why does everybody in this stupid cave have to have spears? Sighing, you try and think up a plan as quickly as you can. Indeed, it seems like your friends from earlier caught wind of this, as they approach behind you, eager to help your brainstoring process. Triple. Rats.\n\nWhat will you do?", //Screen 2.11
-  "Trying to figure out a way to communicate, you yell ''stop,'' but they don't seem to understand. That, or ''stop'' to them means ''go twice as fast,'' which is what they decide to do. The pointy end nearing, you wave your hands in the air, though that too appeared to have no affect on the men. Out of options, you close your eyes and put a hand out in front of you—if that doesn't work, nothing else will. Resigning yourself to your wait, you close your eyes and wait...yet, nothing happens. Worried that you've just gone numb from the excruciating pain, you open one eye, only to see the men crouching with their spears on the ground in front of them. They...stopped? Apparently your communication tactic worked. They seem fairly docile now, and two already moved back to the campfire.\n\nWhat will you do?", //Screen 2.12
+  "Trying to figure out a way to communicate, you yell ''stop,'' but they don't seem to understand. That, or ''stop'' to them means ''go twice as fast,'' which is what they decide to do. The pointy end nearing, you wave your hands in the air, though that too appeared to have no affect on the men. Out of options, you close your eyes and put a hand out in front of you—if that doesn't work, nothing else will. Resigning yourself to your fate, you close your eyes and wait...yet, nothing happens. Worried that you've just gone numb from the excruciating pain, you open one eye, only to see the men crouching with their spears on the ground in front of them. They...stopped? Apparently your communication tactic worked. They seem fairly docile now, and two already moved back to the campfire.\n\nWhat will you do?", //Screen 2.12
   "Valuing your life over your curiosity, you hightail it out of there, not even stopping to glance back at the figures. Though you can't hear any sounds of pursuit, you continue to run as fast as your little legs can carry you, panting all the while—you're not exactly the picture of fitness, unfortunately. Short of breath, you collapse, a safe-feeling distance away from the entrance of the gave. Coincidentally, you happen to be incredibly close to where you initially started, making things very easy in terms of reorienting yourself. You can choose to go back into the cave (though the figures still inhabit it), or head out into the darkness of the south, east, and north. Either way, you need a moment to catch your breath.\n\nWhat will you do?", //Screen 2.13, placeholder
   "As you watch the men near you, you decide to do what you do best: nothing. Your eyes glaze over, and you stare blankly back at them as their spears inch closer to you. The two glance at one another, before continuing towards you. And yet, even as they are less than an arm's length away, you still remain nonchalant, doing absolutely nothing. Impressed by your lack of fear, the men nod their heads at you, dropping their weapons and returning to sit back at the fire. When your mother said that you were good for nothing as a kid, THAT must've been what she'd meant. You'd always thought your dad had been a disappointment from the way she'd said it about him, but she probably just meant that he was a master of solving problems.\n\nWhat will you do?", //Screen 2.14, placeholder
   "Bending down, you grab as many rocks as you can, hurling them at the approaching figures. Unfortunately, rather\nthan slowing down, they speed up their approach, clearly angered by being hurled rocks at. A stone connects with\nthe nearest one's head, causing him to stumble backwards, but the other two are nearly an arm's length away.\nPicking up another stone is futile, and one of the figures thrusts outwards with the spear, jabbing you in the side.\n\nImmediately, searing pain travels throughout your body, and your vision clouds. Blood begins gushing out of the wound, and you have to clench your fists to stop from passing out. Even still, you fall over backwards, out cold. The men put down their spears, lifting you try to moving your body over to the fireplace. Attempting to cauterize the wound, one of the figures thrusts their spear into the flames, holding the stone to the wound. The other grabs a length of cloth, tightly wrapping the wound to stop the blood flow. Who are these men? Why are they here? What do they want? What will you do?\n\n(Hint: Nothing, you're passed out)", //Screen 2.2
@@ -66,7 +66,7 @@ String screenText[] = { //Array usage to store screen text, each line marked for
   "Heading to the west of the dungeon, you notice a great deal of greenery on the walls. This path seems...damper, almost like a source of moisture is nearby. At any rate, this wing seems home to a great deal of greenery, and continuing to walk brings you to a room filled with plants. In the center in the room on a bed of grass sits two similary shaped mushrooms. The one on the right is blue, and the one on the right is red. Save for their strange coloration, neither mushrooms seems very unique, both being small and fairly inconspicuous. However, you have a strange desire to eat one. The path ahead is blocked, unfortunately, and your entire attention is focused on the mushrooms, with no thoughts of doing anything else (much less turning around or not eating a mushroom).\n\nWhat will you do?", //Screen 5.121  
   "You feel...weird...", //Screen 5.1211 
   "You feel...odd...", //Screen 5.1212
-  "That was a very peculiar experience.", //Screen 5.1213
+  "That was a very peculiar experience. Luckily, the path behind you was never actually blocked off at all, and you're free to turn around if you so desire. Or, you could choose to eat the other mushroom, as it still sits on the ground, untouched.\n\nWhat will you do?", //Screen 5.1213
   "Deciding that your relative safety is more valuable than investigating some unknown hole, you continue without checking it out. Instead, you continue south, sure that your legs will lead you in the right direction. Your eyes have mostly adapted to the darkness, though your vision is still very limited—so much so that your eyes nearly pass over a note in the middle of the path entirely. Hearing the sound of paper beneath your feet, however, you do a double take. There, clear as daylight beneath your foot (if crumbled a little bit from the impact) is a plain white note, scrawled on in near-illegible handwriting. Red splotches adorn the page, splattered here and there, seemingly at random. Is that...blood? Shivering, you attempt to read the note, but are unable to; while your eyes have adjusted to the darkness, it's still not enough for you to make out the wording on the letter. Sighing, you pocket the note, your desire to find a light source rekindled.\n\nWhat will you do?", //Screen 5.2
   "You...did nothing. You remain standing in the blackness, and nothing has happened. Boredom threatens to overwhelm you.", //Screen 6.0
   "Suddenly, out of nowhere...nothing happens. You continue to do nothing, not even twiddling your thumbs. Never in your life have you felt more lethargic.", //Screen 6.1
@@ -76,10 +76,16 @@ String screenText[] = { //Array usage to store screen text, each line marked for
   "Continuing forwards, note in hand, you feel a sense of dread. The note itself not withstanding, something about the path you're walking along seems...creepy. You feel your foot brush up against something, and kick it, hearing a crack as the object—whatever it was—goes sailing through the air. However, its not long before you feel something else, which you bend over to inspect. It feels rounded, almost egg-like on the back, though it dips forwards. You feel two holes in the front, and the shape plateaus downwards, though the texture is anything but smooth. Taking a closer look at it, you realize that what you're holding is anything but inconspicious: in your hands, clear as day, you're holding a human skull. Fighting back a scream, you throw the skull as hard as you can manage, hearing a cracking noise as it reaches the ground in the distance. Shuddering, you and make sense of the fact that you've just found a skull (and, that there are seemingly many more).\n\nWhat will you do?", //Screen 5.3
   "Not wanting to keep the man waiting, you hastily step into his hut (more of a teepee, really). Inside, torches adorn the walls, and what seems to be a line of skulls sits in the corner—how they got there, you don't feel like asking. Gesturing to a spot on the ground, the man nods his head at you. Then, in a raspy voice, he says, ''Sit.'' Not wanting to offend, you sit down, eager to milk him for information. As the only person you've met thus far, you don't exactly want to get on his bad side. The man seems fairly quiet, though, preferring to communicate through actions rather than words. Grabbing a mug of sorts, he hands you a cup of warm tea—at least, you hope its tea. He nods, taking a sip from a mug of his own. You sit in silence, sipping the drinks, neither of you saying a word to one another. Barring the traps that got you into this situation in the first place (and, well, the seemingly very human line of skulls), the man seems very docile. The room itself is devoid of weaponry, and judging by the way you've been treated so far, it doesn't seem like the man perceives you as a threat. Even still, being cautiously wary might be a good idea.\n\nWhat will you do?", //Screen 3.7
   "In a way that feels neither tacked on nor forced, you feel something bubbling inside you. Though you've only just become aware of your very self in this place, you feel...well, if you knew how you normally felt, you'd know that this was certainly out of the ordinairy. Suddenly, you freeze, unable to move (though you weren't moving in the first place), your back arching. A searing pain travels through you, and you feel unable to control your body. Then, as quickly as it came, the pain was gone, your mind filled with thoughts of...brains? All you can seem to think is brains, how delicious they are, how much you crave them. Your cognitive abilities seem to be fading away with every moment, and you almost feel like you're in a trance.\n\nThen, everything goes black. In your place, acting as what once was not-zombie, is a zombie. Truly, a marvelous plot twist to this story without a plot, that has just started from your perspective, and from any perspective, really. Inexplicably, you are a zombie, though that information would need to be explained by some unknown narrator, as you are most certainly unable to think in your present condition.", //Screen 1.1
+  "An awkward silence fills the air, and neither you nor the chief say a word to one another. Instead, you both sit facing one another, the room curiously devoid of noise. If there were crickets, they'd be chirping loudly. Actually, there are crickets, and they are chirping. Go figure. So, the room is devoid of noise, sans the noise of the crickets.\n\nAfter what seems like an eternity of nothing but cricket chirps, the chief clears his throat, and begins to speak. ''I...I am Hwon-Hgar. You are a guest in our lands, but you are not from this place. You do not understand. How have you gotten here?'' Unfortunately, it seems that the man knows about as much about you as you do. You're not quite sure what you expected, but answers seemed like a reasonable request. Sadly, this doesn't seem to be the case. Sighing, you manage to say, ''I...don't know.'' The man nods solemnly, a look of understanding on his face—perhaps he knows more than he's letting on.\n\nWhat will you do?", //Screen 3.8
+  "What, this again?", //Screen 5.12131
+  "Okay, you feel like you've tripped enough for one lifetime. Better make sure to tie your shoes in the future. You feel a little fuzzy, but there are certifiably no mushrooms left to consume, and the path back is still wide open.\n\nWhat will you do?", //Screen 5.12131
+  "You have a serious problem.", //5.12132
+  "It's time to stop with the drugs. Anything else could kill you. Please, just turn around and go somewhere else in the dungeon—surely, something here is more interesting than wrongly abusing hallucinogenics.\n\nWhat will you do?", //Screen 5.1215
+  "With your magic abilities to somehow attract mushrooms to your person, you find just one more. Telling yourself that it's not biggie, you take another, and immediately start to feel weird. Not ''trippy'' weird, bad weird. And not in a bad trip sort of way either. You suddenly find it hard to breathe, and are gasping for breath. Have...have you overdosed on shrooms? As your head begins to spin, you claw at your throat, wondering what prompted you to be as stupid as you were.\n\n\nStay smart. Don't start. Rest in peace.", //Screen 5.1216
 };
 
 float screen; // r = 70.0; // Float Screen is used to keep track of the "screens," 
-int loopCount, timer, doNothing, goWest, goEast, goSouth, goNorth, zombieMode, lookAround, textBoxX = 30, textBoxY = 30, textBoxWidth = 1400, textBoxHeight = 550; // Fairly straightforward, each corrosponds to a respective directional integer, which can be increased/decreased on screen changes in order to corrospond to a certain screen without trigger two buttons at once on sequential screens. However, this system needs to be fixed. The textbox variables are, as can be seen by their naming, variables corrosponding to the textboxes on each screen—textBoxX = x coordinates, textBoxY = y coordinates, textBoxWidth and Height are width and height of the box (point at which text cuts off/goes to new line
+int loopCount, timer, doNothing, goWest, goEast, goSouth, goNorth, zombieMode, lookAround, textBoxCoordinates = 30, textBoxWidth = 1400, textBoxHeight = 550; // Fairly straightforward, each corrosponds to a respective directional integer, which can be increased/decreased on screen changes in order to corrospond to a certain screen without trigger two buttons at once on sequential screens. However, this system needs to be fixed. The textbox variables are, as can be seen by their naming, variables corrosponding to the textboxes on each screen—textBoxCoordinates = x coordinates, textBoxCoordinates = y coordinates, textBoxWidth and Height are width and height of the box (point at which text cuts off/goes to new line
 //brainImageXPosition[] = new int[800];
 boolean flashlightGet, bloodstainedNoteGet; // Variables for inventory system—may be scrapped if time doesn't permit
 
@@ -112,13 +118,13 @@ void draw()
     background(255);
     fill(0);
     textSize(25);
-    text(screenText[1], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[1], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
   }
 
   if (screen == 1.0) //Start of Void
   {
     ScreenSetup();
-    text(screenText[2], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[2], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     DrawButtons();
     doNothing=0;
     goWest=0;
@@ -140,7 +146,7 @@ void draw()
    {
    zombieMode=1;
    ScreenSetup();
-   text(screenText[54], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+   text(screenText[54], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
    Button("Embrace Zombiehood", width/2 - 110, 680, 220, 30, 15);
    }
    
@@ -159,14 +165,14 @@ void draw()
   {
     goWest=1; 
     ScreenSetup();
-    text(screenText[3], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[3], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
   if (screen == 2.01)
   {
     ScreenSetup();
-    text(screenText[4], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[4], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     DrawButtons();
     goWest=0;
     goEast=0;
@@ -180,7 +186,7 @@ void draw()
   {
     goWest=2;
     ScreenSetup();
-    text(screenText[5], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[5], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -188,7 +194,7 @@ void draw()
   {
 
     ScreenSetup();
-    text(screenText[6], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[6], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     Button("Grab Rocks", 30, 550, 120, 30, 15);
     Button("Run Further Into Cave", 300, 550, 230, 30, 15);
     Button("Attempt to Communicate", 610, 550, 255, 30, 30);
@@ -201,7 +207,7 @@ void draw()
   {
     goWest=3;
     ScreenSetup();
-    text(screenText[7], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[7], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -209,7 +215,7 @@ void draw()
   {
 
     ScreenSetup();
-    text(screenText[50], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[50], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     DrawButtons();
     /*
     rect(30, 550, 225, 30, 15);
@@ -245,7 +251,7 @@ void draw()
   {
     goWest=3;
     ScreenSetup();
-    text(screenText[8], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[8], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -253,7 +259,7 @@ void draw()
   {
 
     ScreenSetup();
-    text(screenText[9], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[9], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     rect(30, 550, 120, 30, 15);
     fill(0);
     textSize(20);
@@ -285,14 +291,14 @@ void draw()
   {
     goWest=3;
     ScreenSetup();
-    text(screenText[10], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[10], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
   if (screen == 2.3)
   {
     ScreenSetup();
-    text(screenText[11], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[11], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -300,7 +306,7 @@ void draw()
   {
     goWest=6;
     ScreenSetup();
-    text(screenText[12], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[12], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -308,7 +314,7 @@ void draw()
   {
     goWest=7;
     ScreenSetup();
-    text(screenText[13], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[13], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     rect(30, 550, 115, 30, 15);
     fill(0);
     textSize(20);
@@ -336,7 +342,7 @@ void draw()
   {
     goWest=8;
     ScreenSetup();
-    text(screenText[14], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[14], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     rect(30, 550, 200, 30, 15);
     fill(0);
     textSize(20);
@@ -364,7 +370,7 @@ void draw()
   {
     goWest=9;
     ScreenSetup();
-    text(screenText[15], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[15], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     rect(30, 550, 205, 30, 15);
     fill(0);
     textSize(20);
@@ -392,7 +398,7 @@ void draw()
   {
     goWest=10;
     ScreenSetup();
-    text(screenText[16], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[16], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -400,7 +406,7 @@ void draw()
   {
     goWest=11;
     ScreenSetup();
-    text(screenText[17], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[17], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -408,28 +414,28 @@ void draw()
   {
 
     ScreenSetup();
-    text(screenText[18], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[18], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
   if (screen == 2.82)
   {
     ScreenSetup();
-    text(screenText[19], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[19], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
   if (screen == 2.83)
   {
     ScreenSetup();
-    text(screenText[20], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[20], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
   if (screen == 2.84)
   {
     ScreenSetup();
-    text(screenText[21], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[21], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     Button("Kiss Blue", 330, 680, 105, 30, 15);
     DrawButtons();
   }
@@ -437,7 +443,7 @@ void draw()
   if (screen == 2.841)
   {
     ScreenSetup();
-    text(screenText[22], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[22], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -445,7 +451,7 @@ void draw()
   {
 
     ScreenSetup();
-    text(screenText[23], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[23], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -461,7 +467,7 @@ void draw()
   {
     goEast=1;
     ScreenSetup();
-    text(screenText[25], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[25], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -469,7 +475,7 @@ void draw()
   {
     goEast=2;
     ScreenSetup();
-    text(screenText[26], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[26], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -477,14 +483,14 @@ void draw()
   {
     goEast=3;
     ScreenSetup();
-    text(screenText[27], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[27], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
   if (screen == 3.21)
   {
     ScreenSetup();
-    text(screenText[28], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[28], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -492,7 +498,7 @@ void draw()
   {
     goEast=4;
     ScreenSetup();
-    text(screenText[29], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[29], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -500,7 +506,7 @@ void draw()
   {
     goEast=5;
     ScreenSetup();
-    text(screenText[30], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[30], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -508,7 +514,7 @@ void draw()
   {
     goEast=6;
     ScreenSetup();
-    text(screenText[31], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[31], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     Button("Run Away", 30, 550, 105, 30, 15);
     Button("Follow Men", 330, 550, 120, 30, 15);
     Button("Go South", 630, 550, 100, 30, 15);
@@ -521,7 +527,7 @@ void draw()
   {
     goEast=7;
     ScreenSetup();
-    text(screenText[32], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[32], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     Button("Leave Village", 30, 550, 145, 30, 15);
     Button("Enter Hut", 330, 550, 105, 30, 15);
     Button("Explore Area", 630, 550, 140, 30, 15);
@@ -530,25 +536,42 @@ void draw()
     Button("Look Around", 30, 680, 135, 30, 15);
   }
 
-  if (screen == 3.7)
-  {
-    goEast=8;
-    ScreenSetup();
-    text(screenText[53], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
-    Button("Leave Village", 30, 550, 145, 30, 15);
-    Button("Enter Hut", 330, 550, 105, 30, 15);
-    Button("Explore Area", 630, 550, 140, 30, 15);
-    Button("Flail Aimlessly", 930, 550, 147, 30, 15);
-    Button("Do Nothing", 1230, 550, 125, 30, 15);
-    Button("Look Around", 30, 680, 135, 30, 15);
-  }
 
   if (screen == 3.63)
   {
     goEast=8;
     ScreenSetup();
-    text(screenText[51], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[51], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     DrawButtons();
+  }
+
+
+
+  if (screen == 3.7)
+  {
+    goEast=8;
+    ScreenSetup();
+    text(screenText[53], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
+    Button("Leave Village", 30, 550, 145, 30, 15);
+    Button("Try to Converse", 330, 550, 165, 30, 15);
+    Button("Explore Area", 630, 550, 140, 30, 15);
+    Button("Flail Aimlessly", 930, 550, 147, 30, 15);
+    Button("Do Nothing", 1230, 550, 125, 30, 15);
+    Button("Look Around", 30, 680, 135, 30, 15);
+  }
+
+
+  if (screen == 3.8)
+  {
+    goEast=9;
+    ScreenSetup();
+    text(screenText[55], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
+    Button("Meme Dankly", 30, 550, 145, 30, 15);
+    Button("Dank Memely", 330, 550, 105, 30, 15);
+    Button("RIP Harambe", 630, 550, 140, 30, 15);
+    Button("Rarest Pepe", 930, 550, 147, 30, 15);
+    Button("Hey Dat Boi", 1230, 550, 125, 30, 15);
+    Button("Hi I'm Nath", 30, 680, 135, 30, 15);
   }
 
 
@@ -556,7 +579,7 @@ void draw()
   {
     goNorth=1;
     ScreenSetup();
-    text(screenText[33], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[33], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -564,7 +587,7 @@ void draw()
   {
     goNorth=2;
     ScreenSetup();
-    text(screenText[34], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[34], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -582,7 +605,7 @@ void draw()
     goSouth=1;
     lookAround=0;
     ScreenSetup();
-    text(screenText[36], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[36], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -592,7 +615,7 @@ void draw()
     lookAround=1;
     flashlightGet=true;
     ScreenSetup();
-    text(screenText[37], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[37], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     DrawButtons();
     Inventory();
   }
@@ -601,7 +624,7 @@ void draw()
   {
     flashlightGet=true;
     ScreenSetup();
-    text(screenText[38], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[38], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     DrawButtons();
     Inventory();
   }
@@ -610,7 +633,7 @@ void draw()
   {
     goSouth=2;
     ScreenSetup();
-    text(screenText[39], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[39], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -618,7 +641,7 @@ void draw()
   {
     goSouth=3;
     ScreenSetup();
-    text(screenText[40], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[40], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -626,7 +649,7 @@ void draw()
   {
     goSouth=4;
     ScreenSetup();
-    text(screenText[41], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[41], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -634,7 +657,7 @@ void draw()
   {
     goSouth=5;
     ScreenSetup();
-    text(screenText[42], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[42], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     Button("Eat the Blue Mushroom", 300, 550, 240, 30, 15);
     Button("Eat the Red Mushroom", 800, 550, 240, 30, 15);
   }
@@ -644,7 +667,7 @@ void draw()
     goSouth=6;
     TripSongSwitch();
     ScreenSetup();
-    text(screenText[43], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[43], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     Button("Stop Feeling Weird", width/2 - 100, 550, 200, 30, 15); 
     if ((millis() - timer >= 5000))
     {
@@ -662,7 +685,7 @@ void draw()
     goSouth=6;
     TripSongSwitch();
     ScreenSetup();
-    text(screenText[44], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[44], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     Button("Stop Feeling Weird", width/2 - 100, 550, 200, 30, 15);   
     if ((millis() - timer >= 5000))
     {
@@ -675,7 +698,7 @@ void draw()
     }
   }
 
-  if (screen != 5.1211 && screen != 5.1212)
+  if (screen != 5.1211 && screen != 5.1212 && screen != 5.12131 && screen != 5.12141)
   {    
     SongSwitch();
   }
@@ -685,16 +708,89 @@ void draw()
     goSouth=7;
     song2.pause(); 
     ScreenSetup();
-    text(screenText[45], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[45], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
+    Button("Go West", 30, 550, 100, 30, 15);
+    Button("Eat the Other Mushroom", 250, 550, 250, 30, 15);
+    Button("Go South", 630, 550, 100, 30, 15);
+    Button("Go North", 930, 550, 100, 30, 15);
+    Button("Do Nothing", 1230, 550, 125, 30, 15);
+    Button("Look Around", 30, 680, 135, 30, 15);
+    //DrawButtons();
+  }
+
+  if (screen == 5.12131)
+  {
+    goSouth=7;
+    TripSongSwitch();
+    ScreenSetup();
+    text(screenText[56], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
+    for (int i = 0; i < 100; i++)
+    {
+      color c = color(random(255), random(255), random(255));
+      stroke(c);
+      line(random(1400), random(900), random(1400), random(900));
+    }
+    Button("Put An End to These Shenanigans", width/2 - 170, 550, 340, 30, 15);
+  }
+
+  if (screen == 5.1214)
+  {
+    goSouth=7;
+    song2.pause(); 
+    ScreenSetup();
+    text(screenText[57], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
+    Button("Somehow Manage to Locate More Shrooms", 30, 550, 425, 30, 15);
+    Button("Go South", 630, 550, 100, 30, 15);
+    Button("Go North", 930, 550, 100, 30, 15);
+    Button("Do Nothing", 1230, 550, 125, 30, 15);
+    Button("Look Around", 30, 680, 135, 30, 15);
+    //DrawButtons();
+  }
+
+  if (screen == 5.12141)
+  {
+    goSouth=7;
+    TripSongSwitch();
+    ScreenSetup();
+    text(screenText[58], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
+    for (int i = 0; i < 100; i++)
+    {
+      color c = color(random(255), random(255), random(255));
+      fill(c);
+      triangle(random(1400), random(900), random(1400), random(900), random(1400), random(900));
+    }
+    Button("Clear Your Head", width/2 - 90, 550, 180, 30, 15);
+  }
+
+
+  if (screen == 5.1215)
+  {
+    goSouth=8;
+    song2.pause(); 
+    ScreenSetup();
+    text(screenText[59], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
+    Button("Impossibly, Find Even MORE Shrooms", 30, 550, 370, 30, 15);
+    Button("Go South", 630, 550, 100, 30, 15);
+    Button("Go North", 930, 550, 100, 30, 15);
+    Button("Do Nothing", 1230, 550, 125, 30, 15);
+    Button("Look Around", 30, 680, 135, 30, 15);
+    //DrawButtons();
+  }
+
+  if (screen == 5.1216)
+  {
+    ScreenSetup();
+    text(screenText[60], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
+
 
   if (screen == 5.2)
   {
     goSouth=3;
     bloodstainedNoteGet=true;
     ScreenSetup();
-    text(screenText[46], textBoxX, textBoxY, textBoxWidth, textBoxHeight); 
+    text(screenText[46], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight); 
     DrawButtons();
     Inventory();
   }
@@ -704,7 +800,7 @@ void draw()
     goSouth=4;
     bloodstainedNoteGet=true;
     ScreenSetup();
-    text(screenText[52], textBoxX, textBoxY, textBoxWidth, textBoxHeight); 
+    text(screenText[52], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight); 
     DrawButtons();
     Inventory();
   }
@@ -713,7 +809,7 @@ void draw()
   {
     doNothing=1;
     ScreenSetup();
-    text(screenText[47], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[47], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     lookAround=0;
     DrawButtons();
 
@@ -729,7 +825,7 @@ void draw()
   {
     doNothing=2;
     ScreenSetup();
-    text(screenText[48], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[48], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     DrawButtons();
   }
 
@@ -737,7 +833,7 @@ void draw()
   { 
     doNothing=3;
     ScreenSetup();
-    text(screenText[49], textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+    text(screenText[49], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     DrawButtons();
     if ((millis() - timer >= 5000))
     {
@@ -948,14 +1044,19 @@ void mousePressed() //Used for screen changes in place of actual "buttons"—if 
     screen=3.6;
   }
 
+  if (mouseX >= 930 && mouseX <=1077 && mouseY >= 550 && mouseY <= 580 && screen == 3.6 && goEast == 7)
+  {
+    screen=3.63;
+  }
+
   if (mouseX >= 330 && mouseX <=435 && mouseY >= 550 && mouseY <= 580 && screen == 3.6 && goEast == 7)
   {
     screen=3.7;
   }
 
-  if (mouseX >= 930 && mouseX <=1077 && mouseY >= 550 && mouseY <= 580 && screen == 3.6 && goEast == 7)
+  if (mouseX >= 330 && mouseX <=495 && mouseY >= 550 && mouseY <= 580 && screen == 3.7 && goEast == 8)
   {
-    screen=3.63;
+    screen=3.8;
   }
 
   if ((mouseX >=930 && mouseX <=1030 && mouseY >= 550 && mouseY <= 580 && screen == 1.0 && goNorth == 0) ||
@@ -1029,6 +1130,31 @@ void mousePressed() //Used for screen changes in place of actual "buttons"—if 
     screen=5.1213;
   }
 
+  if (mouseX >= 250 && mouseX <= 500 && mouseY >= 550 && mouseY <= 580 && screen == 5.1213 && goSouth == 7)
+  {
+    screen=5.12131;
+  }
+
+  if (mouseX >= width/2 - 170 && mouseX <= width/2 + 170 && mouseY >= 550 && mouseY <= 580 && screen == 5.12131 && goSouth == 7)
+  {
+    screen=5.1214;
+  }
+
+  if (mouseX >= 30 && mouseX <= 455 && mouseY >= 550 && mouseY <= 580 && screen == 5.1214 && goSouth == 7)
+  {
+    screen=5.12141;
+  }
+
+  if (mouseX >= width/2 - 90 && mouseX <= width/2 + 90 && mouseY >= 550 && mouseY <= 580 && screen == 5.12141 && goSouth == 7)
+  {
+    screen=5.1215;
+  }
+
+  if (mouseX >= 30 && mouseX <= 400 && mouseY >= 550 && mouseY <= 580 && screen == 5.1215 && goSouth == 8)
+  {
+    screen=5.1216;
+  }
+
   if (mouseX >=630 && mouseX <=730 && mouseY >= 550 && mouseY <= 580 && screen == 5.1 && goSouth == 2)
   {
     screen=5.2;
@@ -1095,15 +1221,10 @@ void mouseReleased() // Certain buttons are in void mouseReleased due to overlap
     (mouseX >= width/2 - 100 && mouseX <= width/2 && mouseY >= 550 && mouseY <= 580 && screen == 2.811) ||
     (mouseX >= width/2 - 100 && mouseX <= width/2 && mouseY >= 550 && mouseY <= 580 && screen == 3.63) ||
     (mouseX >= width/2 - 100 && mouseX <= width/2 && mouseY >= 550 && mouseY <= 580 && screen == 4.1) ||
+    (mouseX >= width/2 - 100 && mouseX <= width/2 && mouseY >= 550 && mouseY <= 580 && screen == 5.1216) ||
     (mouseX >= width/2 - 100 && mouseX <= width/2 && mouseY >= 550 && mouseY <= 580 && screen == 6.2))
   {
     screen=1.0;
-    doNothing=0;
-    goWest=0;
-    goEast=0;
-    goSouth=0;
-    lookAround=0;
-    goNorth=0;
   }
 
   if (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 2.0 && goWest == 1)
@@ -1278,7 +1399,7 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
     Button("Look Around", 30, 680, 135, 30, 15);
   }
 
-  if ((screen == 3.63) || (screen == 2.82) || (screen == 2.841) ||(screen == 2.85) || (screen == 2.811) || (screen == 4.1) || (screen == 6.2))
+  if ((screen == 5.1216) || (screen == 3.63) || (screen == 2.82) || (screen == 2.841) ||(screen == 2.85) || (screen == 2.811) || (screen == 4.1) || (screen == 6.2))
   {
     Button("Restart", width/2 - 100, 550, 100, 30, 15);
   }
@@ -1288,7 +1409,7 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
     && screen != 2.2 && screen != 2.3 && screen != 3.2 && screen != 2.841
     && screen != 3.4 && screen != 2.811 && screen != 2.8 && screen != 2.82
     && screen != 5.11 && screen != 2.12 && screen != 3.63 && screen != 2.13
-    && screen != 2.81) //&& screen != 1.0) //This is the default set of buttons—if screen != the above values, this will be the DrawButtons that shows ups
+    && screen != 2.81 && screen != 5.1216) //&& screen != 1.0) //This is the default set of buttons—if screen != the above values, this will be the DrawButtons that shows up
   {
     Button("Go West", 30, 550, 100, 30, 15);
     Button("Go East", 330, 550, 100, 30, 15);
@@ -1326,6 +1447,8 @@ void ScreenSetup() //Attempt at cutting down lines of code, Screen is the preset
   background(4);
   fill(255);
   textSize(25);
+  //DrawButtons(); //Commented out until most, if not all screens have been actually finished—too cumbersome, prefer to manually create buttons for the time being
+  //text(screenText[], textBoxCoords, textBoxCoords, textBoxWidth, textBoxHeight);
 }
 
 void TripSongSwitch() //Function to switch song at 5.1211/5.1212
