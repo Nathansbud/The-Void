@@ -16,7 +16,6 @@ import ddf.minim.effects.*;
 import ddf.minim.signals.*;
 import ddf.minim.spi.*;
 import ddf.minim.ugens.*; 
-// PImage photo;
 Minim minim;
 AudioPlayer song, song2;
 AudioInput input; // All the information above is for the Minim library, to play songs
@@ -49,7 +48,7 @@ String screenText[] = { //Array usage to store screen text, each line marked for
   "Though the rock seems plain at first glance, you can't help but feel suspicious of this gigantic piece of stone. Curious, you look around the rock, trying to make a note of anything out of the ordinairy. The rock is...perfect. Imperfectly so, in a way that it should be impossible for a rock to be. Intrigued, you reach out to stroke the rock...and immediately recoil, your hand bleeding. The rock bars its apparent teeth at you, then lifts itself off the ground—God knows how—and scurries away. Turns out, rocks (or, at least, the creature mimicking the appearance and behaviors of one) CAN bite. You'll have to keep your distance from things in the future; nothing in this void is what it seems.", //Screen 3.02
   "Leaving your granite friend behind, you continue to the east. You know what they say, east is the least...dangerous\npath. Yes, that age-old saying, one of your favorites. Unfortunately, the least dangerous path seems to be the least\ninteresting as well, and nothing appears to be happening for the time being.\n\n\nWhat will you do?", //Screen 3.1
   "You feel your eyes beginning to droop, but you shake your head and keeping walking. The further east you walk,\nthe more lost you begin to feel. A bat swoops overhead, startling you, but nothing else of interest seems to be\ngoing on. What little you can make out of your surroundings doesn't pain a very vivid picture of the landscape—the\noutline of trees, some pebbles here and there, and some rope laid out in a suspiciously trap-like manner.\n\n\n...wait, what?!", //Screen 3.2   
-  "Curious, you tug on the end of the rope, and instantly the rope flies up into a sack, ''catching'' the non-present prey it was intended for. Good thing you notice it when you did—whoever set that trap might be nearby. And, as if on-cue, a light immediately shines on the horizon, nearing you. Whoever set the trap wasn't too far after all, and they might not be too pleased with the sabotaging of their trap. Perhaps...you were the intended target after all. Whatever the purpose of the traps, the source of the light is getting closer every moment, and there looks to be more than one. Plus, they're coming straight from the direction you were headed. This definitely feels like bad news to you.\n\nWhat will you do?", //Screen 3.21
+  "Curious, you tug on the end of the rope, and instantly the rope flies up into a sack. Unfortunately, seeing as you were standing directly on top of the previously obscured rope sack, this means that you also fly up into the air, contained in the sphere. This is a bummer. And, as if on-cue, a light immediately shines on the horizon, nearing you. Whoever set the trap wasn't too far after all, and they might not be too pleased with their prey. Unless...you were the intended target after all. Whatever the purpose of the traps, the source of the light is getting closer every moment, and there looks to be more than one. Plus, they're coming straight from the direction you were headed. This definitely feels like bad news to you.\n\nWhat will you do?", //Screen 3.21
   "Choosing the wisest option for your safety, you decide to give the rope trap a wide berth, continuing on in the direction you intended. The kind of people who set traps in the dark don't seem like the kind of people you want to associate with in your current defenseless state. So, quiet as a whisper, you tread east, hoping to find some way of understanding where you are and what you're meant to be doing. Much to your dismay, the trees don't seem to have mouths, and if they do, they seem to be quite tight-lipped about your current situation. Mentally cursing them out as loudly as you can, you wave your fists angrily in their general direction. Damn trees. You almost fail to notice another rope trap to your right in your anger at the trees, though luckily, you managed to take note of it before triggering it, and are able to walk off unscathed. Betrayed, you glare at the trees. This was probably their doing.\n\nWhat will you do?", //Screen 3.3
   "Not concerned by the first nor the second rope trap, you continue east; no pesky traps will stop you from getting to where you want to go. You spot multiple more rope traps around your path, but ignore them completely. Even still, giving them as little thought as you are attempting to do, it's hard not to notice their increasing frequency. Along with the sudden rise in rope traps, there seems to be a noticable rise in light level. And, since it doesn't seem to be sunlight (if there even is sunlight wherever you are), the light has to be coming from somebody...or, well, something. Unsure of whether or not this equates news or bad news, you continue walking, hoping moreso for the former than the latter. However, due to your emphatic trap-ignoring mindset, the rope in the middle of your pathway goes unnoticed until you step right into the middle of it, sweeping you up into a net. Damn it. You hear yelling in the distance, and the source of light seems to be nearing you.\n\nWhat will you do?", //Screen 3.4
   "Struggling in the rope trap is getting you nowhere, and the pitter-patter of approaching footsteps has nearly reached a defeaning volume. With no form of escape from the net besides cutting yourself out, your options seem rather slim for the time being. And, seeing as the gaps in the net aren't large enough for you to attempt to squeeze through, you're probably going to be making some friends fairly soon. With the uncanny ability things have to appear right after you think of them, the oncoming stampede arrives, brandishing torches and what appears to be...bows? Whatever they are, they certainly don't look pleasant. The nearest one—their chief, from the looks of things—points at you and yells up at you in a hard to understand accent, though is speaking English nonetheless.\n\n''Who...are you? Why have you come to our lands?'' You stare back bewildered, though grateful for some human interaction. Gesturing to two men in the back, the leader steps forward, cutting you down from the net. ''Come,'' he says, nodding. What will you do?", //Screen 3.5
@@ -82,12 +81,21 @@ String screenText[] = { //Array usage to store screen text, each line marked for
   "You have a serious problem.", //5.12132
   "It's time to stop with the drugs. Anything else could kill you. Please, just turn around and go somewhere else in the dungeon—surely, something here is more interesting than wrongly abusing hallucinogenics.\n\nWhat will you do?", //Screen 5.1215
   "With your magic abilities to somehow attract mushrooms to your person, you find just one more. Telling yourself that it's not biggie, you take another, and immediately start to feel weird. Not ''trippy'' weird, bad weird. And not in a bad trip sort of way either. You suddenly find it hard to breathe, and are gasping for breath. Have...have you overdosed on shrooms? As your head begins to spin, you claw at your throat, wondering what prompted you to be as stupid as you were.\n\n\nStay smart. Don't start. Rest in peace.", //Screen 5.1216
+  "While you respect the chief (or, at least, acknowledge the slight authority he has over you) of this village, you decide that his beckoning of you was more of a suggestion than an order—he'll have to wait until you're done. And, in order to enjoy your newfound sense of freedom, you choose to explore the area around you rather than enter the stuffy confines of the nearest hut. Though you glanced around when you arrived, a quick look was nowhere near enough to really take in your surroundings. They don't exactly scream ''interesting,'' though. Besides the hut you were motioned into, a number of other squat buildings sit scattered around, as well as a great deal of open space; the village doesn't really have too much going on. The buildings look like they stop after a certain point, and while everything is fenced in, the path continues onwards to the east.\n\nWhat will you do?", //Screen 3.62  
+  "Knowing absolutely nothing about The Void, the quote-on-quote ''text adventure'' you're currently playing, you decide that you've had enough of it, and would rather break the fourth wall instead. So, you enter an entirely new text adventure! Hoorah! That whole ''Void'' business seemed really fishy, anyways. Hmm, what will this new adventure be? The choice is up to you! Except, it actually isn't, because there's a narrator orchestrating this whole thing (Hey!), and they're the one who makes the buttons. Shucks! The free will you momentarily possessed is gone almost as soon as it arrived. Sigh. Well, anything is better than that other text adventure. Though you may not possess a great deal of autonomy, you can still enjoy the moment.\n\nSo what'll you do?", //Screen 7.0
+  "Who, me? Really? Oof, you are really hellbent on this whole ''fourth wall'' breaking thing, aren't you? Well, alright, I guess you can be me. Be warned, though, my life is pretty boring. Are you sure you want to live through that? Take it from me, you really don't. But uh, sure, you can tag along, if you so desire. You were warned, though.\n\nIt is currently September, and the narrator (who you now know to be named Zack) is late to class. His classes seem pretty boring, but you  only have one option as for what to do. Wow, his life really IS boring! His first block looks to be Coding (what a coincidence!), as it's Day 6 of his school's 8-day cycle. Score!\n\nWhat will you do? Oh, right, there's only one thing you can do. Jeez. So much for ''better than The Void''...", //Screen 7.1
+  "Acting as an unseen fly on the wall, you trail behind Zack, watching as he sits down in his seat. Next to him, a tall Indian kid sits, cracking jokes about something or other, along with a focused-looking Korean boy. Zack looks at both with disinterest, sighing at his computer screen. Evidently, he can't get his code to work. How hard could it really be? More students file into the classroom, and a large, floral-wearing teacher (with a man bun to boot!) strolls in as well, writing something up on the whiteboard. Zack pays him no mind—although the teacher seems to be trying to get the attention of the class—so you do the same. Well, try to pay him no mind, at least, his voice is quite booming.\n\n''Alright, class, today we're going to be learning about if statements and variables. That stuff you were doing before? This will make it so much easier.'' In the back of the room, two scrawny Indian boys—Rana and Abhay, judging by the names written up on the board—continue typing away, apparently tuning the man out entirely. Indeed, Zack seems to be doing the same, frustratedly deleting lines of code on his own computer, anything but present for the conversation at hand.", //Screen 7.11
+  "Tuning out the hum of the classroom, you turn your eyes to Zack's computer screen. On screen are a pair of circles, which bounce into each other and then bounce back, hitting the walls and repeating the cycle. Not exactly thrilling, but Zack seems pleased with his handiwork.", //Screen 7.12
+  "Seemingly getting fed up with his circles, Zack quits ut of the circle thing and boots up another project of his. Hey, wait a second...''The Void?'' He must be working on that stupid text adventure game of his that you totally neglected to take a look at. Ugh, pass! Too much reading, honestly, what kind of person wants to slog through paragraphs upon paragraphs of text? Not you, that's who! He seems to have navigated to a drug trip page or something, as weird music is playing and flashing shapes are visible on screen. What is with this guy and rainbow colors? First the strange circles, now this? Does he have no respect for people with epilepsy?", //Screen 7.13
+  "Smiling about his project, Zack closes the window, tinkering with a few lines of code. However, his mood sours instantly as the teacher walks over, furrowing his brow.\n\n''How's the project going?'' The teacher asks, leaning over to glance at the screen, ''did you manage to find a use for for loops and arrays yet?'' Frowning, Zack shakes his head, grumbling a quiet ''No.'' Sighing, the man looks down at a whiteboard, then starts to draw on it. ''I'm not sure what's giving you so much trouble with these arrays. See, what they do is they store values in the RAM so that you can easily access them. So, what you could do is—'' Zack holds a hand up, cutting him off. ''I get that...it's just...'' He trails off, staring down at his computer.\n\n''Just think about it like these boxes, put a pen in each, right? So—'' Zack cuts him off again, exclaiming, ''Linus, I GET it! I just don't know how to use it.'' Taken aback, the teacher inches away, sensing he's struck a nerve. ''Don't be that way. I'm just trying to help you out. I can see you're frustrated, but if you need to take a break just take a break.'' Shaking his head, he walks away, and Zack sighs, putting his head down on the keyboard.", //Screen 7.14
 };
 
-float screen; // r = 70.0; // Float Screen is used to keep track of the "screens," 
-int loopCount, timer, doNothing, goWest, goEast, goSouth, goNorth, zombieMode, lookAround, textBoxCoordinates = 30, textBoxWidth = 1400, textBoxHeight = 550; // Fairly straightforward, each corrosponds to a respective directional integer, which can be increased/decreased on screen changes in order to corrospond to a certain screen without trigger two buttons at once on sequential screens. However, this system needs to be fixed. The textbox variables are, as can be seen by their naming, variables corrosponding to the textboxes on each screen—textBoxCoordinates = x coordinates, textBoxCoordinates = y coordinates, textBoxWidth and Height are width and height of the box (point at which text cuts off/goes to new line
-//brainImageXPosition[] = new int[800];
+float screen; // Float Screen is used to keep track of the "screens," 
+int newGame, loopCount, timer, doNothing, goWest, goEast, goSouth, goNorth, lookAround, textBoxCoordinates = 30, textBoxWidth = 1400, textBoxHeight = 550; // Fairly straightforward, each corrosponds to a respective directional integer, which can be increased/decreased on screen changes in order to corrospond to a certain screen without trigger two buttons at once on sequential screens. However, this system needs to be fixed. The textbox variables are, as can be seen by their naming, variables corrosponding to the textboxes on each screen—textBoxCoordinates = x coordinates, textBoxCoordinates = y coordinates, textBoxWidth and Height are width and height of the box (point at which text cuts off/goes to new line
 boolean flashlightGet, bloodstainedNoteGet; // Variables for inventory system—may be scrapped if time doesn't permit
+int x = 1400, x2 = 0, xDirection = -5, x2Direction = 5, rad = 50; //Integers used exclusively for Screen 7.0's "Zack's Code" thing, with these variables pertaining to various aspects of the "projects" shown on a few different screens
+float ellipsePosX[] = new float[25], ellipsePosY[] = new float[25]; //Floats used exclusively for Screen 7.0's "Zack's Code" thing, with these variables pertaining to various aspects of the "projects" shown on a few different screens
+
 
 void setup()
 {
@@ -97,9 +105,12 @@ void setup()
   song = minim.loadFile("Princess of Helium.mp3");
   song2 = minim.loadFile("Coffee Break.mp3"); 
   loopCount = 10000;
-  song.loop(loopCount);
   timer = 0; //Timer variable for drug trip
-  //  photo = loadImage("Brain.png");
+  for (int i=0; i<25; i++)
+  {
+    ellipsePosX[i]=random(width);
+    ellipsePosY[i]=random(300, 550);
+  }
 }
 
 void draw()
@@ -132,6 +143,7 @@ void draw()
     goSouth=0;
     lookAround=0;
     goNorth=0;
+    newGame=0;
   }
   /*if (lookAround == 1)
    {
@@ -141,26 +153,8 @@ void draw()
    text("You've already looked around here. There is nothing more to see.\n\nWhat will you do?", 30, 30);
    DrawButtons();
    }
-   
-   if (screen == 1.1)
-   {
-   zombieMode=1;
-   ScreenSetup();
-   text(screenText[54], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
-   Button("Embrace Zombiehood", width/2 - 110, 680, 220, 30, 15);
-   }
-   
-   if (screen == 1.2)
-   {
-   zombieMode=2;
-   ScreenSetup();
-   Button("Allow a Narrator to Take Over", width/2 - 150, 550, 300, 30, 15);
-   for(int i = 0; i < 13; i++)
-   {
-   image(photo, brainImageXPosition[i], random(900));
-   }
-   }
    */
+
   if (screen == 2.0) //Go West path; screen >= 2.0 && screen < 3.0 are all west path
   {
     goWest=1; 
@@ -528,14 +522,16 @@ void draw()
     goEast=7;
     ScreenSetup();
     text(screenText[32], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
-    Button("Leave Village", 30, 550, 145, 30, 15);
-    Button("Enter Hut", 330, 550, 105, 30, 15);
-    Button("Explore Area", 630, 550, 140, 30, 15);
-    Button("Flail Aimlessly", 930, 550, 147, 30, 15);
-    Button("Do Nothing", 1230, 550, 125, 30, 15);
-    Button("Look Around", 30, 680, 135, 30, 15);
+    DrawButtons();
   }
 
+  if (screen == 3.62)
+  {
+    goEast=8;
+    ScreenSetup();
+    text(screenText[61], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
+    DrawButtons();
+  }
 
   if (screen == 3.63)
   {
@@ -698,7 +694,7 @@ void draw()
     }
   }
 
-  if (screen != 5.1211 && screen != 5.1212 && screen != 5.12131 && screen != 5.12141)
+  if (screen != 5.1211 && screen != 5.1212 && screen != 5.12131 && screen != 5.12141 && screen != 7.13)
   {    
     SongSwitch();
   }
@@ -835,17 +831,92 @@ void draw()
     ScreenSetup();
     text(screenText[49], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
     DrawButtons();
-    if ((millis() - timer >= 5000))
+  }
+
+  if (screen == 7.0)
+  { 
+    newGame=1;
+    ScreenSetup();
+    text(screenText[62], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
+    Button("Assume the Life of the Narrator", 30, 550, 315, 30, 15);
+    Button("Random Text Adventure", 400, 550, 245, 30, 15);
+    Button("Weep Silently", 710, 550, 145, 30, 15);
+    Button("Return to The Void", 950, 550, 200, 30, 15);
+    Button("Do Nothing", 1250, 550, 125, 30, 15);
+    Button("Look Around", 30, 680, 135, 30, 15);
+  }
+
+  if (screen == 7.1)
+  { 
+    newGame=2;
+    ScreenSetup();
+    text(screenText[63], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
+    Button("Follow Zack", width/2 - 62, 550, 124, 30, 15);
+  }
+
+  if (screen == 7.11)
+  { 
+    newGame=3;
+    ScreenSetup();
+    text(screenText[64], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
+    Button("Watch Screen", width/2 - 70, 550, 140, 30, 15);
+  }
+
+  if (screen == 7.12)
+  { 
+    newGame=4;
+    ScreenSetup();
+    text(screenText[65], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
+    Button("Watch Screen", width/2 - 70, 550, 140, 30, 15);
+    x = x + xDirection;
+    x2 = x2 + x2Direction;
+    fill(random(255), random(255), random(255));
+    ellipse(x, 400, rad, rad);
+    ellipse(x2, 400, rad, rad);
+    if (dist(x, 400, x2, 400) <= rad)
     {
-      {
-        rect(0, 0, width, height);
-      }
+
+      xDirection *= -1;
+      x2Direction *= -1;
+    }
+
+    if (x <= 0 || x >= 1401)
+    {
+      xDirection *= -1;
+    }
+
+    if (x2 <= 0 || x2 >= 1401)
+    {
+      x2Direction *= -1;
     }
   }
 
+  if (screen == 7.13)
+  { 
+    newGame=5;
+    ScreenSetup();
+    text(screenText[66], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
+    TripSongSwitch();
+    for (int i = 0; i < 25; i++)
+    {
+      fill(random(255), random(255), random(255));
+      ellipse(ellipsePosX[i], ellipsePosY[i], rad, rad);
+    }
+    Button("Watch Screen", width/2 - 70, 550, 140, 30, 15);
+  }
+
+  if (screen == 7.14)
+  { 
+    newGame=6;
+    ScreenSetup();
+    text(screenText[67], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
+    TripSongSwitch();
+    Button("Watch Screen", width/2 - 70, 550, 140, 30, 15);
+  }
+
   println("Screen: " + screen, "Go West: " + goWest, "Go East: " + goEast, "Go South: "
-    + goSouth, "Go North: " + goNorth, "Do Nothing: " + doNothing, "Zombie Mode: " + zombieMode, "Look Around: " + lookAround, 
-    "Time: " + millis(), "Song Loop Status: " + song.isLooping()); //Prints screen number and state of variables to console for easier editing while game is open
+    + goSouth, "Go North: " + goNorth, "Do Nothing: " + doNothing, "Look Around: " + lookAround, 
+    "New Game: " + newGame); //Prints screen number and state of variables to console for easier editing while game is open
 }
 
 void keyPressed()
@@ -857,9 +928,39 @@ void keyPressed()
     screen=0.1;
   }
 
-  if (key == 'r' && screen >= 1.0) //Reset Game
+  if (key == 'r' && screen >= 1.0 || key == '1') //Reset Game
   {  
     screen=1.0;
+  }
+
+  if (key == '2') //Switch to Path 2, West
+  {
+    screen=2.0;
+  }
+
+  if (key == '3') //Switch to Path 3, East
+  {
+    screen=3.0;
+  }
+
+  if (key == '4') //Switch to Path 4, North
+  {
+    screen=4.0;
+  }
+
+  if (key == '5') //Switch to Path 5, South
+  {
+    screen=5.0;
+  }
+
+  if (key == '6') //Switch to Path 6, Nothing
+  {
+    screen=6.0;
+  }
+
+  if (key == '7') //Switch to Path 7, Alt Game
+  {
+    screen=7.0;
   }
 }
 
@@ -867,15 +968,15 @@ void mousePressed() //Used for screen changes in place of actual "buttons"—if 
 {
 
 
-  if (mouseX >= 330 && mouseX <= 495 && mouseY >= 680 && mouseY <= 710 && screen == 1.0)
-  {
-    screen=1.1;
-  }
+  //  //if (mouseX >= 330 && mouseX <= 495 && mouseY >= 680 && mouseY <= 710 && screen == 1.0)
+  //  //{
+  //  //  screen=1.1;
+  //  //}
 
-  if (mouseX >= width/2 - 110 && mouseX <= width/2 + 110 && mouseY >= 680 && mouseY <= 710 && zombieMode == 1)
-  {
-    screen=1.2;
-  }
+  //  if (mouseX >= width/2 - 110 && mouseX <= width/2 + 110 && mouseY >= 680 && mouseY <= 710 && zombieMode == 1)
+  //  {
+  //    screen=1.2;
+  //  }
 
   if ((mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 1.0 && goWest == 0)||
     (mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 2.01 && goWest == 0))
@@ -1033,7 +1134,11 @@ void mousePressed() //Used for screen changes in place of actual "buttons"—if 
   if ((mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 3.4 && goEast == 5) ||
     (mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 3.4 && goEast == 5) ||
     (mouseX >= 630 && mouseX <= 730 && mouseY >= 550 && mouseY <= 580 && screen == 3.4 && goEast == 5) ||
-    (mouseX >= 930 && mouseX <= 1030 && mouseY >= 550 && mouseY <= 580 && screen == 3.4 && goEast == 5))
+    (mouseX >= 930 && mouseX <= 1030 && mouseY >= 550 && mouseY <= 580 && screen == 3.4 && goEast == 5) ||
+    (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 3.21 && goEast == 3) ||
+    (mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 3.21 && goEast == 3) ||
+    (mouseX >= 630 && mouseX <= 730 && mouseY >= 550 && mouseY <= 580 && screen == 3.21 && goEast == 3) ||
+    (mouseX >= 930 && mouseX <= 1030 && mouseY >= 550 && mouseY <= 580 && screen == 3.21 && goEast == 3))
   {
     screen=3.5;
   }
@@ -1042,6 +1147,11 @@ void mousePressed() //Used for screen changes in place of actual "buttons"—if 
   if (mouseX >= 330 && mouseX <=450 && mouseY >= 550 && mouseY <= 580 && screen == 3.5 && goEast == 6)
   {
     screen=3.6;
+  }
+
+  if (mouseX >= 630 && mouseX <=770 && mouseY >= 550 && mouseY <= 580 && screen == 3.6 && goEast == 7)
+  {
+    screen=3.62;
   }
 
   if (mouseX >= 930 && mouseX <=1077 && mouseY >= 550 && mouseY <= 580 && screen == 3.6 && goEast == 7)
@@ -1181,6 +1291,31 @@ void mousePressed() //Used for screen changes in place of actual "buttons"—if 
     screen=6.2;
   }
 
+  if (mouseX >= 330 && mouseX <= 670 && mouseY >= 680 && mouseY <= 710 && screen == 1.0)
+  {
+    screen=7.0;
+  }
+
+  if (mouseX >= 30 && mouseX <= 345 && mouseY >= 550 && mouseY <= 580 && screen == 7.0)
+  {
+    screen=7.1;
+  }
+
+  if (mouseX >= width/2 - 62 && mouseX <= width/2 + 62 && mouseY >= 550 && mouseY <= 580 && screen == 7.1 && newGame == 2)
+  {
+    screen=7.11;
+  }
+
+  if (mouseX >= width/2 - 70 && mouseX <= width/2 + 70 && mouseY >= 550 && mouseY <= 580 && screen == 7.11 && newGame == 3)
+  {
+    screen=7.12;
+  }
+
+  if (mouseX >= width/2 - 70 && mouseX <= width/2 + 70 && mouseY >= 550 && mouseY <= 580 && screen == 7.12 && newGame == 4)
+  {
+    screen=7.13;
+  }
+
   if ((mouseX >= 1230 && mouseX <= 1345 && mouseY >= 550 && mouseY <= 580 && screen == 2.3) ||
     (mouseX >=630 && mouseX <=730 && mouseY >= 550 && mouseY <= 580 && screen == 2.3) || 
     (mouseX >=930 && mouseX <=1030 && mouseY >= 550 && mouseY <= 580 && screen == 2.3) || 
@@ -1267,17 +1402,16 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
     Button("Quit", width/2 - 100, 650, 100, 30, 15);
   }
 
-  /*  if (screen == 1.0)
-   {
-   Button("Go West", 30, 550, 100, 30, 15);
-   Button("Go East", 330, 550, 100, 30, 15);
-   Button("Go South", 630, 550, 100, 30, 15);
-   Button("Go North", 930, 550, 100, 30, 15);
-   Button("Do Nothing", 1230, 550, 125, 30, 15);
-   Button("Look Around", 30, 680, 135, 30, 15);
-   Button("Be a Zombie...?", 330, 680, 165, 30, 15);
-   }
-   */
+  if (screen == 1.0)
+  {
+    Button("Go West", 30, 550, 100, 30, 15);
+    Button("Go East", 330, 550, 100, 30, 15);
+    Button("Go South", 630, 550, 100, 30, 15);
+    Button("Go North", 930, 550, 100, 30, 15);
+    Button("Do Nothing", 1230, 550, 125, 30, 15);
+    Button("Look Around", 30, 680, 135, 30, 15);
+    Button("Be In a Different Text Adventure", 330, 680, 340, 30, 15);
+  }
 
   if (screen == 2.0)
   {
@@ -1379,12 +1513,22 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
     Button("Inspect Rope", 330, 680, 135, 30, 15);
   }
 
-  if (screen == 3.4)
+  if (screen == 3.4 || screen == 3.21)
   {
     Button("Struggle", 30, 550, 100, 30, 15);
     Button("Struggle", 330, 550, 100, 30, 15);
     Button("Struggle", 630, 550, 100, 30, 15);
     Button("Struggle", 930, 550, 100, 30, 15);
+    Button("Do Nothing", 1230, 550, 125, 30, 15);
+    Button("Look Around", 30, 680, 135, 30, 15);
+  }
+
+  if (screen == 3.6)
+  {
+    Button("Leave Village", 30, 550, 145, 30, 15);
+    Button("Enter Hut", 330, 550, 105, 30, 15);
+    Button("Explore Area", 630, 550, 140, 30, 15);
+    Button("Flail Aimlessly", 930, 550, 147, 30, 15);
     Button("Do Nothing", 1230, 550, 125, 30, 15);
     Button("Look Around", 30, 680, 135, 30, 15);
   }
@@ -1399,6 +1543,8 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
     Button("Look Around", 30, 680, 135, 30, 15);
   }
 
+
+
   if ((screen == 5.1216) || (screen == 3.63) || (screen == 2.82) || (screen == 2.841) ||(screen == 2.85) || (screen == 2.811) || (screen == 4.1) || (screen == 6.2))
   {
     Button("Restart", width/2 - 100, 550, 100, 30, 15);
@@ -1409,7 +1555,8 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
     && screen != 2.2 && screen != 2.3 && screen != 3.2 && screen != 2.841
     && screen != 3.4 && screen != 2.811 && screen != 2.8 && screen != 2.82
     && screen != 5.11 && screen != 2.12 && screen != 3.63 && screen != 2.13
-    && screen != 2.81 && screen != 5.1216) //&& screen != 1.0) //This is the default set of buttons—if screen != the above values, this will be the DrawButtons that shows up
+    && screen != 2.81 && screen != 5.1216 && screen != 3.21 && screen != 3.6
+    && screen != 1.0)  //This is the default set of buttons—if screen != the above values, this will be the DrawButtons that shows up
   {
     Button("Go West", 30, 550, 100, 30, 15);
     Button("Go East", 330, 550, 100, 30, 15);
