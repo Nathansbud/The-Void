@@ -88,13 +88,19 @@ String screenText[] = { //Array usage to store screen text, each line marked for
   "Tuning out the hum of the classroom, you turn your eyes to Zack's computer screen. On screen are a pair of circles, which bounce into each other and then bounce back, hitting the walls and repeating the cycle. Not exactly thrilling, but Zack seems pleased with his handiwork.", //Screen 7.12
   "Seemingly getting fed up with his circles, Zack quits ut of the circle thing and boots up another project of his. Hey, wait a second...''The Void?'' He must be working on that stupid text adventure game of his that you totally neglected to take a look at. Ugh, pass! Too much reading, honestly, what kind of person wants to slog through paragraphs upon paragraphs of text? Not you, that's who! He seems to have navigated to a drug trip page or something, as weird music is playing and flashing shapes are visible on screen. What is with this guy and rainbow colors? First the strange circles, now this? Does he have no respect for people with epilepsy?", //Screen 7.13
   "Smiling about his project, Zack closes the window, tinkering with a few lines of code. However, his mood sours instantly as the teacher walks over, furrowing his brow.\n\n''How's the project going?'' The teacher asks, leaning over to glance at the screen, ''did you manage to find a use for for loops and arrays yet?'' Frowning, Zack shakes his head, grumbling a quiet ''No.'' Sighing, the man looks down at a whiteboard, then starts to draw on it. ''I'm not sure what's giving you so much trouble with these arrays. See, what they do is they store values in the RAM so that you can easily access them. So, what you could do is—'' Zack holds a hand up, cutting him off. ''I get that...it's just...'' He trails off, staring down at his computer.\n\n''Just think about it like these boxes, put a pen in each, right? So—'' Zack cuts him off again, exclaiming, ''Linus, I GET it! I just don't know how to use it.'' Taken aback, the teacher inches away, sensing he's struck a nerve. ''Don't be that way. I'm just trying to help you out. I can see you're frustrated, but if you need to take a break just take a break.'' Shaking his head, he walks away, and Zack sighs, putting his head down on the keyboard.", //Screen 7.14
+  "Dejected, Zack quits out of his text adventure, and opens a new project called Carcinogen. Then, in a stroke of inspiration, his head shoots up into the air. He has figured out how to use his arrays, it seems, and is smiling from ear to ear.", //Screen 7.15
+  "Welcome...to...uh", //Screen 8.0
 };
 
-float screen; // Float Screen is used to keep track of the "screens," 
+float screen; // Float Screen is used to keep track of the "screens, " 
 int newGame, loopCount, timer, doNothing, goWest, goEast, goSouth, goNorth, lookAround, textBoxCoordinates = 30, textBoxWidth = 1400, textBoxHeight = 550; // Fairly straightforward, each corrosponds to a respective directional integer, which can be increased/decreased on screen changes in order to corrospond to a certain screen without trigger two buttons at once on sequential screens. However, this system needs to be fixed. The textbox variables are, as can be seen by their naming, variables corrosponding to the textboxes on each screen—textBoxCoordinates = x coordinates, textBoxCoordinates = y coordinates, textBoxWidth and Height are width and height of the box (point at which text cuts off/goes to new line
 boolean flashlightGet, bloodstainedNoteGet; // Variables for inventory system—may be scrapped if time doesn't permit
-int x = 1400, x2 = 0, xDirection = -5, x2Direction = 5, rad = 50; //Integers used exclusively for Screen 7.0's "Zack's Code" thing, with these variables pertaining to various aspects of the "projects" shown on a few different screens
+int cancerCellPosX = 700, cancerCellPosY = 300, x = 1400, x2 = 0, xDirection = -5, x2Direction = 5, rad = 50; //Integers used exclusively for Screen 7.0's "Zack's Code" thing, with these variables pertaining to various aspects of the "projects" shown on a few different screens
 float ellipsePosX[] = new float[25], ellipsePosY[] = new float[25]; //Floats used exclusively for Screen 7.0's "Zack's Code" thing, with these variables pertaining to various aspects of the "projects" shown on a few different screens
+float normalCellPosX[] = new float[25], normalCellPosY[] = new float[25];
+color cancerCell = color(100, 0, 100), normalCell = color(0, 255, 0);
+boolean cancerMoveRight, cancerMoveLeft, cancerMoveUp, cancerMoveDown, cancerCellTouching;
+boolean[] purple = new boolean[25];
 
 
 void setup()
@@ -108,8 +114,10 @@ void setup()
   timer = 0; //Timer variable for drug trip
   for (int i=0; i<25; i++)
   {
-    ellipsePosX[i]=random(width);
-    ellipsePosY[i]=random(300, 550);
+    ellipsePosX[i] = random(width);
+    ellipsePosY[i] = random(300, 550);
+    normalCellPosY[i] = random(300, 550);
+    normalCellPosX[i] = random(width);
   }
 }
 
@@ -910,9 +918,88 @@ void draw()
     newGame=6;
     ScreenSetup();
     text(screenText[67], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
-    TripSongSwitch();
     Button("Watch Screen", width/2 - 70, 550, 140, 30, 15);
   }
+
+  if (screen == 7.15)
+  { 
+    newGame=7;
+    ScreenSetup();
+    text(screenText[68], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
+    fill(cancerCell);
+    ellipse(cancerCellPosX, cancerCellPosY, rad, rad);
+    CellCollision();
+    Button("Watch Screen", width/2 - 70, 550, 140, 30, 15);
+    if (keyPressed && key == 'd')
+    {
+      cancerMoveRight=true;
+    } else
+    {
+      cancerMoveRight = false;
+    }
+    if (keyPressed && key == 'a')
+    {
+      cancerMoveLeft=true;
+    } else
+    {
+      cancerMoveLeft=false;
+    }
+    if (keyPressed && key == 'w')
+    {
+      cancerMoveUp=true;
+    } else
+    {
+      cancerMoveUp=false;
+    }
+    if (keyPressed && key == 's')
+    {
+      cancerMoveDown=true;
+    } else
+    {
+      cancerMoveDown=false;
+    }
+  }
+
+  if (screen == 8.0)
+  {
+    newGame=1;
+    ScreenSetup();
+    text(screenText[69], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
+    DrawButtons();
+  }
+
+  if (screen == 9.0)
+  {
+    newGame=1;
+    ScreenSetup();
+    //    text(screenText[16], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
+    DrawButtons();
+  }
+
+  if (screen == 10.0)
+  {
+    newGame=1;
+    ScreenSetup();
+    //  text(screenText[16], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
+    DrawButtons();
+  }
+
+  if (screen == 11.0)
+  {
+    newGame=1;
+    ScreenSetup();
+    //  text(screenText[16], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
+    DrawButtons();
+  }
+
+  if (screen == 12.0)
+  {
+    newGame=1;
+    ScreenSetup();
+    // text(screenText[16], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
+    DrawButtons();
+  }
+
 
   println("Screen: " + screen, "Go West: " + goWest, "Go East: " + goEast, "Go South: "
     + goSouth, "Go North: " + goNorth, "Do Nothing: " + doNothing, "Look Around: " + lookAround, 
@@ -1316,6 +1403,21 @@ void mousePressed() //Used for screen changes in place of actual "buttons"—if 
     screen=7.13;
   }
 
+  if (mouseX >= width/2 - 70 && mouseX <= width/2 + 70 && mouseY >= 550 && mouseY <= 580 && screen == 7.13 && newGame == 5)
+  {
+    screen=7.14;
+  }
+
+  if (mouseX >= width/2 - 70 && mouseX <= width/2 + 70 && mouseY >= 550 && mouseY <= 580 && screen == 7.14 && newGame == 6)
+  {
+    screen=7.15;
+  }
+
+  if (mouseX >= 400 && mouseX <= 645 && mouseY >= 550 && mouseY <= 580 && screen == 7.0 && newGame == 1)
+  {
+    screen=(int)random(8, 12);
+  }
+
   if ((mouseX >= 1230 && mouseX <= 1345 && mouseY >= 550 && mouseY <= 580 && screen == 2.3) ||
     (mouseX >=630 && mouseX <=730 && mouseY >= 550 && mouseY <= 580 && screen == 2.3) || 
     (mouseX >=930 && mouseX <=1030 && mouseY >= 550 && mouseY <= 580 && screen == 2.3) || 
@@ -1373,21 +1475,21 @@ void Inventory() // Custom function which shows your current inventory
 
   if (flashlightGet == true)
   {
-    fill(255);
-    textSize(20);
+    fill(255); 
+    textSize(20); 
     text("Items: Flashlight", width/2 - 115, height - 50);
   }
   if (bloodstainedNoteGet == true)
   {
-    fill(255);
-    textSize(20);
+    fill(255); 
+    textSize(20); 
     text("Items: Stained Note", width/2 - 115, height - 50);
   }
 
   if (bloodstainedNoteGet == true && flashlightGet == true)
   {
-    fill(255);
-    textSize(20);
+    fill(255); 
+    textSize(20); 
     text("Items: Flashlight, Stained Note", width/2 - 200, height - 50);
   }
 }
@@ -1397,149 +1499,149 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
 {
   if (screen == 0.1)
   {
-    Button("Start", width/2 - 100, 550, 100, 30, 15);
-    Button("About", width/2 - 100, 600, 100, 30, 15);
+    Button("Start", width/2 - 100, 550, 100, 30, 15); 
+    Button("About", width/2 - 100, 600, 100, 30, 15); 
     Button("Quit", width/2 - 100, 650, 100, 30, 15);
   }
 
   if (screen == 1.0)
   {
-    Button("Go West", 30, 550, 100, 30, 15);
-    Button("Go East", 330, 550, 100, 30, 15);
-    Button("Go South", 630, 550, 100, 30, 15);
-    Button("Go North", 930, 550, 100, 30, 15);
-    Button("Do Nothing", 1230, 550, 125, 30, 15);
-    Button("Look Around", 30, 680, 135, 30, 15);
+    Button("Go West", 30, 550, 100, 30, 15); 
+    Button("Go East", 330, 550, 100, 30, 15); 
+    Button("Go South", 630, 550, 100, 30, 15); 
+    Button("Go North", 930, 550, 100, 30, 15); 
+    Button("Do Nothing", 1230, 550, 125, 30, 15); 
+    Button("Look Around", 30, 680, 135, 30, 15); 
     Button("Be In a Different Text Adventure", 330, 680, 340, 30, 15);
   }
 
   if (screen == 2.0)
   {
-    Button("Enter Cave", 30, 550, 115, 30, 15);
-    Button("Go East", 330, 550, 100, 30, 15);
-    Button("Go South", 630, 550, 100, 30, 15);
-    Button("Go North", 930, 550, 100, 30, 15);
-    Button("Do Nothing", 1230, 550, 125, 30, 15);
+    Button("Enter Cave", 30, 550, 115, 30, 15); 
+    Button("Go East", 330, 550, 100, 30, 15); 
+    Button("Go South", 630, 550, 100, 30, 15); 
+    Button("Go North", 930, 550, 100, 30, 15); 
+    Button("Do Nothing", 1230, 550, 125, 30, 15); 
     Button("Look Around", 30, 680, 135, 30, 15);
   }
 
   if (screen == 2.1)
   {
-    Button("Grab Rocks", 30, 550, 120, 30, 15);
-    Button("Run Further Into Cave", 300, 550, 230, 30, 15);
-    Button("Attempt to Communicate", 610, 550, 255, 30, 15);
-    Button("Run Away", 960, 550, 110, 30, 15);
-    Button("Do Nothing", 1260, 550, 125, 30, 15);
+    Button("Grab Rocks", 30, 550, 120, 30, 15); 
+    Button("Run Further Into Cave", 300, 550, 230, 30, 15); 
+    Button("Attempt to Communicate", 610, 550, 255, 30, 15); 
+    Button("Run Away", 960, 550, 110, 30, 15); 
+    Button("Do Nothing", 1260, 550, 125, 30, 15); 
     Button("Look Around", 30, 680, 135, 30, 15);
   }
 
   if (screen == 2.12)
   {
-    Button("Go Further Into Cave", 30, 550, 225, 30, 15);   
-    Button("Sit At Fire", 360, 550, 110, 30, 15);
-    Button("Try to Communicate Again", 610, 550, 270, 30, 15);
-    Button("Leave Cave", 1000, 550, 120, 30, 15);
-    Button("Do Nothing", 1260, 550, 125, 30, 15);
+    Button("Go Further Into Cave", 30, 550, 225, 30, 15); 
+    Button("Sit At Fire", 360, 550, 110, 30, 15); 
+    Button("Try to Communicate Again", 610, 550, 270, 30, 15); 
+    Button("Leave Cave", 1000, 550, 120, 30, 15); 
+    Button("Do Nothing", 1260, 550, 125, 30, 15); 
     Button("Look Around", 30, 680, 135, 30, 15);
   }
 
   if (screen == 2.13)
   {
-    Button("Turn Around", 30, 550, 135, 30, 15);
-    Button("Go East", 330, 550, 100, 30, 15);
-    Button("Go South", 630, 550, 100, 30, 15);
-    Button("Go North", 930, 550, 100, 30, 15);
-    Button("Do Nothing", 1230, 550, 125, 30, 15);
+    Button("Turn Around", 30, 550, 135, 30, 15); 
+    Button("Go East", 330, 550, 100, 30, 15); 
+    Button("Go South", 630, 550, 100, 30, 15); 
+    Button("Go North", 930, 550, 100, 30, 15); 
+    Button("Do Nothing", 1230, 550, 125, 30, 15); 
     Button("Look Around", 30, 680, 135, 30, 15);
   }
 
   if ((screen == 2.2) || (screen == 2.3))
   {
-    Button("Zzz? Zzz", 30, 550, 100, 30, 15);
-    Button("Zzz, zzz", 330, 550, 100, 30, 15);
-    Button("Zzz.....", 630, 550, 100, 30, 15);
-    Button("Z! Z! Z!", 930, 550, 100, 30, 30);
+    Button("Zzz? Zzz", 30, 550, 100, 30, 15); 
+    Button("Zzz, zzz", 330, 550, 100, 30, 15); 
+    Button("Zzz.....", 630, 550, 100, 30, 15); 
+    Button("Z! Z! Z!", 930, 550, 100, 30, 30); 
     Button("Zzz...zzz.", 1230, 550, 125, 30, 15);
   }
 
   if (screen == 2.4)
   {
-    Button("Wake Up", 30, 550, 100, 30, 15);
-    Button("Wake Up", 330, 550, 100, 30, 15);
-    Button("Wake Up", 630, 550, 100, 30, 15);
-    Button("Wake Up", 930, 550, 100, 30, 15);
+    Button("Wake Up", 30, 550, 100, 30, 15); 
+    Button("Wake Up", 330, 550, 100, 30, 15); 
+    Button("Wake Up", 630, 550, 100, 30, 15); 
+    Button("Wake Up", 930, 550, 100, 30, 15); 
     Button("Do Nothing", 1230, 550, 125, 30, 15);
   } 
 
   if (screen == 2.8)
   {
-    Button("Run Away", 30, 550, 105, 30, 15);
-    Button("Play Dead", 330, 550, 105, 30, 15);
-    Button("Grab Torch", 630, 550, 120, 30, 15);
-    Button("Grab Spear", 930, 550, 120, 30, 15);
-    Button("Do Nothing", 1230, 550, 125, 30, 15);
+    Button("Run Away", 30, 550, 105, 30, 15); 
+    Button("Play Dead", 330, 550, 105, 30, 15); 
+    Button("Grab Torch", 630, 550, 120, 30, 15); 
+    Button("Grab Spear", 930, 550, 120, 30, 15); 
+    Button("Do Nothing", 1230, 550, 125, 30, 15); 
     Button("Look Around", 30, 680, 135, 30, 15);
   }
 
   if (screen == 2.81)
   {
-    Button("Turn Around", 30, 550, 135, 30, 15);
-    Button("Go East", 330, 550, 100, 30, 15);
-    Button("Go South", 630, 550, 100, 30, 15);
-    Button("Go North", 930, 550, 100, 30, 15);
-    Button("Do Nothing", 1230, 550, 125, 30, 15);
+    Button("Turn Around", 30, 550, 135, 30, 15); 
+    Button("Go East", 330, 550, 100, 30, 15); 
+    Button("Go South", 630, 550, 100, 30, 15); 
+    Button("Go North", 930, 550, 100, 30, 15); 
+    Button("Do Nothing", 1230, 550, 125, 30, 15); 
     Button("Look Around", 30, 680, 135, 30, 15);
   }
 
   if (screen == 3.0)
   {
-    Button("Go West", 30, 550, 100, 30, 15);
-    Button("Go East", 330, 550, 100, 30, 15);
-    Button("Go South", 630, 550, 100, 30, 15);
-    Button("Go North", 930, 550, 100, 30, 15);
-    Button("Do Nothing", 1230, 550, 125, 30, 15);
-    Button("Look Around", 30, 680, 135, 30, 15);
+    Button("Go West", 30, 550, 100, 30, 15); 
+    Button("Go East", 330, 550, 100, 30, 15); 
+    Button("Go South", 630, 550, 100, 30, 15); 
+    Button("Go North", 930, 550, 100, 30, 15); 
+    Button("Do Nothing", 1230, 550, 125, 30, 15); 
+    Button("Look Around", 30, 680, 135, 30, 15); 
     Button("Inspect Rock", 330, 680, 135, 30, 15);
   }
 
   if (screen == 3.2)
   {
-    Button("Go West", 30, 550, 100, 30, 15);
-    Button("Go East", 330, 550, 100, 30, 15);
-    Button("Go South", 630, 550, 100, 30, 15);
-    Button("Go North", 930, 550, 100, 30, 15);
-    Button("Do Nothing", 1230, 550, 125, 30, 15);
-    Button("Look Around", 30, 680, 135, 30, 15);
+    Button("Go West", 30, 550, 100, 30, 15); 
+    Button("Go East", 330, 550, 100, 30, 15); 
+    Button("Go South", 630, 550, 100, 30, 15); 
+    Button("Go North", 930, 550, 100, 30, 15); 
+    Button("Do Nothing", 1230, 550, 125, 30, 15); 
+    Button("Look Around", 30, 680, 135, 30, 15); 
     Button("Inspect Rope", 330, 680, 135, 30, 15);
   }
 
   if (screen == 3.4 || screen == 3.21)
   {
-    Button("Struggle", 30, 550, 100, 30, 15);
-    Button("Struggle", 330, 550, 100, 30, 15);
-    Button("Struggle", 630, 550, 100, 30, 15);
-    Button("Struggle", 930, 550, 100, 30, 15);
-    Button("Do Nothing", 1230, 550, 125, 30, 15);
+    Button("Struggle", 30, 550, 100, 30, 15); 
+    Button("Struggle", 330, 550, 100, 30, 15); 
+    Button("Struggle", 630, 550, 100, 30, 15); 
+    Button("Struggle", 930, 550, 100, 30, 15); 
+    Button("Do Nothing", 1230, 550, 125, 30, 15); 
     Button("Look Around", 30, 680, 135, 30, 15);
   }
 
   if (screen == 3.6)
   {
-    Button("Leave Village", 30, 550, 145, 30, 15);
-    Button("Enter Hut", 330, 550, 105, 30, 15);
-    Button("Explore Area", 630, 550, 140, 30, 15);
-    Button("Flail Aimlessly", 930, 550, 147, 30, 15);
-    Button("Do Nothing", 1230, 550, 125, 30, 15);
+    Button("Leave Village", 30, 550, 145, 30, 15); 
+    Button("Enter Hut", 330, 550, 105, 30, 15); 
+    Button("Explore Area", 630, 550, 140, 30, 15); 
+    Button("Flail Aimlessly", 930, 550, 147, 30, 15); 
+    Button("Do Nothing", 1230, 550, 125, 30, 15); 
     Button("Look Around", 30, 680, 135, 30, 15);
   }
 
   if (screen == 5.11)
   {
-    Button("Descend", 30, 550, 100, 30, 15);
-    Button("Descend", 330, 550, 100, 30, 15);
-    Button("Descend", 630, 550, 100, 30, 15);
-    Button("Descend", 930, 550, 100, 30, 15);
-    Button("Do Nothing", 1230, 550, 125, 30, 15);
+    Button("Descend", 30, 550, 100, 30, 15); 
+    Button("Descend", 330, 550, 100, 30, 15); 
+    Button("Descend", 630, 550, 100, 30, 15); 
+    Button("Descend", 930, 550, 100, 30, 15); 
+    Button("Do Nothing", 1230, 550, 125, 30, 15); 
     Button("Look Around", 30, 680, 135, 30, 15);
   }
 
@@ -1558,11 +1660,11 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
     && screen != 2.81 && screen != 5.1216 && screen != 3.21 && screen != 3.6
     && screen != 1.0)  //This is the default set of buttons—if screen != the above values, this will be the DrawButtons that shows up
   {
-    Button("Go West", 30, 550, 100, 30, 15);
-    Button("Go East", 330, 550, 100, 30, 15);
-    Button("Go South", 630, 550, 100, 30, 15);
-    Button("Go North", 930, 550, 100, 30, 15);
-    Button("Do Nothing", 1230, 550, 125, 30, 15);
+    Button("Go West", 30, 550, 100, 30, 15); 
+    Button("Go East", 330, 550, 100, 30, 15); 
+    Button("Go South", 630, 550, 100, 30, 15); 
+    Button("Go North", 930, 550, 100, 30, 15); 
+    Button("Do Nothing", 1230, 550, 125, 30, 15); 
     Button("Look Around", 30, 680, 135, 30, 15);
   }
 }
@@ -1572,36 +1674,36 @@ void Button(String labelText, int posX, int posY, int buttonWidth, int buttonHei
 {
   if (screen != 0.1)
   {
-    fill(255);
-    rect(posX, posY, buttonWidth, buttonHeight, buttonCurve);
-    fill(0);
-    textSize(20);
+    fill(255); 
+    rect(posX, posY, buttonWidth, buttonHeight, buttonCurve); 
+    fill(0); 
+    textSize(20); 
     text(labelText, posX + 7, posY + 23);
   }
 
   if (screen == 0.1)
   {
-    fill(255);
-    rect(posX, posY, buttonWidth, buttonHeight, buttonCurve);
-    fill(0);
-    textSize(20);
+    fill(255); 
+    rect(posX, posY, buttonWidth, buttonHeight, buttonCurve); 
+    fill(0); 
+    textSize(20); 
     text(labelText, posX + 25, posY + 23);
   }
 }
 
 void ScreenSetup() //Attempt at cutting down lines of code, Screen is the presets for background, text color, and textSize, trying to incorporate the text itself as well but not sure how with it being an array of strings (no easy way to do [x + 1] or [x - 1] due to the messiness of the layout.
 {  
-  background(4);
-  fill(255);
-  textSize(25);
+  background(4); 
+  fill(255); 
+  textSize(25); 
   //DrawButtons(); //Commented out until most, if not all screens have been actually finished—too cumbersome, prefer to manually create buttons for the time being
   //text(screenText[], textBoxCoords, textBoxCoords, textBoxWidth, textBoxHeight);
 }
 
 void TripSongSwitch() //Function to switch song at 5.1211/5.1212
 {
-  song.rewind();
-  song.pause();
+  song.rewind(); 
+  song.pause(); 
   song2.play();
 }
 
@@ -1610,8 +1712,66 @@ void SongSwitch()
 {
   if (!song.isPlaying()) //Function to switch song back/keep it looping after 5.1211/5.1212
   {
-    song2.rewind();
-    song2.pause();
+    song2.rewind(); 
+    song2.pause(); 
     song.loop(loopCount);
+  }
+}
+
+void CellCollision()
+{
+  if (cancerMoveRight == true)
+  {
+    cancerCellPosX += 4;
+  }
+
+  if (cancerMoveLeft == true)
+  {
+    cancerCellPosX -= 4;
+  }
+
+  if (cancerMoveUp == true)
+  {
+    cancerCellPosY -= 4;
+  }
+
+  if (cancerMoveDown == true)
+  {
+    cancerCellPosY += 4;
+  }
+  if (cancerCellPosX >= 1400)
+  {
+    cancerCellPosX = 1400;
+  }
+
+  if (cancerCellPosX <= 25)
+  {
+    cancerCellPosX = 25;
+  }
+
+  if (cancerCellPosY <= 200)
+  {
+    cancerCellPosY = 200;
+  }
+
+  if (cancerCellPosY >= 525)
+  {
+    cancerCellPosY = 525;
+  }
+
+  for (int i = 0; i < 25; i++)
+  {
+    if (dist(cancerCellPosX, cancerCellPosY, normalCellPosX[i], normalCellPosY[i]) < rad)
+    {
+      purple[i]=true;
+    }
+    if (purple[i]==true)
+    {
+      fill(100, 0, 100);
+    } else
+    {
+      fill(0, 255, 0);
+    }
+    ellipse(normalCellPosX[i], normalCellPosY[i], rad, rad);
   }
 }
