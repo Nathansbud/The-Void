@@ -89,7 +89,10 @@ String screenText[] = { //Array usage to store screen text, each line marked for
   "Seemingly getting fed up with his circles, Zack quits ut of the circle thing and boots up another project of his. Hey, wait a second...''The Void?'' He must be working on that stupid text adventure game of his that you totally neglected to take a look at. Ugh, pass! Too much reading, honestly, what kind of person wants to slog through paragraphs upon paragraphs of text? Not you, that's who! He seems to have navigated to a drug trip page or something, as weird music is playing and flashing shapes are visible on screen. What is with this guy and rainbow colors? First the strange circles, now this? Does he have no respect for people with epilepsy?", //Screen 7.13
   "Smiling about his project, Zack closes the window, tinkering with a few lines of code. However, his mood sours instantly as the teacher walks over, furrowing his brow.\n\n''How's the project going?'' The teacher asks, leaning over to glance at the screen, ''did you manage to find a use for for loops and arrays yet?'' Frowning, Zack shakes his head, grumbling a quiet ''No.'' Sighing, the man looks down at a whiteboard, then starts to draw on it. ''I'm not sure what's giving you so much trouble with these arrays. See, what they do is they store values in the RAM so that you can easily access them. So, what you could do is—'' Zack holds a hand up, cutting him off. ''I get that...it's just...'' He trails off, staring down at his computer.\n\n''Just think about it like these boxes, put a pen in each, right? So—'' Zack cuts him off again, exclaiming, ''Linus, I GET it! I just don't know how to use it.'' Taken aback, the teacher inches away, sensing he's struck a nerve. ''Don't be that way. I'm just trying to help you out. I can see you're frustrated, but if you need to take a break just take a break.'' Shaking his head, he walks away, and Zack sighs, putting his head down on the keyboard.", //Screen 7.14
   "Dejected, Zack quits out of his text adventure, and opens a new project called Carcinogen. Then, in a stroke of inspiration, his head shoots up into the air. He has figured out how to use his arrays, it seems, and is smiling from ear to ear.", //Screen 7.15
-  "Welcome...to...uh", //Screen 8.0
+  "Welcome...to...uh...well, not The Void, it seems! No, Random Text Adventure Thing #2 it is, (it's a working title) then! All the creative avenues that could never be explored in The Void can finally come to fruition under the umbrella of Random Text Adventure #2! Hey, you know what? Aren't Text Adventures boring and overrated? Like, who hasn't made a Text Adventure or two in their time? A monkey mashing buttons on a keyboard could make one! What, make a screen variable, increment it by an int or a float if you're feeling fancy, slap some text on screen, and voila! Text Adventure...well, cop-out version, at least. No, we're better than this; you're better than this; I'M better than this. We're going to make...something different. Something WILD. Something RADICALLY DIFFERENT, just you wait.", //Screen 8.0
+  "Boom! Wait, sorry, false, that was meant to be reserved for when something actually happened...whoops! Alright, sorry for misleading you like that, actually prepare yourself this time for something radically new. Incredibly interesting! It'll knock your socks off. You don't even have to be wearing socks! It'll knock them off anyways!\n\nYou should really be wearing socks for the full effect, though. They're an integral part of the whole process.", //Screen 8.1
+  "Boom!\n\nSomething did happen, didn't it?", //Screen 8.2
+  "Really? REALLY? Just 'okay'? Not at all cool, interesting? Hundreds, maybe thousands of colored squares all flashing at once and posing a hazard for those who may have epilepsy just...'meh'? Alright. I see where you're coming from, I really do. I poured my heart and soul into those hundreds of colored blocks, but I guess some people are just impossible to please. I will do better, if only to make your 'meh' turn to an 'well, that's pretty neat.'\n\nThat's a promise.", //Screen 8.3
 };
 
 float screen; // Float Screen is used to keep track of the "screens, " 
@@ -101,7 +104,7 @@ float normalCellPosX[] = new float[25], normalCellPosY[] = new float[25];
 color cancerCell = color(100, 0, 100), normalCell = color(0, 255, 0);
 boolean cancerMoveRight, cancerMoveLeft, cancerMoveUp, cancerMoveDown, cancerCellTouching;
 boolean[] purple = new boolean[25];
-
+int[] rainbowRectanglesPosX = new int[120], rainbowRectanglesPosY = new int[120];
 
 void setup()
 {
@@ -968,6 +971,38 @@ void draw()
     DrawButtons();
   }
 
+  if (screen == 8.1)
+  {
+    newGame=2;
+    ScreenSetup();
+    text(screenText[70], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
+    DrawButtons();
+  }
+
+  if (screen == 8.2)
+  {
+    newGame=3;
+    ScreenSetup();
+    text(screenText[71], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
+    for (int i = 0; i < width; i+=12)
+    {
+      for (int z = 200; z < height; z+=10)
+      {
+        fill(random(255), random(255), random(255));
+        rect(i, z, 12, 12);
+      }
+    }
+    DrawButtons();
+  }
+
+  if (screen == 8.3)
+  {
+    newGame=4;
+    ScreenSetup();
+    text(screenText[72], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
+    DrawButtons();
+  }
+
   if (screen == 9.0)
   {
     newGame=1;
@@ -1048,6 +1083,30 @@ void keyPressed()
   if (key == '7') //Switch to Path 7, Alt Game
   {
     screen=7.0;
+  }
+
+  if (key == '8') //Switch to Path 7, Alt Game
+  {
+    screen=8.0;
+  }
+
+  if (key == '9') //Switch to Path 7, Alt Game
+  {
+    screen=9.0;
+  }
+
+  if (key == '0') //Switch to Path 7, Alt Game
+  {
+    screen=10.0;
+  }
+
+  if (key == '-') //Switch to Path 7, Alt Game
+  {
+    screen=11.0;
+  }
+  if (key == '=') //Switch to Path 7, Alt Game
+  {
+    screen=12.0;
   }
 }
 
@@ -1413,6 +1472,21 @@ void mousePressed() //Used for screen changes in place of actual "buttons"—if 
     screen=7.15;
   }
 
+  if (mouseX >= width/2 - 100 && mouseX <= width/2 && mouseY >= 550 && mouseY <= 580 && screen == 8.0 && newGame == 1)
+  {
+    screen=8.1;
+  }
+
+  if (mouseX >= width/2 - 100 && mouseX <= width/2 && mouseY >= 550 && mouseY <= 580 && screen == 8.1 && newGame == 2)
+  {
+    screen=8.2;
+  }
+
+  if (mouseX >= width/2 - 100 && mouseX <= width/2 && mouseY >= 550 && mouseY <= 580 && screen == 8.2 && newGame == 3)
+  {
+    screen=8.3;
+  }
+
   if (mouseX >= 400 && mouseX <= 645 && mouseY >= 550 && mouseY <= 580 && screen == 7.0 && newGame == 1)
   {
     screen=(int)random(8, 12);
@@ -1463,7 +1537,6 @@ void mouseReleased() // Certain buttons are in void mouseReleased due to overlap
   {
     screen=1.0;
   }
-
   if (mouseX >= 330 && mouseX <= 430 && mouseY >= 550 && mouseY <= 580 && screen == 2.0 && goWest == 1)
   {
     screen=2.01;
@@ -1645,6 +1718,10 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
     Button("Look Around", 30, 680, 135, 30, 15);
   }
 
+  if (screen >= 8.0 && screen < 9.0)
+  {
+    Button("Okay...?", width/2 - 100, 550, 100, 30, 15);
+  }
 
 
   if ((screen == 5.1216) || (screen == 3.63) || (screen == 2.82) || (screen == 2.841) ||(screen == 2.85) || (screen == 2.811) || (screen == 4.1) || (screen == 6.2))
@@ -1658,7 +1735,7 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
     && screen != 3.4 && screen != 2.811 && screen != 2.8 && screen != 2.82
     && screen != 5.11 && screen != 2.12 && screen != 3.63 && screen != 2.13
     && screen != 2.81 && screen != 5.1216 && screen != 3.21 && screen != 3.6
-    && screen != 1.0)  //This is the default set of buttons—if screen != the above values, this will be the DrawButtons that shows up
+    && screen != 1.0 && screen < 8.0)  //This is the default set of buttons—if screen != the above values, this will be the DrawButtons that shows up
   {
     Button("Go West", 30, 550, 100, 30, 15); 
     Button("Go East", 330, 550, 100, 30, 15); 
