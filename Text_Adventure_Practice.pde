@@ -19,7 +19,6 @@ import ddf.minim.ugens.*;
 Minim minim;
 AudioPlayer song, song2;
 AudioInput input; // All the information above is for the Minim library, to play songs
-// Button westButton = new Button();
 String screenText[] = { //Array usage to store screen text, each line marked for its respective screen—will be transferred to a text file soon.
   "Welcome to the Void", //Screen 0.1
   "Hi! I'm Zack, though I tend to go by the pseudonym ''Nathansbud.'' I've been enamored with coding lately, so I decided to attempt a quote-on-quote text adventure. It's a work in progress! Unfortunately, since I'm still VERY much a beginner (and thus, lacking knowledge of most coding-y things), this process is pretty tedious. Hopefully I finish before I die from exaustion.\n\n\nWish me luck!\n\n\n\n\n...and also hit delete because I really didn't want to code in a button. Thanks! If you ever want to go back to the beginning, just hit the respective key (delete will take you back to the intro, r to the beginning of The Void once you've hit start on the intro page).", //Screen 0.2 
@@ -94,30 +93,33 @@ String screenText[] = { //Array usage to store screen text, each line marked for
   "Boom! Wait, sorry, false, that was meant to be reserved for when something actually happened...whoops! Alright, sorry for misleading you like that, actually prepare yourself this time for something radically new. Incredibly interesting! It'll knock your socks off. You don't even have to be wearing socks! It'll knock them off anyways!\n\nYou should really be wearing socks for the full effect, though. They're an integral part of the whole process.", //Screen 8.1
   "Boom!\n\nSomething did happen, didn't it?", //Screen 8.2
   "Really? REALLY? Just 'okay'? Not at all cool, interesting? Hundreds, maybe thousands of colored squares all flashing at once and posing a hazard for those who may have epilepsy just...'meh'? Alright. I see where you're coming from, I really do. I poured my heart and soul into those hundreds of colored blocks, but I guess some people are just impossible to please. I will do better, if only to make your 'meh' turn to an 'well, that's pretty neat.'\n\nThat's a promise.", //Screen 8.3
-  "a", //Screen 9.0
+  " ", //Blank Text for ScreenSetup Function (Used on 9.0), screenText[73]
   "Confession time: I don't think I did as much work as I should have. I've always been a bit of an overachiever in life, and I just wanted to keep putting that extra mile into the first project, just add one more line, one more joke, one more thing to make somebody smile, and truth be told, I got burned out. The question of ''how do you deal with frustration?'' really made me take a step back and think. How DO I deal with frustration? And then it hit me: I don't. In the least arrogant way I can muster, I've just always done well. School isn't exactly rocket science (if you're not studying it, that is); English? Please, give me a break. History? Well, history of ''how to fall asleep in class, yet still manage never to do badly in it.'' Snoozefest if ever there was one. PE? I mean, for a scrawny dude like me, who plays video games more often than picking up a football, certain things can be a bit of a challenge, but certainly nothing to fret over. Band? Yeah, I sometimes go for hour long walks and come back, not missing anything. Spanish and math are a bit tough at times, and science is actually interesting...and then there's coding.\n\nI've not gotten too far in the class yet (as, well, should be evident by the nature of this project), but the class is...something else. It's an experience. Well, not so much the class but the subject, the code. No other class offers as much total, creative freedom as coding. But there's a catch, as of course there must be for something like this: it isn't easy. Sure, you can make a rectangle, a circle, some flashing things, some lovely text as easy as taking a breath, but even that won't be spoonfed to you. It isn't ''2 + 2 = Project Done,'' it's 10, 20, 50, 100, 1,000, 10,000 lines of code. That you have to make yourself. ''I just want things to change color, to move, to jump, to shoot bullets'' isn't just clicking a button. You make that button. Literally and figuratively. And that's not just Processing, or JavaScript, that's CODING, and a very simplified version of what it used to be. Coding is work, and hard work at that. Everyone has dissected To Kill a Mockingbird in English, but chances are very few people have done what you're trying to do for each of your projects. Not at this level, sure, but later on, harder code? The creativity and problem solving abilities needed aren't built-in. There's no, ''press x to make problems go away.''", //Screen 2000.0
   "But that's the point, that's the beauty. You can do anything, and that's amazing and that's wonderful. But for some, who have been trained to think in very straightforward ways, who understand the best way to succeed at certain skills...well, creativity sometimes gets left at the wayside. And not even that, sometimes dealing with frustration is just...not something that you have to deal with. If you don't understand a math problem, you can look it up or ask a friend, or you can share notes and try it again. Or use a calculator. Which in retrospect doesn't really prove what I'm saying as succinctly as I'd like it to, but my point is, it isn't too hard to avoid frustration. Video game frustration is easy to alleviate, as there is always a solid end goal in mind. The exact method on how to get there is usually a simple formula, practiced by millions of others. Everybody knows what to do if they get asked to do something with a line in math. But, in coding? Figure it out yourself!\n\nAnd thus, frustration. I guess what I'm trying to say is that I'm frustrated. What a special snowflake, eh? I'm definitely not the first nor the last, and I'm not even frustrated by anything in particular, but there's an underlying sense of frustration when I make code. And this is only felt exponentially when I don't grasp something, or I'm not sure the best way to solve a problem, or God forbid I accidentally place a semicolon next to an if statement somewhere in this mess of code. Plus, undercutting even THAT is the sense that there is no next way forward. There's no, do this, then do that, then report back for your next task. It's more, well, do you want to do that? Ooh, that seems cool, now that you've done that, what else could you do? Think of some ideas and create a project and do whatever you want! Total creative freedom, it's terrifiying. ''You're telling me...I'm not being told what to do? I can do whatever I want?'' It seems amazing—and it is!—not to be tethered and held back by rules and expectations (save for those of syntax and understanding, and habits and past experience, and grades), but it's also crippeling to some. Which brings me back to this project, this crutch of a ''what are you doing for your second, your third?''", //Screen 2000.1
   "Long story short (haha), winding rant over, I gave up. I didn't give it my all, my umph, that last drop of wonder and hard work, that ''classic Zack spin.'' I just gave up, I fell back on the familiar, something stopped working so I chickened out and went back to what I knew. I got lazy, and I got frustrated, and I got scared of the possibility that I might mess up. Maybe...maybe the Text Adventure would be good for me. So easy, so simple, I could just expand! Work some arrays and for loops into it and be on my way! Oh, here's one, here's two, let's call it good. What, we only worked for maybe an hour? Two? Meh, good enough, we'll get to it tomorrow, or the day after, or...what, the project is due soon? You've done next to nothing? You weren't creative in the least, your application of the content knowledge was subpar at best? You see your friends and classmates working and their projects are leagues ahead of your own, and they manage to make it all look so effortless, and even when it isn't you just KNOW their project is better than your own deep down? And even then, realizing your unreleastic expectatoins and glossing over of the effort they put into their own, you just...seem to collapse inside yourself? That maybe watching another YouTube video or playing another run of Gungeon, Isaac, NecroDancer, some other polished product that is just impossibly better than your own? Even though of course, it didn't happen in a day, two, a thousand, but years? Yeah. It's like that feeling when you can't solve a math problem, but on steroids. And those steroids are on steroids, on steroids. And deep down you realize there's much ado about nothing and you're just pitching a tantrum instead of, again, working? Yeah! What fun!\n\nAt the end of it all, I realize that coding is something I could really be passionate about. I just need to keep that passion in check, and, well, deal with that frustration. Oh, and actually make some progress on this game, whatever it is, and find a better process of idea generation. I spent almost a week doing absolutely nothing, and I need to rectify that. Sorry! But overall, I just need to take a chillpill. AND STOP WRITING THIS STUPID TEXT THAT ISN'T EVEN ACCESSIBLE IF YOU DON'T READ THE CODE SHEESH!", //Screen .2
+  "Screen10", //Screen 10
+  "Screen11", //Screen 11
+  "Screen12", //Screen 12
 };
 
 float screen; // Float Screen is used to keep track of the "screens, " 
 int newGame, loopCount, timer, doNothing, goWest, goEast, goSouth, goNorth, lookAround, textBoxCoordinates = 30, textBoxWidth = 1400, textBoxHeight = 550, strangeRant; // Fairly straightforward, each corrosponds to a respective directional integer, which can be increased/decreased on screen changes in order to corrospond to a certain screen without trigger two buttons at once on sequential screens. However, this system needs to be fixed. The textbox variables are, as can be seen by their naming, variables corrosponding to the textboxes on each screen—textBoxCoordinates = x coordinates, textBoxCoordinates = y coordinates, textBoxWidth and Height are width and height of the box (point at which text cuts off/goes to new line
-boolean flashlightGet, bloodstainedNoteGet; // Variables for inventory system—may be scrapped if time doesn't permit
-int cancerCellPosX = 700, cancerCellPosY = 300, x = 1400, x2 = 0, xDirection = -5, x2Direction = 5, rad = 50; //Integers used exclusively for Screen 7.0's "Zack's Code" thing, with these variables pertaining to various aspects of the "projects" shown on a few different screens
-float ellipsePosX[] = new float[25], ellipsePosY[] = new float[25]; //Floats used exclusively for Screen 7.0's "Zack's Code" thing, with these variables pertaining to various aspects of the "projects" shown on a few different screens
-float normalCellPosX[] = new float[25], normalCellPosY[] = new float[25]; //Float arrays used on Screen 7.5, where a purple, "cancer cell" infects the others, the "normal cells"
-color cancerCell = color(100, 0, 100), normalCell = color(0, 255, 0); //, c = color(random(255), random(255), random(255)); //Colors used for screen 7.15
-boolean cancerMoveRight, cancerMoveLeft, cancerMoveUp, cancerMoveDown, cancerCellTouching, variableReset; //Booleans used for the movement of the Cancer Cell on 7.15
+boolean customButtons, variableReset, flashlightGet, bloodstainedNoteGet; // Variables for inventory system—may be scrapped if time doesn't permit. As well as that, variableReset for setting all variables to 0 on a screen (like 1.0)
+int cancerCellPosX = 700, cancerCellPosY = 300, x = 1400, x2 = 0, xDirection = -5, x2Direction = 5, rad = 50; //Integers used exclusively for Screen 7.0's "Zack's Code" thing, with these variables pertaining to various aspects of the "projects" shown on a few different screens. xDirection and xDirection2 both pertain to the movement of the circles, whilst cancerCellPosX and PosY pertain to the motion of the "cancerous" cell on 7.15.
+float ellipsePosX[] = new float[25], ellipsePosY[] = new float[25]; //Floats used exclusively for Screen 7.0's "Zack's Code" thing, with these variables pertaining to various aspects of the "projects" shown on a few different screens, with these two referring to the rainbow circles on 7.13.
+float normalCellPosX[] = new float[25], normalCellPosY[] = new float[25]; //Float arrays used on Screen 7.15, where a purple, "cancer cell" infects the others, the "normal cells." These two refer to the placement of the normal cells
+color white = color(255), cancerCell = color(100, 0, 100), normalCell = color(0, 255, 0); //, c = color(random(255), random(255), random(255)); //Colors used for screen 7.15, as well as white for...well, white.
+boolean cancerMoveRight, cancerMoveLeft, cancerMoveUp, cancerMoveDown; //Booleans used for the movement of the Cancer Cell on 7.15
 boolean[] purple = new boolean[25]; //Boolean array used on 7.15 when the cells touch—if green, change them to purple.
-// int[] rainbowRectanglesPosX = new int[120], rainbowRectanglesPosY = new int[120]; //Arrays to be used on 8.2/8.3, if need be
+
 void setup()
 {
   fullScreen();
-  screen = 0.1;
-  minim = new Minim(this); //
-  song = minim.loadFile("Princess of Helium.mp3"); //
-  song2 = minim.loadFile("Coffee Break.mp3"); // Minim information
-  loopCount = 10000;
+  screen = 0.1; 
+  minim = new Minim(this); // Minim
+  song = minim.loadFile("Princess of Helium.mp3"); // Minim 
+  song2 = minim.loadFile("Coffee Break.mp3"); // Minim
+  loopCount = 10000; 
   timer = 0; //Timer variable for drug trip
   for (int i=0; i<25; i++) //For loop used to set positions of circles on 7.13 and cells on 7.15
   {
@@ -130,7 +132,7 @@ void setup()
 
 void draw()
 {
-  if (variableReset == true)
+  if (variableReset == true) //Sets all variables to 0 on a screen.
   {
     doNothing=0;
     goWest=0;
@@ -143,31 +145,23 @@ void draw()
   }
   if (screen == 0.1) //Intro Screen
   {
-    background(4);
-    fill(255);
-    textSize(50);
-    text(screenText[0], width/3 - 70, height/2);
-    DrawButtons();
+    ScreenSetup(0);
   }
 
   if (screen == 0.2) //About Screen
   {
-    background(255);
-    fill(0);
-    textSize(25);
-    text(screenText[1], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
+    ScreenSetup(1);
   }
 
   if (screen == 1.0) //Start of Void
   {
     ScreenSetup(2);
-    DrawButtons();
     variableReset=true;
   } 
   /*if (lookAround == 1)
    {
    background(0);
-   fill(255);
+   fill(white);
    textSize(25);
    text("You've already looked around here. There is nothing more to see.\n\nWhat will you do?", 30, 30);
    DrawButtons();
@@ -178,33 +172,24 @@ void draw()
   {
     goWest=1;
     ScreenSetup(3);
-    DrawButtons();
   }
 
   if (screen == 2.01)
   { 
     ScreenSetup(4);
-    DrawButtons();
-    goWest=0;
-    goEast=0;
-    goNorth=0;
-    goSouth=0;
-    lookAround=0;
-    doNothing=0;
+    variableReset=true;
   }
 
   if (screen == 2.1)
   {
     goWest=2;
     ScreenSetup(5);
-    DrawButtons();
   }
 
   if (screen == 2.11)
   {
     goWest=3;
     ScreenSetup(6);
-    DrawButtons();
     /*Button("Grab Rocks", 30, 550, 120, 30, 15);
      Button("Run Further Into Cave", 300, 550, 230, 30, 15);
      Button("Attempt to Communicate", 610, 550, 255, 30, 30);
@@ -218,195 +203,132 @@ void draw()
   {
     goWest=3;
     ScreenSetup(7);
-    DrawButtons();
   }
 
   if (screen == 2.123)
   {
     ScreenSetup(50);
-    DrawButtons();
-    /*
-    rect(30, 550, 225, 30, 15);
-     fill(0);
-     textSize(20); 
-     text("Go Further Into Cave", 37, 573);   
-     fill(255);
-     rect(360, 550, 110, 30, 15);
-     fill(0);
-     textSize(20);
-     text("Sit At Fire", 367, 573);
-     fill(255);
-     rect(610, 550, 270, 30, 30);
-     fill(0);
-     textSize(20);
-     text("Try to Communicate Again", 615, 573);
-     fill(255);
-     rect(1000, 550, 120, 30, 30);
-     fill(0);
-     textSize(20);
-     text("Leave Cave", 1007, 573);
-     fill(255);
-     rect(1260, 550, 125, 30, 30);
-     fill(0);
-     textSize(20);
-     text("Do Nothing", 1265, 573);
-     Button("Look Around", 30, 680, 135, 30, 15);
-     
-     */
   }
 
   if (screen == 2.13)
   {
     goWest=3;
     ScreenSetup(8);
-    DrawButtons();
   }
 
   if (screen == 2.14)
   {
     ScreenSetup(9);
-    Button("Grab Rocks", 30, 550, 120, 30, 15);
-    Button("Run Further Into Cave", 300, 550, 230, 30, 15);
-    Button("Attempt to Communicate", 610, 550, 255, 30, 30);
-    Button("Run Away", 960, 550, 110, 30, 30);
-    Button("Do Nothing", 1260, 550, 125, 30, 30);
-    Button("Look Around", 30, 680, 135, 30, 15);
+    /*Button("Grab Rocks", 30, 550, 120, 30, 15);
+     Button("Run Further Into Cave", 300, 550, 230, 30, 15);
+     Button("Attempt to Communicate", 610, 550, 255, 30, 30);
+     Button("Run Away", 960, 550, 110, 30, 30);
+     Button("Do Nothing", 1260, 550, 125, 30, 30);
+     Button("Look Around", 30, 680, 135, 30, 15); */
   }
 
   if (screen == 2.2)
   {
     goWest=3;
     ScreenSetup(10);
-    DrawButtons();
   }
 
   if (screen == 2.3)
   {
     goWest=4;
-    text(screenText[11], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
-    DrawButtons();
+    ScreenSetup(11);
   }
 
   if (screen == 2.4)
   {
-    goWest=5;
-    text(screenText[12], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
+    goWest=6;
+    ScreenSetup(12);
     DrawButtons();
   }
 
   if (screen == 2.5)
   {
     goWest=7;
-    text(screenText[13], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
-    Button("Go Deeper", 30, 550, 115, 30, 15);
-    Button("Text2", 330, 550, 100, 30, 15);
-    Button("Text3", 630, 550, 100, 30, 30);
-    Button("Text4", 930, 550, 100, 30, 30);
-    Button("Do Nothing", 1230, 550, 125, 30, 15);
-    Button("Look Around", 30, 680, 135, 30, 15);
+    ScreenSetup(13);
   }
 
   if (screen == 2.6)
   {
     goWest=8;
     ScreenSetup(14);
-    Button("Approach Chanters", 30, 550, 200, 30, 15);
-    //Button("Text2", 330, 550, 100, 30, 15);
-    //Button("Text3", 630, 550, 100, 30, 30);
-    //Button("Text4", 930, 550, 100, 30, 30);
-    Button("Do Nothing", 1230, 550, 125, 30, 15);
-    Button("Look Around", 30, 680, 135, 30, 15);
   }
 
   if (screen == 2.7)
   {
     goWest=9;
     ScreenSetup(15);
-    Button("Interrupt Ceremony", 30, 550, 205, 30, 15);
-    //Button("Text2", 330, 550, 100, 30, 15);
-    //Button("Text3", 630, 550, 100, 30, 30);
-    //Button("Text4", 930, 550, 100, 30, 30); 
-    Button("Do Nothing", 1230, 550, 125, 30, 15);
-    Button("Look Around", 30, 680, 135, 30, 15);
   }
 
   if (screen == 2.8)
   {
     goWest=10;
     ScreenSetup(16);
-    DrawButtons();
   }
 
   if (screen == 2.81)
   {
     goWest=11;
     ScreenSetup(17);
-    DrawButtons();
   }
 
   if (screen == 2.811)
   {
     ScreenSetup(18);
-    DrawButtons();
   }
 
   if (screen == 2.82)
   {
     ScreenSetup(19);
-    DrawButtons();
   }
 
   if (screen == 2.83)
   {
-    ScreenSetup(20);    
-    DrawButtons();
+    ScreenSetup(20);
   }
 
   if (screen == 2.84)
   {
     ScreenSetup(20);    
-    DrawButtons();
     Button("Kiss Blue", 330, 680, 105, 30, 15);
   }
 
   if (screen == 2.841)
   {
     ScreenSetup(22);
-    DrawButtons();
   }
 
   if (screen == 2.85)
   {
     ScreenSetup(23);
-    DrawButtons();
   }
 
   if (screen == 3.0) //Go East path, 3.0 -> 3.999...
   {
     goEast=1;
     ScreenSetup(24);
-    DrawButtons();
   }
 
   if (screen == 3.02)
   {
     goEast=1;
     ScreenSetup(25);
-    DrawButtons();
   }
 
   if (screen == 3.1)
   {
     goEast=2;
     ScreenSetup(26);
-    DrawButtons();
   }
 
   if (screen == 3.2)
   {
     goEast=3;
     ScreenSetup(27);
-    DrawButtons();
   }
 
   if (screen == 3.21)
@@ -420,21 +342,18 @@ void draw()
   {
     goEast=4;
     ScreenSetup(29);
-    DrawButtons();
   }
 
   if (screen == 3.4)
   {
     goEast=5;
     ScreenSetup(30);
-    DrawButtons();
   }
 
   if (screen == 3.5)
   {
     goEast=6;
     ScreenSetup(31);
-    DrawButtons();
   }
 
   if (screen == 3.6)
@@ -448,21 +367,18 @@ void draw()
   {
     goEast=8;
     ScreenSetup(61);
-    DrawButtons();
   }
 
   if (screen == 3.63)
   {
     goEast=8;
     ScreenSetup(51);
-    DrawButtons();
   }
 
   if (screen == 3.7)
   {
     goEast=8;
     ScreenSetup(53);
-    DrawButtons();
     //Button("Leave Village", 30, 550, 145, 30, 15);
     //Button("Try to Converse", 330, 550, 165, 30, 15);
     //Button("Explore Area", 630, 550, 140, 30, 15);
@@ -475,27 +391,23 @@ void draw()
   {
     goEast=9;
     ScreenSetup(55);
-    DrawButtons();
   }
 
   if (screen == 4.0) //Go North, 4.0 -> 4.999...
   {
     goNorth=1;
     ScreenSetup(33);
-    DrawButtons();
   }
 
   if (screen == 4.1)
   {
     goNorth=2;
     ScreenSetup(34);
-    DrawButtons();
   }
 
   //  if (screen == 4.2)
   //  {
   //    ScreenSetup(35)
-  //    DrawButtons();
   //  }
 
   if (screen == 5.0) //Go South, 5.0 -> 5.999...
@@ -503,7 +415,6 @@ void draw()
     goSouth=1;
     lookAround=0;
     ScreenSetup(36);
-    DrawButtons();
   }
 
   if (screen == 5.01)
@@ -512,7 +423,6 @@ void draw()
     lookAround=1;
     flashlightGet=true;
     ScreenSetup(37);
-    DrawButtons();
     Inventory();
   }
 
@@ -520,7 +430,6 @@ void draw()
   {
     flashlightGet=true;
     ScreenSetup(38);
-    DrawButtons();
     Inventory();
   }
 
@@ -528,28 +437,24 @@ void draw()
   {
     goSouth=2;
     ScreenSetup(39);
-    DrawButtons();
   }
 
   if (screen == 5.11)
   {
     goSouth=3;
     ScreenSetup(40);
-    DrawButtons();
   }
 
   if (screen == 5.12)
   {
     goSouth=4;
     ScreenSetup(41);
-    DrawButtons();
   }
 
   if (screen == 5.121)
   {
     goSouth=5;
     ScreenSetup(42);
-    DrawButtons();
   }
 
   if (screen == 5.1211)
@@ -590,7 +495,6 @@ void draw()
     goSouth=7;
     song2.pause(); 
     ScreenSetup(45);
-    DrawButtons();
   }
 
   if (screen == 5.12131) 
@@ -611,7 +515,6 @@ void draw()
     goSouth=7;
     song2.pause(); 
     ScreenSetup(57);
-    DrawButtons();
   }
 
   if (screen == 5.12141)
@@ -632,13 +535,11 @@ void draw()
     goSouth=8;
     song2.pause(); 
     ScreenSetup(59);
-    DrawButtons();
   }
 
   if (screen == 5.1216)
   {
     ScreenSetup(60);
-    DrawButtons();
   }
 
   if (screen != 5.1211 && screen != 5.1212 && screen != 5.12131 && screen != 5.12141 && screen != 7.13) //Switches song to back to normal if it has changed
@@ -651,7 +552,6 @@ void draw()
     goSouth=3;
     bloodstainedNoteGet=true;
     ScreenSetup(46); 
-    DrawButtons();
     Inventory();
   }
 
@@ -660,7 +560,6 @@ void draw()
     goSouth=4;
     bloodstainedNoteGet=true;
     ScreenSetup(52);
-    DrawButtons();
     Inventory();
   }
 
@@ -674,7 +573,6 @@ void draw()
     if (lookAround == 1)
     {
       text("You've done nothing since last looking around, and have already looked around here. Your doing nothing has, well, changed nothing, and there is no new scenery to observe. Wait, no, there's a rock you didn't pick up before. Nothing suspicious about it in the least, just a rock. There, you've looked around.\n\nWhat will you do?", 30, 30);
-      DrawButtons();
     }
   }
 
@@ -682,35 +580,30 @@ void draw()
   {
     doNothing=2;
     ScreenSetup(48);
-    DrawButtons();
   }
 
   if (screen == 6.2)
   { 
     doNothing=3;
     ScreenSetup(49);
-    DrawButtons();
   }
 
   if (screen == 7.0)
   { 
     newGame=1;
     ScreenSetup(62);
-    DrawButtons();
   }
 
   if (screen == 7.1)
   { 
     newGame=2;
     ScreenSetup(63);
-    DrawButtons();
   }
 
   if (screen == 7.11)
   { 
     newGame=3;
     ScreenSetup(64);
-    DrawButtons();
   }
 
   if (screen == 7.12)
@@ -757,31 +650,25 @@ void draw()
   { 
     newGame=6;
     ScreenSetup(67);
-    DrawButtons();
   }
 
   if (screen == 7.15)
   { 
     newGame=7;
     ScreenSetup(68);
-    fill(cancerCell);
     CellCollision();
-    DrawButtons();
   }
 
   if (screen == 8.0)
   {
     newGame=1;
     ScreenSetup(69);
-    DrawButtons();
   }
 
   if (screen == 8.1)
   {
     newGame=2;
-
     ScreenSetup(70);
-    DrawButtons();
   }
 
   if (screen == 8.2)
@@ -815,30 +702,51 @@ void draw()
 
   if (screen == 9.0)
   {
-    newGame=1;
     ScreenSetup(73);
-    DrawButtons();
+    customButtons=true;
+    for (int i = 0; i < 8; i+=1)
+    {
+      for (int j = 0; j < 8; j+=1)
+      {
+        fill(0, 255, 0);
+        rect(i, j, 180, 180); 
+        if (i + j % 2 == 0)
+        {
+          fill(255, 0, 0); 
+          rect(i * 180, j * 112, 180, 180);
+        }
+        if (i + j % 2 == 1)
+        {
+          fill(255, 0, 0);
+          rect(i * 180, j * 112, 180, 180);
+        }
+        if (j % 2 == 0 && i % 2 == 0)
+        {
+          fill(0, 255, 0);
+          rect(i * 180, j * 112, 180, 180);
+        }
+        //fill(white);
+        //ellipse(i + 10, j + 10, 10, 10);
+      }
+    }
   }
 
   if (screen == 10.0)
   {
     newGame=1;
-    //ScreenSetup(Int);
-    DrawButtons();
+    ScreenSetup(77);
   }
 
   if (screen == 11.0)
   {
     newGame=1;
-    //ScreenSetup(Int);
-    DrawButtons();
+    ScreenSetup(78);
   }
 
   if (screen == 12.0)
   {
     newGame=1;
-    //ScreenSetup(Int);
-    DrawButtons();
+    ScreenSetup(79);
   }
 
   if (screen == 2000.0)
@@ -846,7 +754,6 @@ void draw()
     textBoxHeight=height;
     strangeRant=1;
     ScreenSetup(74);
-    DrawButtons();
   }
 
   if (screen == 2000.1)
@@ -854,7 +761,6 @@ void draw()
     textBoxHeight=height;
     strangeRant=2;
     ScreenSetup(75);
-    DrawButtons();
   }
 
   if (screen == 2000.2)
@@ -862,12 +768,11 @@ void draw()
     textBoxHeight=height;
     strangeRant=3;
     ScreenSetup(76);
-    DrawButtons();
   }
 
   println("Screen: " + screen, "Go West: " + goWest, "Go East: " + goEast, "Go South: "
     + goSouth, "Go North: " + goNorth, "Do Nothing: " + doNothing, "Look Around: " + lookAround, 
-    "New Game: " + newGame, "Strange Rant: " + strangeRant); //Prints screen number and state of variables to console for easier editing while game is open
+    "New Game: " + newGame); //Prints screen number and state of variables to console for easier editing while game is open
 }
 
 void keyPressed()
@@ -960,17 +865,6 @@ void keyPressed()
 
 void mousePressed() //Used for screen changes in place of actual "buttons"—if mouseX, mouseY, screen, and variables are at a certain state, a corrosponding screen change will take place when the mouse is pressed.
 {
-
-
-  //  //if (mouseX >= 330 && mouseX <= 495 && mouseY >= 680 && mouseY <= 710 && screen == 1.0)
-  //  //{
-  //  //  screen=1.1;
-  //  //}
-
-  //  if (mouseX >= width/2 - 110 && mouseX <= width/2 + 110 && mouseY >= 680 && mouseY <= 710 && zombieMode == 1)
-  //  {
-  //    screen=1.2;
-  //  }
 
   if ((mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 1.0 && goWest == 0)||
     (mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 2.01 && goWest == 0))
@@ -1396,20 +1290,20 @@ void Inventory() // Custom function which shows your current inventory
 
   if (flashlightGet == true)
   {
-    fill(255); 
+    fill(white); 
     textSize(20); 
     text("Items: Flashlight", width/2 - 115, height - 50);
   }
   if (bloodstainedNoteGet == true)
   {
-    fill(255); 
+    fill(white); 
     textSize(20); 
     text("Items: Stained Note", width/2 - 115, height - 50);
   }
 
   if (bloodstainedNoteGet == true && flashlightGet == true)
   {
-    fill(255); 
+    fill(white); 
     textSize(20); 
     text("Items: Flashlight, Stained Note", width/2 - 200, height - 50);
   }
@@ -1423,6 +1317,7 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
     Button("Start", width/2 - 100, 550, 100, 30, 15); 
     Button("About", width/2 - 100, 600, 100, 30, 15); 
     Button("Quit", width/2 - 100, 650, 100, 30, 15);
+    customButtons=true;
   }
 
   if (screen == 1.0)
@@ -1434,6 +1329,7 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
     Button("Do Nothing", 1230, 550, 125, 30, 15); 
     Button("Look Around", 30, 680, 135, 30, 15); 
     Button("Be In a Different Text Adventure", 330, 680, 340, 30, 15);
+    customButtons=true;
   }
 
   if (screen == 2.0)
@@ -1444,6 +1340,7 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
     Button("Go North", 930, 550, 100, 30, 15); 
     Button("Do Nothing", 1230, 550, 125, 30, 15); 
     Button("Look Around", 30, 680, 135, 30, 15);
+    customButtons=true;
   }
 
   if (screen == 2.1)
@@ -1454,6 +1351,7 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
     Button("Run Away", 960, 550, 110, 30, 15); 
     Button("Do Nothing", 1260, 550, 125, 30, 15); 
     Button("Look Around", 30, 680, 135, 30, 15);
+    customButtons=true;
   }
 
   if (screen == 2.12)
@@ -1464,6 +1362,7 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
     Button("Leave Cave", 1000, 550, 120, 30, 15); 
     Button("Do Nothing", 1260, 550, 125, 30, 15); 
     Button("Look Around", 30, 680, 135, 30, 15);
+    customButtons=true;
   }
 
   if (screen == 2.13)
@@ -1474,6 +1373,7 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
     Button("Go North", 930, 550, 100, 30, 15); 
     Button("Do Nothing", 1230, 550, 125, 30, 15); 
     Button("Look Around", 30, 680, 135, 30, 15);
+    customButtons=true;
   }
 
   if ((screen == 2.2) || (screen == 2.3))
@@ -1483,6 +1383,7 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
     Button("Zzz.....", 630, 550, 100, 30, 15); 
     Button("Z! Z! Z!", 930, 550, 100, 30, 30); 
     Button("Zzz...zzz.", 1230, 550, 125, 30, 15);
+    customButtons=true;
   }
 
   if (screen == 2.4)
@@ -1492,7 +1393,41 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
     Button("Wake Up", 630, 550, 100, 30, 15); 
     Button("Wake Up", 930, 550, 100, 30, 15); 
     Button("Do Nothing", 1230, 550, 125, 30, 15);
+    customButtons=true;
   } 
+
+  if (screen == 2.5)
+  {
+    Button("Go Deeper", 30, 550, 115, 30, 15);
+    Button("Text2", 330, 550, 100, 30, 15);
+    Button("Text3", 630, 550, 100, 30, 30);
+    Button("Text4", 930, 550, 100, 30, 30);
+    Button("Do Nothing", 1230, 550, 125, 30, 15);
+    Button("Look Around", 30, 680, 135, 30, 15);
+    customButtons=true;
+  }
+
+  if (screen == 2.6)
+  {
+    Button("Approach Chanters", 30, 550, 200, 30, 15);
+    //Button("Text2", 330, 550, 100, 30, 15);
+    //Button("Text3", 630, 550, 100, 30, 30);
+    //Button("Text4", 930, 550, 100, 30, 30);
+    Button("Do Nothing", 1230, 550, 125, 30, 15);
+    Button("Look Around", 30, 680, 135, 30, 15);
+    customButtons=true;
+  }
+
+  if (screen == 2.7) 
+  {
+    Button("Interrupt Ceremony", 30, 550, 205, 30, 15);
+    //Button("Text2", 330, 550, 100, 30, 15);
+    //Button("Text3", 630, 550, 100, 30, 30);
+    //Button("Text4", 930, 550, 100, 30, 30); 
+    Button("Do Nothing", 1230, 550, 125, 30, 15);
+    Button("Look Around", 30, 680, 135, 30, 15);
+    customButtons=true;
+  }
 
   if (screen == 2.8)
   {
@@ -1502,6 +1437,7 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
     Button("Grab Spear", 930, 550, 120, 30, 15); 
     Button("Do Nothing", 1230, 550, 125, 30, 15); 
     Button("Look Around", 30, 680, 135, 30, 15);
+    customButtons=true;
   }
 
   if (screen == 2.81)
@@ -1512,6 +1448,7 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
     Button("Go North", 930, 550, 100, 30, 15); 
     Button("Do Nothing", 1230, 550, 125, 30, 15); 
     Button("Look Around", 30, 680, 135, 30, 15);
+    customButtons=true;
   }
 
   if (screen == 3.0)
@@ -1523,6 +1460,7 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
     Button("Do Nothing", 1230, 550, 125, 30, 15); 
     Button("Look Around", 30, 680, 135, 30, 15); 
     Button("Inspect Rock", 330, 680, 135, 30, 15);
+    customButtons=true;
   }
 
   if (screen == 3.2)
@@ -1534,6 +1472,7 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
     Button("Do Nothing", 1230, 550, 125, 30, 15); 
     Button("Look Around", 30, 680, 135, 30, 15); 
     Button("Inspect Rope", 330, 680, 135, 30, 15);
+    customButtons=true;
   }
 
   if (screen == 3.4 || screen == 3.21)
@@ -1544,6 +1483,7 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
     Button("Struggle", 930, 550, 100, 30, 15); 
     Button("Do Nothing", 1230, 550, 125, 30, 15); 
     Button("Look Around", 30, 680, 135, 30, 15);
+    customButtons=true;
   }
 
   if (screen == 3.5)
@@ -1554,6 +1494,7 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
     Button("Go North", 930, 550, 100, 30, 15);
     Button("Do Nothing", 1230, 550, 125, 30, 15);
     Button("Look Around", 30, 680, 135, 30, 15);
+    customButtons=true;
   }
 
   if (screen == 3.6)
@@ -1564,6 +1505,7 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
     Button("Flail Aimlessly", 930, 550, 147, 30, 15); 
     Button("Do Nothing", 1230, 550, 125, 30, 15); 
     Button("Look Around", 30, 680, 135, 30, 15);
+    customButtons=true;
   }
 
   if (screen == 5.11)
@@ -1574,17 +1516,20 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
     Button("Descend", 930, 550, 100, 30, 15); 
     Button("Do Nothing", 1230, 550, 125, 30, 15); 
     Button("Look Around", 30, 680, 135, 30, 15);
+    customButtons=true;
   }
 
   if (screen == 5.121)
   {
     Button("Eat the Blue Mushroom", 300, 550, 240, 30, 15);
     Button("Eat the Red Mushroom", 800, 550, 240, 30, 15);
+    customButtons=true;
   }
 
   if (screen == 5.1211 || screen == 5.1212)
   {
     Button("Stop Feeling Weird", width/2 - 100, 550, 200, 30, 15);
+    customButtons=true;
   }
 
   if (screen == 5.1213)
@@ -1595,11 +1540,13 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
     Button("Go North", 930, 550, 100, 30, 15);
     Button("Do Nothing", 1230, 550, 125, 30, 15);
     Button("Look Around", 30, 680, 135, 30, 15);
+    customButtons=true;
   }
 
   if (screen == 5.12131)
   {
     Button("Put An End to These Shenanigans", width/2 - 170, 550, 340, 30, 15);
+    customButtons=true;
   }
 
   if (screen == 5.1214)
@@ -1609,11 +1556,13 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
     Button("Go North", 930, 550, 100, 30, 15);
     Button("Do Nothing", 1230, 550, 125, 30, 15);
     Button("Look Around", 30, 680, 135, 30, 15);
+    customButtons=true;
   }
 
   if (screen == 5.12141)
   {
     Button("Clear Your Head", width/2 - 90, 550, 180, 30, 15);
+    customButtons=true;
   }
 
   if (screen == 5.1215)
@@ -1623,6 +1572,7 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
     Button("Go North", 930, 550, 100, 30, 15);
     Button("Do Nothing", 1230, 550, 125, 30, 15);
     Button("Look Around", 30, 680, 135, 30, 15);
+    customButtons=true;
   }
 
   if (screen == 7.0)
@@ -1633,39 +1583,34 @@ void DrawButtons() //Custom function which draws the buttons rather than relying
     Button("Return to The Void", 950, 550, 200, 30, 15);
     Button("Do Nothing", 1250, 550, 125, 30, 15);
     Button("Look Around", 30, 680, 135, 30, 15);
+    customButtons=true;
   }
 
   if (screen == 7.1)
   {
     Button("Follow Zack", width/2 - 62, 550, 124, 30, 15);
+    customButtons=true;
   }
 
   if (screen >= 7.11 && screen < 7.2)
   {
     Button("Watch Screen", width/2 - 70, 550, 140, 30, 15);
+    customButtons=true;
   }
 
   if (screen >= 8.0 && screen < 9.0)
   {
     Button("Okay...?", width/2 - 100, 550, 100, 30, 15);
+    customButtons=true;
   }
 
   if ((screen == 5.1216) || (screen == 3.63) || (screen == 2.82) || (screen == 2.841) ||(screen == 2.85) || (screen == 2.811) || (screen == 4.1) || (screen == 6.2))
   {
     Button("Restart", width/2 - 100, 550, 100, 30, 15);
+    customButtons=true;
   } 
 
-  if (screen != 0.1 && screen != 2.0 && screen != 2.4 && screen != 3.0 
-    && screen != 2.85 && screen != 4.1 && screen != 6.2 && screen != 2.1 
-    && screen != 2.2 && screen != 2.3 && screen != 3.2 && screen != 2.841 
-    && screen != 3.4 && screen != 2.811 && screen != 2.8 && screen != 2.82
-    && screen != 5.11 && screen != 2.12 && screen != 3.63 && screen != 2.13
-    && screen != 2.81 && screen != 5.1216 && screen != 3.21 && screen != 3.6
-    && screen != 1.0 && screen < 8.0 && screen != 5.121 && screen != 5.1211
-    && screen != 5.1212 && screen != 5.1213 && screen != 5.1214 && screen != 5.12141 
-    && screen != 5.1215 && screen != 7.0 && screen != 7.1 && screen != 7.11
-    && screen != 7.12 && screen != 7.13 && screen != 7.14 && screen != 7.15
-    && screen != 3.5) //This is the default set of buttons—if screen != the above values, this will be the DrawButtons that shows up
+  if (customButtons == false) //This is the default set of buttons—if screen != the above values, this will be the DrawButtons that shows up
   {  
     Button("Go West", 30, 550, 100, 30, 15); 
     Button("Go East", 330, 550, 100, 30, 15); 
@@ -1680,7 +1625,7 @@ void Button(String labelText, int posX, int posY, int buttonWidth, int buttonHei
 {
   if (screen != 0.1)
   {
-    fill(255); 
+    fill(white); 
     rect(posX, posY, buttonWidth, buttonHeight, buttonCurve); 
     fill(0); 
     textSize(20); 
@@ -1689,7 +1634,7 @@ void Button(String labelText, int posX, int posY, int buttonWidth, int buttonHei
 
   if (screen == 0.1)
   {
-    fill(255); 
+    fill(white); 
     rect(posX, posY, buttonWidth, buttonHeight, buttonCurve); 
     fill(0); 
     textSize(20); 
@@ -1700,11 +1645,28 @@ void Button(String labelText, int posX, int posY, int buttonWidth, int buttonHei
 void ScreenSetup(int screenTextNumber) //Attempt at cutting down lines of code, Screen is the presets for background, text color, and textSize, trying to incorporate the text itself as well but not sure how with it being an array of strings (no easy way to do [x + 1] or [x - 1] due to the messiness of the layout.
 { 
   background(4); 
-  fill(255); 
+  fill(white); 
   textSize(25); 
   text(screenText[screenTextNumber], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
-  //DrawButtons(); //Commented out until most, if not all screens have been actually finished—too cumbersome, prefer to manually create buttons for the time being
+  DrawButtons(); //Commented out until most, if not all screens have been actually finished—too cumbersome, prefer to manually create buttons for the time being
   //text(screenText[], textBoxCoords, textBoxCoords, textBoxWidth, textBoxHeight);
+
+  if (screen == 0.1) //Intro Screen
+  {
+    background(4);
+    fill(white);
+    textSize(50);
+    text(screenText[screenTextNumber], width/3 - 70, height/2);
+    DrawButtons();
+  }
+
+  if (screen == 0.2)
+  {
+    background(white);
+    fill(0);
+    textSize(25);
+    text(screenText[screenTextNumber], textBoxCoordinates, textBoxCoordinates, textBoxWidth, textBoxHeight);
+  }
 }
 
 void TripSongSwitch() //Function to switch song at 5.1211/5.1212
@@ -1727,6 +1689,7 @@ void SongSwitch()
 
 void CellCollision()
 {
+  fill(cancerCell);
   ellipse(cancerCellPosX, cancerCellPosY, rad, rad);
   if (keyPressed && key == 'd')
   {
