@@ -405,7 +405,7 @@ void draw()
     ScreenSetup(34);
   }
 
-  //  if (screen == 4.2)
+  //  if (screen == 4.2) //Commented out path for when player has acquired parachute—as of yet, not created or planned.
   //  {
   //    ScreenSetup(35)
   //  }
@@ -439,7 +439,7 @@ void draw()
     ScreenSetup(39);
   }
 
-  if (screen == 5.11)
+  if (screen == 5.11) //Go South x2, Go East x1 path; "The Dungeon" Path.
   {
     goSouth=3;
     ScreenSetup(40);
@@ -480,7 +480,7 @@ void draw()
     ScreenSetup(44);
     if ((millis() - timer >= 5000)) //Timer
     {
-      for (int i = 0; i < 100; i++) //Fills rectangles rainbow, puts circles at ranomd locations
+      for (int i = 0; i < 100; i++) //Fills rectangles rainbow, puts circles at random locations
       {
         fill(random(255), random(255), random(255));
         rect(random(1400), random(900), random(100), random(100));
@@ -570,7 +570,7 @@ void draw()
     ScreenSetup(47);
     lookAround=0;
     DrawButtons();
-    if (lookAround == 1)
+    if (lookAround == 1) //Currently unfunctioning (at least, I believe it is unfunctioning) "Look Around" button and text
     {
       text("You've done nothing since last looking around, and have already looked around here. Your doing nothing has, well, changed nothing, and there is no new scenery to observe. Wait, no, there's a rock you didn't pick up before. Nothing suspicious about it in the least, just a rock. There, you've looked around.\n\nWhat will you do?", 30, 30);
     }
@@ -588,7 +588,7 @@ void draw()
     ScreenSetup(49);
   }
 
-  if (screen == 7.0)
+  if (screen == 7.0) //Be In a Different Text Adventure and its offshoots, Screen 7.0+ 
   { 
     newGame=1;
     ScreenSetup(62);
@@ -659,7 +659,7 @@ void draw()
     CellCollision();
   }
 
-  if (screen == 8.0)
+  if (screen == 8.0) //One of the "random other things" you can do by hitting Random Text Adventure (or 8 on the keyboard)
   {
     newGame=1;
     ScreenSetup(69);
@@ -700,7 +700,7 @@ void draw()
     DrawButtons();
   }
 
-  if (screen == 9.0)
+  if (screen == 9.0) //One of the "random other things" you can do by hitting Random Text Adventure (or 9 on the keyboard). The Chessboard, will be made into its own thing.
   {
     ScreenSetup(73);
     customButtons=true;
@@ -709,47 +709,47 @@ void draw()
       for (int j = 0; j < 8; j+=1)
       {
         fill(0, 255, 0);
-        rect(i, j, 180, 180); 
+        rect(i, j, 180, 112); 
         if (i + j % 2 == 0)
         {
           fill(255, 0, 0); 
-          rect(i * 180, j * 112, 180, 180);
+          rect(i * 180, j * 112, 180, 112);
         }
         if (i + j % 2 == 1)
         {
           fill(255, 0, 0);
-          rect(i * 180, j * 112, 180, 180);
+          rect(i * 180, j * 112, 180, 112);
         }
         if (j % 2 == 0 && i % 2 == 0)
         {
           fill(0, 255, 0);
-          rect(i * 180, j * 112, 180, 180);
+          rect(i * 180, j * 112, 180, 112);
         }
-        //fill(white);
-        //ellipse(i + 10, j + 10, 10, 10);
+        fill(0);
+        ellipse(i + 85, j + 51, 50, 50);
       }
     }
   }
 
-  if (screen == 10.0)
+  if (screen == 10.0) //One of the "random other things" you can do by hitting Random Text Adventure (or 10 on the keyboard). Unfinished.
   {
     newGame=1;
     ScreenSetup(77);
   }
 
-  if (screen == 11.0)
+  if (screen == 11.0) //One of the "random other things" you can do by hitting Random Text Adventure (or 10 on the keyboard). Unfinished.
   {
     newGame=1;
     ScreenSetup(78);
   }
 
-  if (screen == 12.0)
+  if (screen == 12.0) //One of the "random other things" you can do by hitting Random Text Adventure (or 10 on the keyboard). Unfinished.
   {
     newGame=1;
     ScreenSetup(79);
   }
 
-  if (screen == 2000.0)
+  if (screen == 2000.0) //Uh...the "rant" pages, 2000~2000.2—planned for deletion.
   {
     textBoxHeight=height;
     strangeRant=1;
@@ -775,7 +775,7 @@ void draw()
     "New Game: " + newGame); //Prints screen number and state of variables to console for easier editing while game is open
 }
 
-void keyPressed()
+void keyPressed() //keyPressed function for the times when keys, well, need to be pressed.
 {
   if (key == BACKSPACE) //Reset
   {
@@ -817,26 +817,26 @@ void keyPressed()
     screen=7.0;
   }
 
-  if (key == '8') //Switch to Path 8, Alt Text Adv. 
+  if (key == '8') //Switch to Path 8, Alt Text Adv. (Ease of Navigation for Myself)
   {
     screen=8.0;
   }
 
-  if (key == '9') //Switch to Path 9, Alt Text Adv. 2
+  if (key == '9') //Switch to Path 9, Alt Text Adv. 2 (Ease of Navigation for Myself)
   {
     screen=9.0;
   }
 
-  if (key == '0') //Switch to Path 10, Alt Text Adv. 3
+  if (key == '0') //Switch to Path 10, Alt Text Adv. 3 (Ease of Navigation for Myself)
   {
     screen=10.0;
   }
 
-  if (key == '-') //Switch to Path 11, Alt Text Adv. 4
+  if (key == '-') //Switch to Path 11, Alt Text Adv. 4 (Ease of Navigation for Myself)
   {
     screen=11.0;
   }
-  if (key == '=') //Switch to Path 12, Alt Text Adv. 5
+  if (key == '=') //Switch to Path 12, Alt Text Adv. 5 (Ease of Navigation for Myself)
   {
     screen=12.0;
   }
@@ -866,7 +866,7 @@ void keyPressed()
 void mousePressed() //Used for screen changes in place of actual "buttons"—if mouseX, mouseY, screen, and variables are at a certain state, a corrosponding screen change will take place when the mouse is pressed.
 {
 
-  if ((mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 1.0 && goWest == 0)||
+  if ((mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 1.0 && goWest == 0) ||
     (mouseX >= 30 && mouseX <= 130 && mouseY >= 550 && mouseY <= 580 && screen == 2.01 && goWest == 0))
   {
     screen=2.0;
@@ -1285,7 +1285,7 @@ void mouseReleased() // Certain buttons are in void mouseReleased due to overlap
   }
 }
 
-void Inventory() // Custom function which shows your current inventory
+void Inventory() // Custom function which shows your current inventory, yet unfinished.
 {
 
   if (flashlightGet == true)
