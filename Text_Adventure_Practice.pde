@@ -1694,32 +1694,35 @@ void CellCollision()
   if (keyPressed && key == 'd')
   {
     cancerMoveRight=true;
-  } else
+  } 
+  else
   {
     cancerMoveRight = false;
   }
   if (keyPressed && key == 'a')
   {
     cancerMoveLeft=true;
-  } else
+  } 
+  else
   {
     cancerMoveLeft=false;
   }
   if (keyPressed && key == 'w')
   {
     cancerMoveUp=true;
-  } else
+  } 
+  else
   {
     cancerMoveUp=false;
   }
   if (keyPressed && key == 's')
   {
     cancerMoveDown=true;
-  } else
+  } 
+  else
   {
     cancerMoveDown=false;
   }
-
   if (cancerMoveRight == true)
   {
     cancerCellPosX += 4;
